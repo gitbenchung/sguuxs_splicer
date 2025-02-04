@@ -10,9 +10,7 @@ This analyzer works from a single source for each of these components, but can b
 
 ## Dictionary
 
-The lexical items recognized by this analyzer are primarily drawn from Hindle & Rigsby (1975) and personal fieldwork with Gitxsan elders, with annotation by myself. The dictionary is located at `fst/dict.csv`, and contains a list of stems and their plural forms along with an annotation of their morphological category and some stress notes.
-
-The dictionary file is formatted to be shared with the Mother Tongues Dictionary resource, an electronic talking dictionary resource for Gitksan, and contains substantial additional information relevant to a more robust dictionary project. This analyzer leverages the dictionary format originally set up for that resource.
+The lexical items recognized by this analyzer are primarily drawn from the works of late granny Violet Neasloss (the last fluent speaker who grew up with the language) and John Asher Dunn (?), with annotation by Desiree Brown (community member), Dr. Clarissa Forbes, and myself. The dictionary is located at `fst/dict.csv`, and contains a list of stems and their plural forms along with an annotation of their morphological category and some stress notes.
 
 ## Morphological description
 
