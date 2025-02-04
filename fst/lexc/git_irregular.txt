@@ -1,0 +1,34 @@
+Multichar_Symbols
++VI
++SUB
++AUX
++MOD
++PRO
++OBL
+2SG
+-2SG.II
+-2PL.II
+-3.II
+=CN
+=PN
+=1.I
+=2.I
+
+LEXICON Root
+	Exceptions ;
+
+LEXICON Exceptions
+w$il+VI-2SG.II:win		Word ;
+w$il+VI-2PL.II:wisi'm	Word ;
+w$il+VI=CN:wihl		# ;
+w$il+VI[-3.II]=CN:wihl	# ;
+w$il+VI[-3.II]=PN:wis	# ;
+
+y$ee+VI-2SG.II:yin 	Word ;
+
+w$in+SUB=1.I:wina		# ;
+n$ee+AUX=d$im+MOD:nem	# ;
+d$im+MOD=2.I:dima	# ;
+
+2SG+OBL:lun 		Word ;
+3.III+PRO=CN:'nihl		# ;
