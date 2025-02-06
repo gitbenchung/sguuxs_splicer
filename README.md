@@ -6,4 +6,5 @@ The Sgüüx̣s language (Sgüümk or Southern Tsimshian) is part of the linguist
 This resource is available under the Creative Commons Attribution No-Commercial 4.0 license (https://creativecommons.org/licenses/by-nc/4.0/). You are welcome to use this resource for educational purposes and contribute to its development. Commercial use of this resource is prohibited.
 # Version
 This tool is in the development process. At the moment, it is only suitable for DP/NP morphology. Future versions will incorporate predicates and other complex morphology.
-Last update: 2025-03-06
+
+Last update: 2025-02-06
