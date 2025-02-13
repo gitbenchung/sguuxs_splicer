@@ -1,0 +1,10 @@
+Multichar_Symbols
++N
++VOC
+-T
+-ATTR
+-VAL
+
+LEXICON Noun
++N:	NDeriv ;
+
