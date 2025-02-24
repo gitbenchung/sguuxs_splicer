@@ -5,7 +5,7 @@ The Sgüüx̣s language (Sgüümk or Southern Tsimshian) is part of the linguist
 
 This resource is available under the [Creative Commons Attribution No-Commercial 4.0 license](https://creativecommons.org/licenses/by-nc/4.0/). You are welcome to use this resource for educational purposes and contribute to its development. Commercial use of this resource is prohibited.
 
-I have written this README in a more casual fashion than most programming documentation to try to make it more accessible to new programmers and others who would like to replicate this tool for language revitalization uses themselves.
+I have written this README in a more casual fashion than most programming documentation. This choice is meant to try to make this package more accessible to new programmers and others who would like to replicate this tool for language revitalization uses themselves.
 # How to Use
 ## Getting Started
 ### Docker Method (Recommended)
