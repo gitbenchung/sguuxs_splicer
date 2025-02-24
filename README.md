@@ -43,7 +43,7 @@ After importing `src' you will need to import foma as a subprocess. Try:
 
 Note: You will need to replace all the backslashes '\' with double backslashes '\\' in the file path.
 
-What *subprocess.Popen()* does is creates a pipe (or means to fun this other program in Python), which is defined by the file path you add into the parantheses '()'. Theoretically, it should allow you to run the package (i.e., `sguuxs_splicer`) in Python with foma.
+What *subprocess.Popen()* does is create a pipe (or a means to run this other program in Python), which is defined by the file path you add into the parantheses '()'. Theoretically, it should allow you to run the package (i.e., `sguuxs_splicer`) in Python with foma.
 
 If you experience difficulties with this method (e.g., everything is running correctly, but you can't input anything into `foma[0]:`), then use the Docker work around.
 
