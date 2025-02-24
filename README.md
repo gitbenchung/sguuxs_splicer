@@ -13,9 +13,9 @@ You will need to have both [foma](https://fomafst.github.io/morphtut.html) and [
 
 For best results, I have found to use a [Docker](https://docs.docker.com/engine/install/) work around. You will likely need to make a Docker account too.
 
-Unfortunately, [foma](https://fomafst.github.io/morphtut.html) does not have that robust of step-by-step instructions for new coders. If you are experiencing trouble running foma & python locally, use download and install Docker.
+Unfortunately, [foma](https://fomafst.github.io/morphtut.html) does not have that robust of step-by-step instructions for new coders. If you are experiencing trouble running foma & Python locally, download and install Docker instead.
 
-Then, you need to run in a Container:
+To open the package in Docker, you need to run it in a Container:
 
 > `docker build -t sguuxs_splicer .`
 
