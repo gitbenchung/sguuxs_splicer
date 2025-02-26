@@ -1,6 +1,6 @@
 # Dictionary categories
 
-Every lexical item in the dictionary (`/fst/dict.csv`) requires a *category* to be successfully imported into the FST. Then its category determines its morphological behavior. This document explains the categories used in the dictionary and how they are interpreted in the context of the analyzer.
+Every lexical item in the dictionary (`/fst/dict_sgx.csv`) requires a *category* to be successfully imported into the FST. Then its category determines its morphological behavior. This document explains the categories used in the dictionary and how they are interpreted in the context of the analyzer.
 
 ## Pressures of the endangered-language context
 
