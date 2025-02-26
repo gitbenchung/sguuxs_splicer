@@ -10,13 +10,13 @@ This analyzer works from a single source for each of these components, but can b
 
 ## Dictionary
 
-The lexical items recognized by this analyzer are primarily drawn from the works of late granny Violet Neasloss (the last fluent speaker who grew up with the language) and John Asher Dunn (?), with annotation by Desiree Brown (community member), Dr. Clarissa Forbes, and myself. The dictionary is located at `fst/dict.csv`, and contains a list of stems and their plural forms along with an annotation of their morphological category and some stress notes.
+The lexical items recognized by this analyzer are primarily drawn from the works of late granny Violet Neasloss (the last fluent speaker who grew up with the language) and John Asher Dunn (?), with annotation by Desiree Brown (community member), Dr. Clarissa Forbes, and myself. The dictionary is located at `fst/dict_sgx.csv`, and contains a list of stems and their plural forms along with an annotation of their morphological category and some stress notes.
 
 ## Morphological description
 
 The morphological description for a foma analyzer are stored in text files using `lexc` markup, stored in `fst/lexc/*`. The folder contains several files that describe the morphological behavior of various categories.
 
-Gitksan is somewhat morphologically complex although not synthetic; it is fusional and involves a substantial amount of compounding (cf. Germanic languages). There are also a number of clitics that can appear in a wide variety of positions. Concatenation operations included in this parser include:
+Sgüüx̣s is somewhat morphologically complex although not synthetic; it is fusional and involves a substantial amount of compounding (cf. Germanic languages). There are also a number of clitics that can appear in a wide variety of positions. Concatenation operations included in this parser include:
 
 - inflectional suffixation on nouns/verbs
 - preverb/modifier compounding (/prefixation) on verbs
@@ -24,11 +24,11 @@ Gitksan is somewhat morphologically complex although not synthetic; it is fusion
 - enclitics preceding nouns
 - second position clitics
 
-There is no dedicated lexc file for the lexical items included in the dictionary: these are generated upon load. The lexc header is also generated on load, with the exception of the flag inventory which is stored in `git_flags.txt`.
+There is no dedicated lexc file for the lexical items included in the dictionary: these are generated upon load. The lexc header is also generated on load, with the exception of the flag inventory which is stored in `sgx_flags.txt`.
 
 ## Rules
 
-This analyzer relies heavily on allomorphic rules to generate local allomorphic alternations and productive dialect variation. The rules are listed and self-documented in `fst/git_rules.txt`.
+This analyzer relies heavily on allomorphic rules to generate local allomorphic alternations and productive dialect variation. The rules are listed and self-documented in `fst/sgx_rules.txt`.
 
 Local allomorphy accomplished via rule includes:
 
@@ -44,7 +44,7 @@ Dialect variation rules are listed in a special section of the rules file (flagg
 
 ## Configuration
 
-Four configuration files are included in this compilation and are accessible via their file path or as constants:
+One configuration file are included in this compilation and are accessible via their file path or as constants:
 
 * `BASIC_E` = `fst/basic_east.json`
 * `BASIC_EW` = `fst/basic_dialectal.json`
