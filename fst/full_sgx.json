@@ -1,5 +1,5 @@
 {
-    "name": "git_full_EW",
+    "name": "sgx_full.txt",
     "dictionary": "dict_sgx.csv",
     "legal_categories": [
         "noun",
@@ -11,8 +11,7 @@
     "ignore_categories": [
     ],
     "lexc_files": [
-        "lexc/git_flags.txt",
-        "lexc/sgx_noun.txt"
+        "lexc/sgx_noun.txt",
         "lexc/sgx_inflection.txt"
     ],
     "ignore_lexc_files": [
