@@ -1,0 +1,13 @@
+__pycache__*
+.vscode*
+*.code-workspace
+*.pyc
+
+# constructed foma files
+fst/foma*
+# binary files
+*fomabin
+
+# distribution and metadata
+/*.egg-info
+/dist/
