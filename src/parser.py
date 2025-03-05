@@ -13,10 +13,8 @@ class ParserError(Exception):
 
 proj_root = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
-BASIC_E = os.path.join(proj_root, 'fst/basic_east.json')
-BASIC_EW = os.path.join(proj_root, 'fst/basic_dialectal.json')
-FULL_E = os.path.join(proj_root, 'fst/full_east.json')
-FULL_EW = os.path.join(proj_root, 'fst/full_dialectal.json')
+FULL_SGX = os.path.join(proj_root, 'fst', 'full_sgx.json')
+FULL_GIT = os.path.join(proj_root, 'fst', 'full_dialectal.json')
 
 class Parser():
     """
@@ -28,7 +26,7 @@ class Parser():
                 default: 'fst/full_dialectal.json'
     """
 
-    def __init__(self, load_input: str or dict = FULL_EW) -> None:
+    def __init__(self, load_input: str or dict = FULL_SGX) -> None:
         self.reload(load_input)
     
     def reload(self, load_input: str or dict) -> None:
