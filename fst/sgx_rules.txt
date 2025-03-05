@@ -4,3 +4,4 @@ define CLetter b | d | dz | g | g̱ | {g'} | g w | g y | "_" ;
 define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
 define Sibilant s | ch | {ts} | {ts'} ;
 define InitialCons b | ch | d | d z | g | g w | g y | h | k | {k'} | k w | k y | ḵ | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
+

@@ -1,0 +1,26 @@
+Multichar_Symbols
++N
++VOC
+-T
+-ATTR
+-VAL
+
+LEXICON Noun
++N:	NDeriv ;
+
+LEXICON NDeriv
+-T:^T		SeriesII ;
+-VAL:^xw	SeriesII ;
+-VAL:^xw	SX ;
+			Resemb ;
+			NInfl ;
+
+LEXICON NInfl
+-ATTR:^m	# ;
+-ATTR:^a	# ;
+		SeriesII ;
+		SX ;
+		Word ;
+
+LEXICON AddressForm
++VOC: Word ;

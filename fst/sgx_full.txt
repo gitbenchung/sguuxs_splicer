@@ -129,6 +129,11 @@ g̱aayt	Noun ;
 hooya	Noun ;
 g̱aws	Noun ;
 ha'ligyet	Noun ;
+ał`	Preposition ;
+łaxi	Preposition ;
+lax̱'oi	Preposition ;
+ts'm	Preposition ;
+
 
 LEXICON Noun
 +N: 	NDeriv ;
@@ -183,7 +188,7 @@ LEXICON SeriesII
 	AgreeingNClitic ;
 
 LEXICON AgreeingNClitic
-[-3.II]=CN:^hl	# ;
+[-3.II]=CN:^ł	# ;
 [-3.II]=PN:^s	# ;
 [-3.II]=PN:^s	DemonstrativeClitic ;
 
@@ -193,9 +198,6 @@ LEXICON SX
 
 LEXICON daPlClitic
 -3PL.INDP:^da	# ;
-
-LEXICON Command
-+IMP:	#;
 
 LEXICON SeriesIprocl
 @P.SI.1@1.I=:@P.SI.1@n^	SeriesIable ;
@@ -207,7 +209,7 @@ LEXICON SeriesIable
 	RootAuxiliary ;
 
 LEXICON SeriesI
-1.I:na 		# ;
+1.I:[na|n]	# ;
 1PL.I:dip 	# ;
 2.I:mi 		# ;
 2.I:ma 		# ;
@@ -219,12 +221,6 @@ LEXICON Auxiliary
 @P.CAT.AUX@+AUX:@P.CAT.AUX@	CNClitic ;
 @P.CAT.AUX@+AUX:@P.CAT.AUX@	SX ;
 
-LEXICON Subordinator
-+SUB:	SeriesIencl ;
-
-LEXICON Modal
-+MOD:	SeriesIencl;
-
 LEXICON SeriesIencl
 @D.SI@=1.I:@D.SI@^n			# ;	! used = instead of ^ to condition special epenthesis
 @D.SI@=2.I:@D.SI@^m			# ;
@@ -234,8 +230,6 @@ LEXICON SeriesIencl
 LEXICON SeriesIencl3
 @D.SI@=3.I:@D.SI@^t			# ;
 				# ;
-
-
 LEXICON Root
 	Exceptions ;
 
@@ -305,23 +299,6 @@ LEXICON DemonstrativeClitic
 =PROX+DEM:=un	Word ;
 =DIST+DEM:=ust	Word ;
 
-LEXICON Quotative
-1SG+QUOT:niy$a	QuotativeEnding ;
-2SG+QUOT:miy$a	QuotativeEnding ;
-3SG+QUOT:diy$a	QuotativeEnding ;
-1PL+QUOT:diph$ii		QuotativePlEnding ;
-2PL+QUOT:masimh$ii	QuotativePlEnding ;
-3PL+QUOT:dah$iit	QuotativePlEnding ;
-3PL+QUOT:d$iit		QuotativePlEnding ;
-
-LEXICON QuotativePlEnding
-				# ;
--3PL.INDP:^da 	QuotativeEnding ;
-
-LEXICON QuotativeEnding
-	NextNClitic ;
-	SecPosClitic ;
-
 LEXICON Operator
 FOC+OP:dii		SeriesIencl ;
 FOC+OP:dii		PNClitic;
@@ -361,10 +338,5 @@ LEXICON SecPosClitic
 =EPIS:^ima'a	CNClitic ;
 =EPIS:^imaa	CNClitic ;
 =REPORT:^g_at	CNClitic ;
-
-LEXICON SentFinalClitic
-=YNQ:^aa	# ;
-=QUDD:^ist	# ;
-=QUDD:^is	# ;
 
 ! still need to test these e.g. with vowel hiatus interaction
