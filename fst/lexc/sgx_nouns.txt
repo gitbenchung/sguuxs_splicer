@@ -1,6 +1,5 @@
 Multichar_Symbols
 +N
-+VOC
 -T
 -ATTR
 -VAL
@@ -21,6 +20,3 @@ LEXICON NInfl
 		SeriesII ;
 		SX ;
 		Word ;
-
-LEXICON AddressForm
-+VOC: Word ;

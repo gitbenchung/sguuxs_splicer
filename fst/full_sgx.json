@@ -19,5 +19,5 @@
     "rules_files": [
         "sgx_rules.txt"
     ],
-    "dialect_variation": true
+    "dialect_variation": false
 }

@@ -1,6 +1,5 @@
 Multichar_Symbols
 +DEM
-+IMP
 +N
 +NUM
 +P
@@ -113,11 +112,6 @@ g̱aayt	Noun ;
 hooya	Noun ;
 g̱aws	Noun ;
 ha'ligyet	Noun ;
-ał`	Preposition ;
-łaxi	Preposition ;
-lax̱'oi	Preposition ;
-ts'm	Preposition ;
-
 
 LEXICON Noun
 +N: 	NDeriv ;
@@ -240,6 +234,11 @@ LEXICON Root
 	SeriesIprocl ;
 
 LEXICON Preposition
+ał`	Preposition ;
+łaxi	Preposition ;
+lax̱'oi	Preposition ;
+ts'm	Preposition ;
+
 g_$o'o+P:g_$o'o	# ;
 g_$o'o+P:g_$o'o	SeriesII ;
 g_$oo+P:g_$oo	# ;
