@@ -1,5 +1,5 @@
 {
-    "name": "sgx_full.txt",
+    "name": "sgx_full",
     "dictionary": "dict_sgx.csv",
     "legal_categories": [
         "noun",

@@ -1,18 +1,9 @@
 Multichar_Symbols
 +N
--T
 -ATTR
--VAL
 
 LEXICON Noun
-+N:	NDeriv ;
-
-LEXICON NDeriv
--T:^T		SeriesII ;
--VAL:^xw	SeriesII ;
--VAL:^xw	SX ;
-			Resemb ;
-			NInfl ;
++N:	NInfl ;
 
 LEXICON NInfl
 -ATTR:^m	# ;

@@ -19,7 +19,10 @@ define NasalVoicing	k -> g || _"^" [n|m] ,,
 
 
 regex Lexicon ;
-define Stems ;
+
+	.o. VowelVoicing
+	.o. NasalVoicing
+	;
 
 define CleanWords ;
 read regex CleanWords ;

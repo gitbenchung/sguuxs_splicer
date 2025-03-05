@@ -7,34 +7,23 @@ Multichar_Symbols
 -3PL.II
 -3PL.INDP
 =PN
+=CN.IRR
 =CN
 -SX
 
 
 LEXICON SeriesII
--1SG.II:^'y	Word ;
--1PL.II:^'m	Word ;
--2SG.II:^n		Word ;
--2PL.II:^si'm	Word ;
--3.II:^t		Word ;
--3PL.II:^diit	Word ;
-	AgreeingNClitic ;
-
-LEXICON AgreeingNClitic
-[-3.II]=CN:^hl	# ;
-[-3.II]=PN:^s	# ;
-[-3.II]=PN:^s	DemonstrativeClitic ;
-
-LEXICON PossessiveClitic
 -1SG.II:^[i|u]	Word ;
--1PL.II:^sm	Word ;
+-1PL.II:^m	Word ;
 -2SG.II:^n		Word ;
 -2PL.II:^ism	Word ;
 -3.II:^t		Word ;
+	AgreeingNClitic ;
+
+LEXICON AgreeingNClitic
+[-3.II]=CN.IRR:^ł	# ;
+[-3.II]=CN:^i	# ;
+[-3.II]=PN:^s	# ;
 
 LEXICON SX
 -SX:^it		Word ;
--SX:^it		Resemb ;
-
-LEXICON daPlClitic
--3PL.INDP:^da	# ;
