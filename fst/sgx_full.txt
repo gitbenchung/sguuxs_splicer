@@ -1,13 +1,8 @@
 Multichar_Symbols
-+ADV
-+AUX
 +DEM
 +IMP
-+MDF
-+MOD
 +N
 +NUM
-+OBL
 +P
 +PL
 +PNN
@@ -16,9 +11,6 @@ Multichar_Symbols
 +PVB
 +QUA
 +SUB
-+VI
-+VOC
-+VT
 -1PL
 -1PL.II
 -1SG.II
@@ -86,21 +78,13 @@ PROX
 
 LEXICON Root
 RootNoun ;
-RootTransitiveVerb ;
-RootIntransitiveVerb ;
-RootPreverb ;
 RootModifier ;
 RootAdverb ;
-RootSubordinator ;
-RootCommand ;
 RootPrenoun ;
 RootQuantifier ;
-RootModal ;
-RootAuxiliary ;
 RootParticle ;
 RootClauseModifier ;
 RootNumber ;
-RootAddressForm ;
 
 LEXICON RootNoun
 nts'i'its	Noun ;
@@ -155,9 +139,6 @@ LEXICON NInfl
 LEXICON Prenoun
 +PNN:	#;
 +PNN-:^	RootNoun;
-
-LEXICON Adverb
-+ADV:	Word;
 
 
 LEXICON Quantifier
@@ -255,10 +236,8 @@ LEXICON Root
 	Conjunction ;
 	Pronoun ;
 	NProclitic ;
-	Quotative ;
 	SeriesI ;
 	SeriesIprocl ;
-	Operator;
 
 LEXICON Preposition
 g_$o'o+P:g_$o'o	# ;
