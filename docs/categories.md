@@ -7,7 +7,7 @@ Every lexical item in the dictionary (`/fst/dict_sgx.csv`) requires a *category*
 Sgüüx̣s is an sleeping language that is undergoing active revitalization and reawakening. This resource serves as the initial attempt at a language learning model with a focus on nominal morphology and affixation.
 The dictionary file used in this project is also in ongoing development.
 
-For the purposes of the analyser, categories are only required to distinguish the specific *morphological* behavior of groups of stems. This relates strictly to their ability to combine with inflectional morphemes and clitics. Additional syntactic or semantic properties are irrelevant. The analyser only reflects what is morphologically possible for a word, versus what is morphologically impossible.
+For the purposes of the analyser, categories are only required to distinguish the specific *morphological* behavior of groups of stems. This relates strictly to their ability to combine with inflectional morphemes and clitics. Additional syntactic or semantic properties are irrelevant. The analyser only reflects what is morphologically possible for a word, versus what is morphologically impossible. As the tool is initially being designed for nominal (aka noun-based) input, there are only a select number of categories in this set that are relevant.
 
 A streamlined analyser would include only the most necessary morphological categories in its lexical description. However, the endangered-language context requires the development of multipurpose resources. The lexical categories used in this dictionary -- the only dictionary which yet includes any lexical category information -- will be referenced in later language-learning efforts, including the development of curricula and pedagogical grammars. This means that the categories used should reflect additional important distinctions that are critical to understanding the holistic behavior of groups of words. This would include their major syntactic properties (for example, the ability to subordinate a clause, triggering dependent-style inflection).  A large number of categories may be required to effectively convey the necessary morphological and syntactic distinctions in the language to produce a descriptively adequate resource. In addition, semantic categorization can be useful to support vocabulary acquisition.
 
@@ -16,6 +16,48 @@ However, since the dictionary is public-facing, there is also a global pressure 
 These opposing pressures (specific descriptive adequacy, broad descriptive adequacy, and public understandability) make the development of this set of lexical categories something of a balancing act. Such is the nature of multipurpose-resource development common in endangered language documentation. This resource remains a work in progress.
 
 ## Categories
+
+### Quantifier
+
+These are quantificational elements. They can be used to modify (quantify) nominal arguments, and in this use are concatenated with an attributive, nominal connective, or subject extraction marker (?) plus nominal connective. They can be used to quantify over pronouns as well, and in this case will take Series II inflection to indicate the pronoun. They can also be used as predicates, but in this usage do not take obligatory Series II inflection as intransitive verbs do.
+
+### Modifier
+
+These are category-neutral elements which may precede nouns, verbs, and sometimes adverbs. They do not inflect or host any clitics, but may form a compound with a following noun or verb. In the verbal domain, they may be separated from the main verb by other preverbal material such as subordinators or auxiliaries.
+
+Examples: *sim*, *'wii*, *wag̲ayt*
+
+### Noun
+
+These are nouns. They can be used as verbal predicates, though they tend only to do so in traditionally copular contexts; otherwise they are typically used as arguments, and unlike verbs may do so without any morphological marking of relativization. They can take Series II suffixal inflection to mark a possessor, and can also host attributives, the intransitive subject extraction marker (for a possessor), second-position clitics, nominal connectives for a following noun.
+
+Currently these are also able to appear in special possessive constructions where *xw* or the T-morpheme appears after the noun and before the Series II possessor inflection.
+
+Examples: *gat*, *xbiist*, *lax̲'u*
+
+### Number
+
+These are a subclass of quantifiers which refer to cardinal numbers used in counting. Numbers are also part classifier, with different numeral series being used based on what is being counted (humans, animals, etc).
+
+### Prenoun
+
+These are elements which appear exclusively before nouns, modifying them. Some may trigger the noun's conversion to some other category. That is, some of these may be verbalizers which attach to a noun to form a verb.
+
+Examples: *ts'im*, *sii*, *sin*
+
+### Preposition
+
+These are a closed class of elements which introduce nouns that are not arguments of a verb, such as instruments or locations. Prepositions are, morphologically, a heterogeneous set: most take Series II inflection when introducing a pronoun and a nominal connective when introducing a noun, but some do not inflect, and those which take connectives may differ (even between speakers) in whether that connective is *t* or *s* for a determinate noun.
+
+Prepositions are handled on a case-by-case basis in the parser; some are labeled as "agreeing preposition" (inflects) or "conjunction" (does not inflect) in the dictionary resource to designate their distinct morphological properties.
+
+### Relational noun (?)
+
+Under construction: These are nouns which are typically possessed, inflecting with Series II inflection or a nominal marker, to designate some property of, part of, or spatial relation to the possessor -- AND/OR these elements have a T-morpheme (or similar) immediately preceding their inflection.
+
+Examples: *sgan*, *sdo'o*, *g̲adaax*?
+
+## Other categories to be relevant in later stages
 
 ### Address form
 
@@ -55,24 +97,6 @@ These elements appear in clauses to situate the event with respect to possibilit
 
 Examples: *dim*, *ji*
 
-### Modifier
-
-These are category-neutral elements which may precede nouns, verbs, and sometimes adverbs. They do not inflect or host any clitics, but may form a compound with a following noun or verb. In the verbal domain, they may be separated from the main verb by other preverbal material such as subordinators or auxiliaries.
-
-Examples: *sim*, *'wii*, *wag̲ayt*
-
-### Noun
-
-These are nouns. They can be used as verbal predicates, though they tend only to do so in traditionally copular contexts; otherwise they are typically used as arguments, and unlike verbs may do so without any morphological marking of relativization. They can take Series II suffixal inflection to mark a possessor, and can also host attributives, the intransitive subject extraction marker (for a possessor), second-position clitics, nominal connectives for a following noun.
-
-Currently these are also able to appear in special possessive constructions where *xw* or the T-morpheme appears after the noun and before the Series II possessor inflection.
-
-Examples: *gat*, *xbiist*, *lax̲'u*
-
-### Number
-
-These are a subclass of quantifiers which refer to cardinal numbers used in counting. Numbers are also part classifier, with different numeral series being used based on what is being counted (humans, animals, etc).
-
 ### Particle
 
 These are free elements which do not inflect in any way.
@@ -81,27 +105,9 @@ Examples: *ee'e*
 
 ### Plural (?)
 
-### Prenoun
-
-These are elements which appear exclusively before nouns, modifying them. Some may trigger the noun's conversion to some other category. That is, some of these may be verbalizers which attach to a noun to form a verb.
-
-Examples: *ts'im*, *sii*, *sin*
-
-### Preposition
-
-These are a closed class of elements which introduce nouns that are not arguments of a verb, such as instruments or locations. Prepositions are, morphologically, a heterogeneous set: most take Series II inflection when introducing a pronoun and a nominal connective when introducing a noun, but some do not inflect, and those which take connectives may differ (even between speakers) in whether that connective is *t* or *s* for a determinate noun.
-
-Prepositions are handled on a case-by-case basis in the parser; some are labeled as "agreeing preposition" (inflects) or "conjunction" (does not inflect) in the dictionary resource to designate their distinct morphological properties.
-
 ### Preverb
 
 This is an element which appear exclusively before verbs, modifying them. They can sometimes concatenate with the verb. They never serve as a host to any kind of inflection or clitic, and cannot be split from the verb by a subordinator or auxiliary (in contrast to modifiers).
-
-### Relational noun (?)
-
-Under construction: These are nouns which are typically possessed, inflecting with Series II inflection or a nominal marker, to designate some property of, part of, or spatial relation to the possessor -- AND/OR these elements have a T-morpheme (or similar) immediately preceding their inflection.
-
-Examples: *sgan*, *sdo'o*, *g̲adaax*?
 
 ### Psychological verb (?)
 
@@ -110,10 +116,6 @@ An subtype of intransitive verb which exclusively takes a possessed noun *g̲oot
 The argument *g̲oot* cannot be extracted but its possessor can be. Upon extraction of the possessor, extraction morphology (*-it*) is obligatory on *g̲oot*, but need not appear on the psych verb.
 
 Examples: *luu'am* (happy), *wantxw* (worry), *g̲etxw* (sad, disappointed)
-
-### Quantifier
-
-These are quantificational elements. They can be used to modify (quantify) nominal arguments, and in this use are concatenated with an attributive, nominal connective, or subject extraction marker (?) plus nominal connective. They can be used to quantify over pronouns as well, and in this case will take Series II inflection to indicate the pronoun. They can also be used as predicates, but in this usage do not take obligatory Series II inflection as intransitive verbs do.
 
 ### Subordinator
 
