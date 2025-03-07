@@ -60,7 +60,7 @@ If you experience difficulties with this method (e.g., everything is running cor
 Once the splicer is running in the Docker container, use this command:
 > `fst =  src.Parser(src.FULL_SGX)`
 
-**Note FULL_SGX is case-sensitive**
+**Note: FULL_SGX is case-sensitive**
 
 This command takes the fst (finite-state transducer aka the transformational code to take our language and get a result) and tells the tool that ther *src* or 'source' for the Parser is the source, full_sgx.json. This JSON file is the keystone piece that connects our alternation rules, dictionary, and paradigms together to run.
 
@@ -71,13 +71,22 @@ This method is not recommended as there are two jsons in the package: the *full_
 
 ## Run the Tool
 ### Command: Analyze (aka What is this?) or Generate (aka Make this!)
-When you `analyze`, the tool will take the input and derive a morphological gloss. 
+When you `analyze`, the tool will take the input and derive a morphological gloss from the lexical and inflectional units stored in the dictionary and lexc files. 
+> Input: fst.analyze("waap")
+> Output: ['waap+N']
 
-More to come ...
+When you `generate`, the tool will take the input and derive a surface from from the lexical and inflectional units you provide.
+> Input: fst.generate("waap+2PL.II")
+> Output: ['na waapsm']
+
+**Note: You have to add the Parts of Speech (POS) and inflectional units in the way the tool understands them for Output to render:**
+> +2PL.II = 2nd Person Plural, Series II Suffixes\
+> +2ndPL.II ≠ Error
 
 ### Command: Lemmatize (aka What is base word?)
-
-More to come ...
+When you `lemmatize`, the tool will try to identify the possible stem forms from the input. The splicer will work backwards following the rules to break down a surface form to match it with something in the dictionary.
+> Input: fst.lemmatize("na waalbm")
+> Output: ['waap+N']
 
 # Version
 This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
