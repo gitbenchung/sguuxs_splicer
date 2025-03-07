@@ -70,13 +70,14 @@ As of 2025-03-06, be sure to specify the configuration. Do not input:
 This method is not recommended as there are two jsons in the package: the *full_sgx.json* and the *full_dialectal.json*. The latter json is the mother file of the Sgüüx̣s one and is configured for Gitxsan. In this development stage, this other json is kept for reference. As it is more complete than the Sgüüx̣s one, it may run automatically if the command is unspecified. In later stages, the command will be runnable without specification once the Sgüüx̣s json is fuller and the Gitxsan one is removed.
 
 ## Run the Tool
+**The functions are spelled in the American English format with a 'z'.**
 ### Command: Analyze (aka What is this?) or Generate (aka Make this!)
 When you `analyze`, the tool will take the input and derive a morphological gloss from the lexical and inflectional units stored in the dictionary and lexc files. 
 > Input: fst.analyze("waap")
 > Output: ['waap+N']
 
 When you `generate`, the tool will take the input and derive a surface from from the lexical and inflectional units you provide.
-> Input: fst.generate("waap+2PL.II")
+> Input: fst.generate("waap+2PL.II")\
 > Output: ['na waapsm']
 
 **Note: You have to add the Parts of Speech (POS) and inflectional units in the way the tool understands them for Output to render:**
@@ -85,7 +86,7 @@ When you `generate`, the tool will take the input and derive a surface from from
 
 ### Command: Lemmatize (aka What is base word?)
 When you `lemmatize`, the tool will try to identify the possible stem forms from the input. The splicer will work backwards following the rules to break down a surface form to match it with something in the dictionary.
-> Input: fst.lemmatize("na waalbm")
+> Input: fst.lemmatize("na waalbm")\
 > Output: ['waap+N']
 
 # Version
