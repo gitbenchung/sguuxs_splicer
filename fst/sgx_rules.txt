@@ -17,11 +17,14 @@ define NasalVoicing	k -> g || _"^" [n|m] ,,
 			t -> d || _"^" [n|m] ,,
 			x_ -> g_ || _"^" Vowel ;
 
+!-- glide insertion, rounded vowel concatenation
+define GlideInsertion	[..] -> y || Vowel _ "^" u ;
 
 regex Lexicon ;
 
 	.o. VowelVoicing
 	.o. NasalVoicing
+	.o. GlideInsertion
 	;
 
 define CleanWords ;
