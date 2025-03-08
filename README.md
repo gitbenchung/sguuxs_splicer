@@ -73,7 +73,7 @@ This method is not recommended as there are two jsons in the package: the *full_
 **The functions are spelled in the American English format with a 'z'.**
 ### Command: Analyze (aka What is this?) or Generate (aka Make this!)
 When you `analyze`, the tool will take the input and derive a morphological gloss from the lexical and inflectional units stored in the dictionary and lexc files. 
-> Input: fst.analyze("waap")
+> Input: fst.analyze("waap")\
 > Output: ['waap+N']
 
 When you `generate`, the tool will take the input and derive a surface from from the lexical and inflectional units you provide.
