@@ -1,0 +1,12 @@
+Multichar_Symbols
++PNN
++MDF
++PL
+
+LEXICON Modifier
++MDF:	#;
++MDF-:^	RootNoun;
+
+LEXICON Prenoun
++PNN:	#;
++PNN-:^	RootNoun;
