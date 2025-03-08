@@ -23,6 +23,10 @@ LEXICON Root
 	SeriesIprocl ;
 
 LEXICON Preposition
+P: ał 	Word;
+P: łaxi	Word;
+P: lax_'oi	Word;
+P: ts'm	Word;
 g_$o'o+P:g_$o'o	# ;
 g_$o'o+P:g_$o'o	SeriesII ;
 g_$oo+P:g_$oo	# ;
