@@ -13,7 +13,7 @@ Multichar_Symbols
 
 
 LEXICON SeriesII
--1SG.II:^[i|u]	Word ;
+-1SG.II:^[ i | u ]	Word ;
 -1PL.II:^m	Word ;
 -2SG.II:^n		Word ;
 -2PL.II:^sm	Word ;

@@ -12,9 +12,9 @@ define VowelVoicing 	k -> g || _"^" Vowel ,,
 			x_ -> g_ || _"^" Vowel ;
 
 !-- voicing rule, nasal adjacency
-define NasalVoicing	k -> g || _"^" [n|m] ,,
-			p -> b || _"^" [n|m] ,,
-			t -> d || _"^" [n|m] ,,
+define NasalVoicing	k -> g || _"^" [ n | m ] ,,
+			p -> b || _"^" [ n | m ] ,,
+			t -> d || _"^" [ n | m ] ,,
 			x_ -> g_ || _"^" Vowel ;
 
 !-- glide insertion, rounded vowel concatenation
