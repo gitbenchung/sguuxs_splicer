@@ -18,9 +18,7 @@ The morphological description for a foma analyzer are stored in text files using
 
 Sgüüx̣s is somewhat morphologically complex although not synthetic; it is fusional and involves a substantial amount of compounding (cf. Germanic languages). There are also a number of clitics that can appear in a wide variety of positions. Concatenation operations included in this parser include:
 
-- inflectional suffixation on nouns/verbs
-- preverb/modifier compounding (/prefixation) on verbs
-- ergative clitics on auxiliaries
+- inflectional suffixation on nouns(/verbs to come)
 - enclitics preceding nouns
 - second position clitics
 
@@ -32,28 +30,20 @@ This analyzer relies heavily on allomorphic rules to generate local allomorphic 
 
 Local allomorphy accomplished via rule includes:
 
-- pre-vocalic voicing (applies after suffixation)
+- pre-vocalic & nasal voicing (applies after suffixation)
 - vowel insertion between sonorants
 - deletion of morphemes before third-plural *-diit*.
 
-Dialect variation rules are listed in a special section of the rules file (flagged as **stem variation**) and are removed from "_E"/"east" versions of the parser which reflect only the Eastern dialect. These include:
-
-- short a/e alternations (*gat~get*)
-- he/hi alternations (*hetxw~hitxw*)
-- gwi/gu alternations (*agwi~agu*)
+Dialect variation rules are non-existent given the language context.
 
 ## Configuration
 
 One configuration file are included in this compilation and are accessible via their file path or as constants:
 
-* `BASIC_E` = `fst/basic_east.json`
-* `BASIC_EW` = `fst/basic_dialectal.json`
-* `FULL_E` = `fst/full_east.json`
-* `FULL_EW` = `fst/full_dialectal.json`
+* `FULL_SGX` = `fst/full_sgx.json` = base Sgüüx̣s file mapping JSON
+* `FULL_EW` = `fst/full_dialectal.json` = base Gitxsan file mapping JSON (used as base for full_sgx.json and comparison)
 
-The "basic" configurations exclude functional items like pronouns or aspect markers from compilation, and do not include clitics. They produce only paradigm-like output, including only open-class lexical items and their various inflections. (Note that plurals are treated as derivational, not inflectional, and are listed in the dictionary rather than being generated.) The "full" configurations contain functional items and the full array of clitics.
-
-The "E/east" configurations exclude all dialect variation rules from compilation, using only the forms that are explicitly listed in the dictionary (which is primarily but not exclusively based on the Git-an'maaxs dialect; Eastern). The "EW/dialectal" configurations include optional dialect rules to produce a variety of possible surface forms for a given lexical input.
+The "basic" configuration exclude functional items like pronouns or aspect markers from compilation, and do not include clitics. It produces only paradigm-like output, including only open-class lexical items and their various inflections. (Note that plurals are treated as derivational, not inflectional, and are listed in the dictionary rather than being generated.) The "full" configurations contain functional items and the full array of clitics.
 
 Examples of configuration files are stored in `/fst/*.json`. The necessary components of a configuration file are as follows:
 
@@ -62,4 +52,3 @@ Examples of configuration files are stored in `/fst/*.json`. The necessary compo
 - **legal_categories:** List of categories that the analyzer will read and import from the dictionary; case-insensitive. Words with categories not listed here will be ignored.
 - **lexc_files:** List of valid paths to lexc files that the analyzer will read and import. Files not listed here will be ignored, allowing certain types of morphology to be excluded.
 - **rules_files:** List of files containing morphological rules in foma format. These will be concatenated in order to produce the foma file.
-- **dialect_variation:** boolean value representing whether stem-variation portions of the rules files will be included (true) or excluded (false).

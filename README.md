@@ -17,6 +17,14 @@ Unfortunately, [foma](https://fomafst.github.io/morphtut.html) does not have tha
 
 To open the package in Docker, you need to run it in a Container:
 
+Use the command in Docker to locate wherever you keep the splicer locally as a repository:
+
+> `cd [FILE_PATH]`
+
+*cd* stands for 'c(hange) d(irectory)', so this command is telling Docker where we want to access our information. 
+
+Next, run:
+
 > `docker build -t sguuxs_splicer .`
 
 *build -t* means 'build -t(ag)'. The tag specifies what you want to build called the Image. In this case, we want to open `sguuxs_splicer`.
@@ -47,7 +55,41 @@ What *subprocess.Popen()* does is create a pipe (or a means to run this other pr
 
 If you experience difficulties with this method (e.g., everything is running correctly, but you can't input anything into `foma[0]:`), then use the Docker work around.
 
-# Version
-This tool is in the development process. At the moment, it is only suitable for DP/NP morphology. Future versions will incorporate predicates and other complex morphology.
+## Import the Right JSON
+### Loading the Right Parser
+Once the splicer is running in the Docker container, use this command:
+> `fst =  src.Parser(src.FULL_SGX)`
 
-Last update: 2025-02-06
+**Note: FULL_SGX is case-sensitive**
+
+This command takes the fst (finite-state transducer aka the transformational code to take our language and get a result) and tells the tool that ther *src* or 'source' for the Parser is the source, full_sgx.json. This JSON file is the keystone piece that connects our alternation rules, dictionary, and paradigms together to run.
+
+As of 2025-03-06, be sure to specify the configuration. Do not input:
+> `fst =  src.Parser()` # this command will load the most complete fst file
+
+This method is not recommended as there are two jsons in the package: the *full_sgx.json* and the *full_dialectal.json*. The latter json is the mother file of the Sgüüx̣s one and is configured for Gitxsan. In this development stage, this other json is kept for reference. As it is more complete than the Sgüüx̣s one, it may run automatically if the command is unspecified. In later stages, the command will be runnable without specification once the Sgüüx̣s json is fuller and the Gitxsan one is removed.
+
+## Run the Tool
+**The functions are spelled in the American English format with a 'z'.**
+### Command: Analyze (aka What is this?) or Generate (aka Make this!)
+When you `analyze`, the tool will take the input and derive a morphological gloss from the lexical and inflectional units stored in the dictionary and lexc files. 
+> Input: fst.analyze("waap")\
+> Output: ['waap+N']
+
+When you `generate`, the tool will take the input and derive a surface from from the lexical and inflectional units you provide.
+> Input: fst.generate("waap+2PL.II")\
+> Output: ['na waapsm']
+
+**Note: You have to add the Parts of Speech (POS) and inflectional units in the way the tool understands them for Output to render:**
+> +2PL.II = 2nd Person Plural, Series II Suffixes\
+> +2ndPL.II ≠ Error
+
+### Command: Lemmatize (aka What is base word?)
+When you `lemmatize`, the tool will try to identify the possible stem forms from the input. The splicer will work backwards following the rules to break down a surface form to match it with something in the dictionary.
+> Input: fst.lemmatize("na waalbm")\
+> Output: ['waap+N']
+
+# Version
+This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
+
+Last update: 2025-03-06
