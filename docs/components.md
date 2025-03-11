@@ -40,8 +40,8 @@ Dialect variation rules are non-existent given the language context.
 
 One configuration file are included in this compilation and are accessible via their file path or as constants:
 
-* `FULL_SGX` = `fst/full_sgx.json` = base Sgüüx̣s file mapping JSON
-* `FULL_EW` = `fst/full_dialectal.json` = base Gitxsan file mapping JSON (used as base for full_sgx.json and comparison)
+- `FULL_SGX` = `fst/full_sgx.json` = base Sgüüx̣s file mapping JSON
+- `FULL_GIT` = `fst/full_dialectal.json` = base Gitxsan file mapping JSON (used as base for full_sgx.json and comparison)
 
 The "basic" configuration exclude functional items like pronouns or aspect markers from compilation, and do not include clitics. It produces only paradigm-like output, including only open-class lexical items and their various inflections. (Note that plurals are treated as derivational, not inflectional, and are listed in the dictionary rather than being generated.) The "full" configurations contain functional items and the full array of clitics.
 
