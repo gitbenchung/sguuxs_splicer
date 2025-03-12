@@ -1,21 +1,21 @@
 define Vowel a | e | i | o | u | ü | "_" ;
 define Consonant p | {p'} | m | s | c h | h | t | {t'} | k | {k'} | n | ł | l | k w | k y | x | x w | x y | y | ẅ | ' | "_" ;
-define CLetter b | d | dz | g | g̱ | {g'} | g w | g y | "_" ;
+define CLetter b | d | d z | g | g̱ | {g'} | g w | g y | "_" ;
 define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
-define Sibilant s | ch | {ts} | {ts'} ;
-define InitialCons b | ch | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
+define Sibilant s | c h | {ts} | {ts'} ;
+define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
 !-- voicing rule, vowel adjacency
-define VowelVoicing 	k -> g || _"^" Vowel ,,
-			p -> b || _"^" Vowel ,,
-			t -> d || _"^" Vowel ,,
-			x_ -> g_ || _"^" Vowel ;
+define VowelVoicing	k -> g || _"^" Vowel ,,
+					p -> b || _"^" Vowel ,,
+					t -> d || _"^" Vowel ,,
+					x_ -> g_ || _"^" Vowel ;
 
 !-- voicing rule, nasal adjacency
 define NasalVoicing	k -> g || _"^" [ n | m ] ,,
-			p -> b || _"^" [ n | m ] ,,
-			t -> d || _"^" [ n | m ] ,,
-			x_ -> g_ || _"^" Vowel ;
+					p -> b || _"^" [ n | m ] ,,
+					t -> d || _"^" [ n | m ] ,,
+					x_ -> g_ || _"^" Vowel ;
 
 !-- glide insertion, rounded vowel concatenation
 define GlideInsertion	[..] -> y || Vowel _ "^" u ;
@@ -26,6 +26,23 @@ regex Lexicon ;
 	.o. NasalVoicing
 	.o. GlideInsertion
 	;
+
+define MessyWords ;
+
+!--delete stress marking
+define DeleteStress  "$" -> 0 ;
+
+!--delete predictable word-initial glottal stop before vowel
+define InitialGlottal   %' -> 0 || .#. _ Vowel ;
+
+!--delete morpheme boundaries from surface form
+define Cleanup  "^" | "=" | "~" -> 0 ;
+
+regex MessyWords
+    .o. DeleteStress
+    .o. InitialGlottal
+    .o. Cleanup
+;
 
 define CleanWords ;
 read regex CleanWords ;
