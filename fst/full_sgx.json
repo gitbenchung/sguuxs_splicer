@@ -8,17 +8,14 @@
         "number",
         "quantifier"
     ],
-    "ignore_categories": [
-    ],
+    "ignore_categories": [],
     "lexc_files": [
         "lexc/sgx_noun.txt",
-        "lexc/sgx_inflection.txt"
-	"lexc/sgx_modifier.txt"
-	"lexc/sgx_noclitic.txt"
-;
+        "lexc/sgx_inflection.txt",
+        "lexc/sgx_modifier.txt",
+        "lexc/sgx_noclitic.txt"
     ],
-    "ignore_lexc_files": [
-    ],
+    "ignore_lexc_files": [],
     "rules_files": [
         "sgx_rules.txt"
     ],
