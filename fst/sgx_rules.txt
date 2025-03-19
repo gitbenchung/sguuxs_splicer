@@ -5,6 +5,21 @@ define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
 define Sibilant s | c h | {ts} | {ts'} ;
 define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
+!-- voicing rule, vowel adjacency to Vowel
+define VowelVoicing k -> g || _ "^" Vowel ,,
+                    p -> b || _ "^" Vowel ,,
+                    t -> d || _ "^" Vowel ,,
+                    {x_} -> {g_} || _ "^" Vowel ;
+
+!-- voicing rule, nasal adjacency
+define NasalVoicing k -> g || _"^" [ n | m ] ,,
+                    p -> b || _"^" [ n | m ] ,,
+                    t -> d || _"^" [ n | m ] ,,
+                    {x_} -> {g_} || _"^" [ n | m ] ;
+
+!-- glide insertion, rounded vowel concatenation
+define GlideInsertion  [..] -> y || Vowel _ "^" u ;
+
 regex Lexicon ;
 
 define MessyWords ;
