@@ -9,7 +9,7 @@ def unique(orig: list) -> list:
     return new
 
 
-# Git text conversion functions
+# Sgx text conversion functions
 
 UNDERSCORE = "_"
 MACRON = "̱"
@@ -113,7 +113,7 @@ def csv_to_neutral(string: str) -> str:
 def neutral_to_corpus(string: str) -> str:
     """
     Returns a new string formatted using dataset-consistent orthography.
-    Git corpus uses combining low-line underline and "ga" convention.
+    Sgx corpus uses combining low-line underline and "ga" convention.
     """
     string = standardize_back(string, MACRON)
     string = standardize_palatal(string, use_kya=False)
