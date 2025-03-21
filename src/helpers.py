@@ -21,7 +21,7 @@ def join_words(string: str) -> str:
     """
     Given a multi-word input string containing spaces, returns
     that string as a single word with spaces removed and hyphens or
-    apostrophes inserted according to Gitksan orthographic rules.
+    apostrophes inserted according to Sgüüx̱s orthographic rules.
     Use to compare multi-word dict entries with text tokenized on space.
     Returns a new string.
     """
@@ -74,7 +74,7 @@ def standardize_back(string: str, underline: str = UNDERSCORE) -> str:
 def standardize_palatal(string: str, use_kya: bool = False) -> str:
     """
     Input a string, returns a new string that standardizes the format
-    of palatal stops in the Gitksan orthography.
+    of palatal stops in the Sgüüx̱s orthography.
         use_kya (True): gya and ky'a
         use_kya (False): ga and k'a
     Regardless of choice, gye/gyi converted to ge/gi.
