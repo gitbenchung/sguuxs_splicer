@@ -24,18 +24,7 @@ LEXICON Root
 
 LEXICON Preposition
 P: ał 	Word;
-P: łaxi	Word;
-P: lax_'oi	Word;
 P: ts'm	Word;
-g_$o'o+P:g_$o'o	# ;
-g_$o'o+P:g_$o'o	SeriesII ;
-g_$oo+P:g_$oo	# ;
-g_$oo+P:g_$oo	SeriesII ;
-g_$a'a+P:g_$a'a	# ;
-g_$a'a+P:g_$a'a	SeriesII ;
-'$a+P:'$a 			# ;
-'$a+P:'$a 			AgreeingNClitic ;
-'$a+P-OBL:'$a^l$oo		AgreeingNClitic ;
 
 LEXICON Pronoun
 1SG.III+PRO:'nii'y 	Word ;

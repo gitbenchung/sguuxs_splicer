@@ -12,13 +12,20 @@ define VowelVoicing k -> g || _ "^" Vowel ,,
                     {x_} -> {g_} || _ "^" Vowel ;
 
 !-- voicing rule, nasal adjacency
-define NasalVoicing k -> g || _"^" [ n | m ] ,,
-                    p -> b || _"^" [ n | m ] ,,
-                    t -> d || _"^" [ n | m ] ,,
-                    {x_} -> {g_} || _"^" [ n | m ] ;
+define NasalVoicing k -> g || _"^" [n|m] ,,
+                    p -> b || _"^" [n|m] ,,
+                    t -> d || _"^" [n|m] ,,
+                    {x_} -> {g_} || _"^" [n|m] ;
 
 !-- glide insertion, rounded vowel concatenation
-define GlideInsertion  [..] -> y || Vowel _ "^" u ;
+define GlideInsertion  [..] -> y || Vowel "^" _ u ;
+
+!--when Series II -sm follows a sibilant affricate/fricative, insert a Vowel
+define SimHiatus [..] -> i || Sibilant _ {sm} ;
+
+!--delete a connective clitic following an identical phoneme
+define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
+                        ł -> 0 || ł "^" _ ;
 
 regex Lexicon ;
 
