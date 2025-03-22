@@ -72,10 +72,8 @@ Once the splicer is running in the Docker container, use this command:
 
 This command takes the fst (finite-state transducer aka the transformational code to take our language and get a result) and tells the tool that ther *src* or 'source' for the Parser is the source, full_sgx.json. (`FULL_SGX` is a shortcut to get to that JSON file.) This JSON file is the keystone piece that connects our alternation rules, dictionary, and paradigms together to run.
 
-As of 2025-03-06, be sure to specify the configuration. Do not input:
-> `fst =  src.Parser()` # this command will load the most complete fst file
-
-This method is not recommended as there are two jsons in the package: the *full_sgx.json* and the *full_dialectal.json*. The latter json is the mother file of the Sgüüx̣s one and is configured for Gitxsan. In this development stage, this other json is kept for reference. As it is more complete than the Sgüüx̣s one, it may run automatically if the command is unspecified. In later stages, the command will be runnable without specification once the Sgüüx̣s json is fuller and the Gitxsan one is removed.
+As of 2025-03-06, you do not need to specify the configuration. You can input:
+> `fst =  src.Parser()` # this command will load the preset Sgüüx̱s Parser code.
 
 ## Run the Tool
 
@@ -84,12 +82,12 @@ This method is not recommended as there are two jsons in the package: the *full_
 ### Command: Analyze (aka What is this?) or Generate (aka Make this!)
 
 When you `analyze`, the tool will take the input and derive a morphological gloss from the lexical and inflectional units stored in the dictionary and lexc files.
-> Input: fst.analyze("waap")\
-> Output: ['waap+N']
+> Input: fst.analyze("waa")\
+> Output: ['waa+N']
 
 When you `generate`, the tool will take the input and derive a surface from from the lexical and inflectional units you provide.
-> Input: fst.generate("waap+2PL.II")\
-> Output: ['na waapsm']
+> Input: fst.generate("w$aa+N-2PL.II")\
+> Output: ['waasm']
 
 **Note: You have to add the Parts of Speech (POS) and inflectional units in the way the tool understands them for Output to render:**
 > +2PL.II = 2nd Person Plural, Series II Suffixes\
@@ -98,11 +96,68 @@ When you `generate`, the tool will take the input and derive a surface from from
 ### Command: Lemmatize (aka What is base word?)
 
 When you `lemmatize`, the tool will try to identify the possible stem forms from the input. The splicer will work backwards following the rules to break down a surface form to match it with something in the dictionary.
-> Input: fst.lemmatize("na waalbm")\
-> Output: ['waap+N']
+> Input: fst.lemmatize("waasm")\
+> Output: ['waa+N']
+
+# If Something Goes Wrong
+
+Don't panic.
+If you are using Docker, it is recommended to open a Bash to inspect errors or crashes in this terminal. After running:
+> `docker build -t sguuxs_splicer .`
+
+Next, run: 
+> `docker run -it --rm sguuxs_splicer bash`
+
+*docker run -it --rm sguuxs_splicer bash* means 'with Docker, run an -i(nteractive)t(erminal) --rm (delete it once it is closed) from sguuxs_splicer in a **B**ourne-**A**gain **SH**ell'.
+
+A **bash** is allows you to monitor the coding processes in a log in the shell as they run. For example, troubleshooting is much easier if you can spot where code is crashing to debug later.
+
+Once the bash is running, you will see a new prompt appear that looks like: *root@dd970a672a10:/app#*
+
+Run python, import src, and then load the Parser in this order as the tool is built:
+> `python`\
+> `import src`\
+> `fst=src.Parser()`
+
+Then, use the *exit()* command to return to the *:/app#* stage, unless you want to play around with the Parser still.
+
+Once it is loaded and saved, by exiting, you can inspect the lexc files and foma file for errors.
+
+### Check the lexc files
+After following the steps above, to inspect the lexc files that structure your paradigms input:
+> `cat fst/foma/sgx_full.txt`
+
+*cat fst/foma/sgx_full.txt* will cat (or concatenate), in this context *read*, the specified lexc (text) file and print it for you to review.
+
+You will be able to read all your Lexicon entries and paradigms as compiled by the JSON. If parts of the Lexicon or paradigms are missing or mislabeled, it may mean that they are uninterpretably coded or that the JSON is misconfigured.
+
+To inspect the alternation rules, input:
+> `cat fst/foma/sgx_full.foma`
+
+*cat fst/foma/sgx_full.foma* will cat (or concatenate), in this context *read*, the foma file and print it for you to review.
+
+You will be able to see how your rules are structured and if the syntax is written as expected/correctly.
+
+### Check foma file
+
+Open foma:
+> `foma`
+
+You should be greeted with a new prompt that reads:
+> `foma[0]:`
+
+In this line, enter:
+> `source fst/foma/sgx_full.foma`
+
+*source fst/foma/sgx_full.foma* will use the source of the foma file and build and run your defined states, arcs, and paths, establishing the formalism that the Lexicon runs through.
+
+If there are errors (e.g., cannot build the Lexicon from the lexc files, unreadable characters, misconfigured rules etc.), foma will abort at the stage it encounters the first crash. By tracing back one's steps, it is possible to diagnose and debug from the crash site.
+
+A successful run should end with an final Output line like:
+> `Writing to file /app/fst/foma/sgx_full.fomabin.`
 
 # Version
 
 This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
 
-Last update: 2025-03-06
+Last update: 2025-03-22
