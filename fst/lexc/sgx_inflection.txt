@@ -1,5 +1,6 @@
 Multichar_Symbols
--1SG.II
+-1SG.AltI.II
+-1SG.AltII.II
 -1PL.II
 -2SG.II
 -2PL.II
@@ -13,8 +14,8 @@ Multichar_Symbols
 
 
 LEXICON SeriesII
--1SG.VI.II:^i	Word ;
--1SG.VII.II:^u	Word ;
+-1SG.AltI.II:^i	Word ;
+-1SG.AltII.II:^u	Word ;
 -1PL.II:^m	Word ;
 -2SG.II:^n		Word ;
 -2PL.II:^sm	Word ;
