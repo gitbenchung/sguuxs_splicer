@@ -2,7 +2,7 @@ import unittest
 from src.parser import Parser, ParserError
 from src.ilg_helpers import STEM_PAT
 import unittest
-from test import TestFSTOutput, BASIC_E, BASIC_EW, FULL_E
+from test import TestFSTOutput, FULL_SGX
 
 """
 This suite builds a parser object end-to-end from input files 
@@ -26,7 +26,7 @@ class TestParser(TestFSTOutput):
             'Preverb': ["'nii"], 
             'Modifier': ["sim"]
         }
-        super().setUpClass(BASIC_E, test_stems)
+        super().setUpClass(FULL_SGX, test_stems)
 
     # tests for analyze function
     def test_analyzeSuccess(self):
@@ -225,7 +225,7 @@ class TestParserVariant(TestFSTOutput):
             'IntransitiveVerb': ["w$an"],
             'Preverb': ["'nii"],
         }
-        super().setUpClass(BASIC_EW, test_stems)
+        super().setUpClass(FULL_SGX, test_stems)
 
     # test lemmatize function with dialect variation
     def test_lemmatizeVariantsStandard(self):
@@ -266,7 +266,7 @@ class TestParserFunctional(TestFSTOutput):
                 "w$an",
             ]
         }
-        super().setUpClass(FULL_E, test_stems)
+        super().setUpClass(FULL_SGX, test_stems)
 
     # test lemmatize function for functional lemmas
     def test_lemmatizeFunctionalFromDict(self):

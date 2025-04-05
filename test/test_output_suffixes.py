@@ -2,7 +2,7 @@ import unittest
 from test import TestFSTOutput, BASIC_E
 
 """
-This suite checks that Gitksan stems appear in the correct form
+This suite checks that Sgüüxs stems appear in the correct form
 when inflectional suffixes are attached to them. Alternates based on
 final consonant and some other specific properties.
 These tests use the actual FST (v1) as a dependency.
@@ -24,7 +24,7 @@ class TestPlainStops(TestFSTOutput):
                 "ay$ook_",
             ]
         }
-        super().setUpClass(BASIC_E, test_stems)
+        super().setUpClass(FULL_SGX, test_stems)
 
     def test_plainP(self):
         stem = 's$ip+N'

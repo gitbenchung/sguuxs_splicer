@@ -14,7 +14,7 @@ class TestNounPaths(TestFSTOutput):
         test_stems = {
             'Noun': ['gwil$a']
         }
-        super().setUpClass(BASIC_E, test_stems)
+        super().setUpClass(FULL_SGX, test_stems)
         cls.uppers = [pair[0] for pair in cls.fst.pairs()]
 
     def test_uniquePairs(self):
