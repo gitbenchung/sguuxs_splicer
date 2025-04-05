@@ -156,8 +156,44 @@ If there are errors (e.g., cannot build the Lexicon from the lexc files, unreada
 A successful run should end with an final Output line like:
 > `Writing to file /app/fst/foma/sgx_full.fomabin.`
 
+## Current Lexicon Available
+
+As of the last version update, I recommend testing with the following nominal lexicon with the *possessive Series II suffixes*:
+|Sgüüx̱s      |Stressed Forms ($) |Surface Form | English  |
+|------------|:-----------------:|:----------:|:----------:|
+|nts'i'its|nts'$i'its |	nts'i'its | grandmother |
+|nts'iidz|  nts'$iidz| nts'iidz| grandmother | 
+|niya'ay|	n$iya'ay | niya'ay|	grandfather | 
+|noo| n$oo|noo| mom |
+|noho| n$oho| noho| mom |
+|nigwaat|	n$igwaat|	nigwaat| father | 
+|łmkdii|	łmkd$ii| łmkdii sibling (either gender) |
+|hana'ax_|h$ana'ax_ | hana'ax̱ | woman  
+|'yaxwt| 'y$axwt|	'yaxwt| man |
+|łgutx_a'oo|	łg$utx_a'oo| łgutx̱a'oo | cousin |
+|naks|	naks|	n$aks | spouse | 
+|kap|	kap|	k$ap | cup |
+|daala|	d$aala| daala | dollar; money |
+|waa|	w$aa| waa|	name | 
+|waalp| w$aalp | waalp|	house | 
+|waap| w$aap | waap| house | 
+
+**Why the dollar ($) sign and underscore (_) next to letter?**
+foma uses this $ symbol to mark stress; it precedes the character that should have the initial stress. foma also needs to read input to generate grammatical Output in a way it understands. The underscore is needed for some orthographs (special characters). foma reads the underscore better in this order: x_ [x̱].
+
+When foma lemmatizes and analyzes Input, it also uses these symbols and rewrites the language with underscores to the right side of their letters. However, it cleans up the Output before it delivers it to you in these cases. It also will clean up the word(s) when it generates for you; however, you need to help it in the first step by providing it readable Input.
+
+For use of the ***fst.generate()*** feature, you will need to mark stress on the word and put underscores to the right side of their letters:
+
+> Input: fst.generate("łg$utx_a'oo+N-2PL.II")\
+> Output: ['łgutx̱a'oosm']
+
+For ***fst.lemmatize*** & ***fst.analyze***, you can input the word without symbols and the characters *with* the underscores beneath them as written in the language. 
+
+Additional lexicon and more complex inflection to be added once test files are updated to reflect Sgüüx̱s vocabulary and rules. Current configuration is being transitioned from Gitksan.
+
 # Version
 
 This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
 
-Last update: 2025-03-22
+Last update: 2025-04-05
