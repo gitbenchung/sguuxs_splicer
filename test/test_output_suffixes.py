@@ -1,5 +1,5 @@
 import unittest
-from test import TestFSTOutput, BASIC_E
+from test import TestFSTOutput, FULL_SGX
 
 """
 This suite checks that Sgüüxs stems appear in the correct form
@@ -14,11 +14,11 @@ class TestPlainStops(TestFSTOutput):
     def setUpClass(cls):
         test_stems = {
             'Noun': [
-                "s$ip",
-                "g_$oot",
-                "kw'$ats", # TEST, find a real N
-                "t'$ak", # TEST, find a real N
-                "l$akw",
+                "ch$ayp",
+                "g$oot",
+                "ntsi$'its", 
+                "b$a_xbog_mgyemk",
+                "wa_t'ukw",
                 "'$eek_",
                 "j$ok_",
                 "ay$ook_",
@@ -27,18 +27,19 @@ class TestPlainStops(TestFSTOutput):
         super().setUpClass(FULL_SGX, test_stems)
 
     def test_plainP(self):
-        stem = 's$ip+N'
+        stem = 'ch$ayp+N'
         expected_map = [
-            ('-1SG.II',    ["sibi'y"]),
-            ('-1PL.II',    ["sibi'm"]),
-            ('-2SG.II',    ["sibin"]),
-            ('-2PL.II',    ["sipsi'm"]),
-            ('-3.II',      ["sipt"]),
-            ('-3PL.II',    ["sipdiit"]),
-            ('[-3.II]=CN',   ["siphl"]),
-            ('[-3.II]=PN',   ["sips"]),
-            ('-SX',     ["sibit"]),
-            ('-ATTR',   ["sibim", "siba"]),
+            ('-1SG.II.IRR',    ["chaybi"]),
+            ('-1SG.II',    ["chaybu"]),
+            ('-1PL.II',    ["chaybm"]),
+            ('-2SG.II',    ["chaybn"]),
+            ('-2PL.II',    ["chaypsm"]),
+            ('-3.II',      ["chaypt"]),
+            ('[-3.II]=CN.IRR',   ["chaypł"]),
+            ('[-3.II]=CN',   ["chaybi"]),
+            ('[-3.II]=PN',   ["chayps"]),
+            ('-SX',     ["chaybit"]),
+            ('-ATTR',   ["chaybm", "chayba"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
@@ -50,18 +51,19 @@ class TestPlainStops(TestFSTOutput):
                                             len(expected_forms)))
 
     def test_plainT(self):
-        stem = 'g_$oot+N'
+        stem = 'g$oot+N'
         expected_map = [
-            ('-1SG.II',    ["g̲oodi'y"]),
-            ('-1PL.II',    ["g̲oodi'm"]),
-            ('-2SG.II',    ["g̲oodin"]),
-            ('-2PL.II',    ["g̲ootsi'm"]),
-            ('-3.II',      ["g̲oott"]),
-            ('-3PL.II',    ["g̲ootdiit"]),
-            ('[-3.II]=CN',   ["g̲oothl"]),
-            ('[-3.II]=PN',   ["g̲oots"]),
+            ('-1SG.II.IRR',    ["goodi"]),
+            ('-1SG.II',    ["goodu"]),
+            ('-1PL.II',    ["goodm"]),
+            ('-2SG.II',    ["goodn"]),
+            ('-2PL.II',    ["gootsm"]),
+            ('-3.II',      ["goott"]),
+            ('[-3.II]=CN.IRR',   ["gootł"]),
+            ('[-3.II]=CN',   ["goodi"]),
+            ('[-3.II]=PN',   ["goots"]),
             ('-SX',     ["g̲oodit"]),
-            ('-ATTR',   ["g̲oodim", "g̲ooda"]),
+            ('-ATTR',   ["goodm", "gooda"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
@@ -73,18 +75,19 @@ class TestPlainStops(TestFSTOutput):
                                             len(expected_forms)))
 
     def test_plainTS(self):
-        stem = "kw'$ats+N"
+        stem = "ntsi$'its+N"
         expected_map = [
-            ('-1SG.II',    ["kw'aji'y"]),
-            ('-1PL.II',    ["kw'aji'm"]),
-            ('-2SG.II',    ["kw'ajin"]),
-            ('-2PL.II',    ["kw'ajisi'm"]),
-            ('-3.II',      ["kw'atst"]),
-            ('-3PL.II',    ["kw'atsdiit"]),
-            ('[-3.II]=CN',   ["kw'atshl"]),
-            ('[-3.II]=PN',   ["kw'ats"]),
-            ('-SX',     ["kw'ajit"]),
-            ('-ATTR',   ["kw'ajim", "kw'aja"]),
+            ('-1SG.II.IRR',    ["ntsi'itsi"]),
+            ('-1SG.II',    ["ntsi'itsu"]),
+            ('-1PL.II',    ["ntsi'itsm"]),
+            ('-2SG.II',    ["ntsi'itsn"]),
+            ('-2PL.II',    ["ntsi'itsism"]),
+            ('-3.II',      ["ntsi'itst"]),
+            ('[-3.II]=CN.IRR',   ["ntsi'itsł"]),
+            ('[-3.II]=CN',   ["ntsi'itsi"]),
+            ('[-3.II]=PN',   ["ntsi'itsts"]),
+            ('-SX',     ["ntsi'itsit"]),
+            ('-ATTR',   ["ntsi'itsm", "ntsi'itsa"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
@@ -96,18 +99,19 @@ class TestPlainStops(TestFSTOutput):
                                             len(expected_forms)))
 
     def test_plainK(self):
-        stem = "t'$ak+N"
+        stem = "b$a_xbog_mgyemk+N"
         expected_map = [
-            ('-1SG.II',    ["t'agi'y"]),
-            ('-1PL.II',    ["t'agi'm"]),
-            ('-2SG.II',    ["t'agin"]),
-            ('-2PL.II',    ["t'aksi'm"]),
-            ('-3.II',      ["t'akt"]),
-            ('-3PL.II',    ["t'akdiit"]),
-            ('[-3.II]=CN',   ["t'akhl"]),
-            ('[-3.II]=PN',   ["t'aks"]),
-            ('-SX',     ["t'agit"]),
-            ('-ATTR',   ["t'agim", "t'aga"]),
+            ('-1SG.II,IRR',    ["ba̱xbog̱mgyemgi"]),
+            ('-1SG.II',    ["ba̱xbog̱mgyemgu"]),
+            ('-1PL.II',    ["ba̱xbog̱mgyemgm"]),
+            ('-2SG.II',    ["ba̱xbog̱mgyemgn"]),
+            ('-2PL.II',    ["ba̱xbog̱mgyemgm"]),
+            ('-3.II',      ["ba̱xbog̱mgyemkt"]),
+            ('[-3.II]=CN.IRR',   ["ba̱xbog̱mgyemkł"]),
+            ('[-3.II]=CN',   ["ba̱xbog̱mgyemgi"]),
+            ('[-3.II]=PN',   ["ba̱xbog̱mgyemks"]),
+            ('-SX',     ["ba̱xbog̱mgyemgit"]),
+            ('-ATTR',   ["ba̱xbog̱mgyemgm", "ba̱xbog̱mgyemga"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
@@ -119,18 +123,19 @@ class TestPlainStops(TestFSTOutput):
                                             len(expected_forms)))
 
     def test_plainKW(self):
-        stem = 'l$akw+N'
+        stem = "wa_t'ukw+N"
         expected_map = [
-            ('-1SG.II',    ["lagwi'y"]),
-            ('-1PL.II',    ["lagwi'm", "lagu'm"]),
-            ('-2SG.II',    ["lagwin"]),
-            ('-2PL.II',    ["lakwsi'm"]),
-            ('-3.II',      ["lakwt"]),
-            ('-3PL.II',    ["lakwdiit"]),
-            ('[-3.II]=CN',   ["lakwhl"]),
-            ('[-3.II]=PN',   ["lakws"]),
-            ('-SX',     ["lagwit"]),
-            ('-ATTR',   ["lagwim", "lagum", "lagwa"]),
+            ('-1SG.II,IRR',    ["wa̱t'ugwi"]),
+            ('-1SG.II',    ["wa̱t'ugwu"]),
+            ('-1PL.II',    ["wa̱t'ugwm"]),
+            ('-2SG.II',    ["wa̱t'ugwn"]),
+            ('-2PL.II',    ["wa̱t'ukwsm"]),
+            ('-3.II',      ["wa̱t'ukwt"]),
+            ('[-3.II]=CN.IRR',   ["wa̱t'ukwł"]),            
+            ('[-3.II]=CN',   ["wa̱t'ugwi"]),
+            ('[-3.II]=PN',   ["wa̱t'ukws"]),
+            ('-SX',     ["wa̱t'ugwit"]),
+            ('-ATTR',   ["wa̱t'ugwm", "wa̱t'ugwa"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
