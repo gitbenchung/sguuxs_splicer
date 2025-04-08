@@ -167,7 +167,7 @@ As of the last version update, I recommend testing with the following nominal le
 |noo| n$oo|noo| mom |
 |noho| n$oho| noho| mom |
 |nigwaat|	n$igwaat|	nigwaat| father | 
-|łmkdii|	łmkd$ii| łmkdii sibling (either gender) |
+|łmkdii|	łmkd$ii| łmkdii | sibling (either gender) |
 |hana'ax_|h$ana'ax_ | hana'ax̱ | woman  
 |'yaxwt| 'y$axwt|	'yaxwt| man |
 |łgutx_a'oo|	łg$utx_a'oo| łgutx̱a'oo | cousin |
