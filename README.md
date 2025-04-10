@@ -196,4 +196,4 @@ Additional lexicon and more complex inflection to be added once test files are u
 
 This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
 
-Last update: 2025-04-05
+Last update: 2025-04-10
