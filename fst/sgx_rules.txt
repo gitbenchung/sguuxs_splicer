@@ -5,6 +5,11 @@ define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
 define Sibilant s | c h | {ts} | {ts'} ;
 define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
+!--epenthesis, stop cluster mkt > mkit
+define StopClusterEp    [..] -> i || [ p | b ] "^" _ t ,,
+                        [..] -> i || [ k | g ] "^" _ t ,,
+                        [..] -> i || [ t | d ] "^" _ t ;
+
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
                     p -> b || _ "^" Vowel ,,
@@ -31,6 +36,7 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
+    .o. StopClusterEp
     .o. VowelVoicing
     .o. NasalVoicing
     .o. GlideInsertion
