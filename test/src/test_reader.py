@@ -8,12 +8,13 @@ This suite tests the behavior of the interface class that loads foma
 and reads its output. Dependency is a sample foma/bin file.
 """
 
+
 class TestBuilder(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.path = FIX_DIR + '/test.foma'
-        cls.binpath = FIX_DIR + '/test.fomabin'
+        cls.path = FIX_DIR + "/test.foma"
+        cls.binpath = FIX_DIR + "/test.fomabin"
         cls.reader = FomaReader(cls.path, cls.binpath)
 
     def test_loads(self):
@@ -24,26 +25,26 @@ class TestBuilder(unittest.TestCase):
 
     def test_no_foma(self):
         with self.assertRaises(FileNotFoundError):
-            FomaReader('lalala.foma')
+            FomaReader("lalala.foma")
 
     def test_query(self):
-        self.assertEqual(self.reader.query('upper-words'), 'cog')
-        self.assertEqual(self.reader.query('lower-words'), 'dog')
+        self.assertEqual(self.reader.query("upper-words"), "cog")
+        self.assertEqual(self.reader.query("lower-words"), "dog")
 
     def test_lookup(self):
-        result = self.reader.lookup('dog')
-        self.assertEqual(result, ['cog'])
+        result = self.reader.lookup("dog")
+        self.assertEqual(result, ["cog"])
 
     def test_lookup_no_bin(self):
         reader = FomaReader(self.path)
-        result = reader.lookup('dog')
-        self.assertEqual(result, ['cog'])
+        result = reader.lookup("dog")
+        self.assertEqual(result, ["cog"])
 
     def test_inverse_lookup(self):
-        result = self.reader.lookup('cog', inverse=True)
-        self.assertEqual(result, ['dog'])
+        result = self.reader.lookup("cog", inverse=True)
+        self.assertEqual(result, ["dog"])
 
     def test_inverse_lookup_no_bin(self):
         reader = FomaReader(self.path)
-        result = reader.lookup('cog', inverse=True)
-        self.assertEqual(result, ['dog'])
+        result = reader.lookup("cog", inverse=True)
+        self.assertEqual(result, ["dog"])

@@ -18,7 +18,7 @@ class TestAuxiliaryPaths(TestFSTOutput):
             'Auxiliary': ['y$ukw'],
         }
         cls.stem = 'y$ukw+AUX'
-        super().setUpClass(FULL_E, test_stems)
+        super().setUpClass(FULL_SGX), test_stems)
 
     def test_bare(self):
         path = self.stem
