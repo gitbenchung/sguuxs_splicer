@@ -19,7 +19,7 @@ class TestPlainStops(TestFSTOutput):
                 "ntsi$'its", 
                 "b$a_xbog_mgyemk",
                 "wa_t'ukw",
-                "'$eek_",
+                "h$ana_'a_x_",
                 "j$ok_",
                 "ay$ook_",
             ]
@@ -58,7 +58,7 @@ class TestPlainStops(TestFSTOutput):
             ('-1PL.II',    ["goodm"]),
             ('-2SG.II',    ["goodn"]),
             ('-2PL.II',    ["gootsm"]),
-            ('-3.II',      ["goott"]),
+            ('-3.II',      ["goot"]),
             ('[-3.II]=CN.IRR',   ["gootł"]),
             ('[-3.II]=CN',   ["goodi"]),
             ('[-3.II]=PN',   ["goots"]),
@@ -146,19 +146,28 @@ class TestPlainStops(TestFSTOutput):
                 "{} should have {} results".format(stem+gloss, 
                                             len(expected_forms)))
 
-    def test_plainK_(self):
-        stem = "'$eek_+N"
+    def test_plainX_(self):
+<<<<<<< Updated upstream
+        stem = "h$ana_'a_x_+N"
+=======
+        stem = "h$ana'ax_"
+>>>>>>> Stashed changes
         expected_map = [
-            ('-1SG.II',    ["eeg̲a'y"]),
-            ('-1PL.II',    ["eeg̲a'm"]),
-            ('-2SG.II',    ["eeg̲an"]),
-            ('-2PL.II',    ["eek̲si'm"]),
-            ('-3.II',      ["eek̲t"]),
-            ('-3PL.II',    ["eek̲diit"]),
-            ('[-3.II]=CN',   ["eek̲hl"]),
-            ('[-3.II]=PN',   ["eek̲s"]),
-            ('-SX',     ["eeg̲at"]),
-            ('-ATTR',   ["eeg̲am", "eeg̲a"]),
+            ('-1SG.II,IRR',    ["hana̱'a̱g̱i"]),
+            ('-1SG.II',    ["hana̱'a̱g̱u"]),
+            ('-1PL.II',    ["hana̱'a̱g̱m"]),
+            ('-2SG.II',    ["hana̱'a̱g̱n"]),
+            ('-2PL.II',    ["hana̱'a̱x̱sm"]),
+            ('-3.II',      ["hana̱'a̱x̱t"]),
+            ('[-3.II]=CN',   ["hana̱'a̱x̱ł"]),
+            ('[-3.II]=PN',   ["hana̱'a̱x̱s"]),
+<<<<<<< Updated upstream
+            ('-SX',     ["hana̱'a̱g̲it"]),
+            ('-ATTR',   ["hana̱'a̱g̲m", "hana̱'a̱g̲a"]),
+=======
+            ('-SX',     ["hana̱'a̱g̱it"]),
+            ('-ATTR',   ["hana̱'a̱g̱m", "hana̱'a̱g̱a"]),
+>>>>>>> Stashed changes
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
