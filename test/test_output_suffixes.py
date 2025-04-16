@@ -58,7 +58,7 @@ class TestPlainStops(TestFSTOutput):
             ('-1PL.II',    ["goodm"]),
             ('-2SG.II',    ["goodn"]),
             ('-2PL.II',    ["gootsm"]),
-            ('-3.II',      ["goott"]),
+            ('-3.II',      ["goot"]),
             ('[-3.II]=CN.IRR',   ["gootł"]),
             ('[-3.II]=CN',   ["goodi"]),
             ('[-3.II]=PN',   ["goots"]),
@@ -147,7 +147,11 @@ class TestPlainStops(TestFSTOutput):
                                             len(expected_forms)))
 
     def test_plainX_(self):
+<<<<<<< Updated upstream
         stem = "h$ana_'a_x_+N"
+=======
+        stem = "h$ana'ax_"
+>>>>>>> Stashed changes
         expected_map = [
             ('-1SG.II,IRR',    ["hana̱'a̱g̱i"]),
             ('-1SG.II',    ["hana̱'a̱g̱u"]),
@@ -157,8 +161,13 @@ class TestPlainStops(TestFSTOutput):
             ('-3.II',      ["hana̱'a̱x̱t"]),
             ('[-3.II]=CN',   ["hana̱'a̱x̱ł"]),
             ('[-3.II]=PN',   ["hana̱'a̱x̱s"]),
+<<<<<<< Updated upstream
             ('-SX',     ["hana̱'a̱g̲it"]),
             ('-ATTR',   ["hana̱'a̱g̲m", "hana̱'a̱g̲a"]),
+=======
+            ('-SX',     ["hana̱'a̱g̱it"]),
+            ('-ATTR',   ["hana̱'a̱g̱m", "hana̱'a̱g̱a"]),
+>>>>>>> Stashed changes
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem+gloss)
