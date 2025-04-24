@@ -163,9 +163,13 @@ To run the suite of tests that check the FST's behavior, open a Bash terminal in
 
 > `docker run -it --rm sguuxs_splicer bash`
 
-From there, use this command to run all the tests in the `test/parser` folder:
+From there, use commands such as the following to run the tests you want:
 
-> `python -m unittest discover test.parser`
+```sh
+python -m unittest                            # run all tests
+python -m unittest test.parser.test_suffixes  # run one test file
+python -m unittest discover test.parser       # find & run all tests in test/parser folder
+```
 
 You will see a dot `.` for the successful tests, `F` for failed tests, and `s` for any tests that have been set up to "skip". The output will indicate which files and tests may have failed, and what exactly went wrong, so you can investigate further.
 
