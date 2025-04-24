@@ -14,7 +14,10 @@ class TestLexiconFromDict(unittest.TestCase):
 
     def setUp(self):
         self.config = {
-            "dictionary": {"Noun": ["apple", "cat"], "Intransitive verb": ["talk"]},
+            "dictionary": {
+                "Noun": ["apple", "cat"],
+                "Intransitive verb": ["talk"],
+            },
             "legal_categories": ["Noun", "Intransitive verb"],
         }
         self.lexicon = Lexicon(self.config)
@@ -70,7 +73,10 @@ class TestLexiconFromDict(unittest.TestCase):
     def test_lexc_string(self):
         actual = self.lexicon.as_lexc_str()
         # apple should be imported as 'apple
-        self.assertRegex(actual, "LEXICON RootNoun\n'apple \tNoun ;\ncat \tNoun ;")
+        self.assertRegex(
+            actual,
+            r"LEXICON RootNoun\n'apple \tNoun ;\ncat \tNoun ;",
+        )
 
 
 class TestLexiconFromCSV(unittest.TestCase):
@@ -90,8 +96,11 @@ class TestLexiconFromCSV(unittest.TestCase):
         self.assertEqual(len(self.lexicon.categories), 2)
 
     def test_imports_entries(self):
-        self.assertIn("w$aap", self.lexicon.dict["Noun"])
         self.assertIn("xy$aa", self.lexicon.dict["IntransitiveVerb"])
+
+    def test_imports_variants(self):
+        self.assertIn("w$aap", self.lexicon.dict["Noun"])
+        self.assertIn("w$aalp", self.lexicon.dict["Noun"])
 
     def test_doesnt_import_extra_category(self):
         self.assertNotEqual(len(self.lexicon.illegal_categories), 0)
