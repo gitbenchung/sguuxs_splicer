@@ -1,8 +1,9 @@
-from src import Parser
 import shutil
 import json
 import unittest
 import os
+
+from src import Parser, FULL_SGX
 
 
 FIX_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "fixtures"))
