@@ -22,8 +22,8 @@ class TestPlainStops(TestFSTOutput):
                 "b$a_xbog_mgyemk",
                 "wa_t'ukw",
                 "h$ana_'a_x_",
-                "j$ok_",
-                "ay$ook_",
+                # "j$ok_",
+                # "ay$ook_",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -107,19 +107,19 @@ class TestPlainStops(TestFSTOutput):
             )
 
     def test_plainK(self):
-        stem = "b$a_xbog_mgyemk+N"
+        stem = "b$a_x_bog_mgyemk+N"
         expected_map = [
-            ("-1SG.II,IRR", ["ba̱xbog̱mgyemgi"]),
-            ("-1SG.II", ["ba̱xbog̱mgyemgu"]),
-            ("-1PL.II", ["ba̱xbog̱mgyemgm"]),
-            ("-2SG.II", ["ba̱xbog̱mgyemgn"]),
-            ("-2PL.II", ["ba̱xbog̱mgyemgm"]),
-            ("-3.II", ["ba̱xbog̱mgyemkt"]),
-            ("[-3.II]=CN.IRR", ["ba̱xbog̱mgyemkł"]),
-            ("[-3.II]=CN", ["ba̱xbog̱mgyemgi"]),
-            ("[-3.II]=PN", ["ba̱xbog̱mgyemks"]),
-            ("-SX", ["ba̱xbog̱mgyemgit"]),
-            ("-ATTR", ["ba̱xbog̱mgyemgm", "ba̱xbog̱mgyemga"]),
+            ("-1SG.II.IRR", ["ba̱x̱bog̱mgyemgi"]),
+            ("-1SG.II", ["ba̱x̱bog̱mgyemgu"]),
+            ("-1PL.II", ["ba̱x̱bog̱mgyemgm"]),
+            ("-2SG.II", ["ba̱x̱bog̱mgyemgn"]),
+            ("-2PL.II", ["ba̱x̱bog̱mgyemgm"]),
+            ("-3.II", ["ba̱x̱bog̱mgyemkt"]),
+            ("[-3.II]=CN.IRR", ["ba̱x̱bog̱mgyemkł"]),
+            ("[-3.II]=CN", ["ba̱x̱bog̱mgyemgi"]),
+            ("[-3.II]=PN", ["ba̱x̱bog̱mgyemks"]),
+            ("-SX", ["ba̱x̱bog̱mgyemgit"]),
+            ("-ATTR", ["ba̱x̱bog̱mgyemgm", "ba̱x̱bog̱mgyemga"]),
         ]
         for gloss, expected_forms in expected_map:
             result_list = self.fst.generate(stem + gloss)
@@ -135,14 +135,14 @@ class TestPlainStops(TestFSTOutput):
     def test_plainKW(self):
         stem = "wa_t'ukw+N"
         expected_map = [
-            ("-1SG.II,IRR", ["wa̱t'ugwi"]),
+            ("-1SG.II.IRR", ["wa̱t'ugwi"]),
             ("-1SG.II", ["wa̱t'ugwu"]),
             ("-1PL.II", ["wa̱t'ugwm"]),
             ("-2SG.II", ["wa̱t'ugwn"]),
             ("-2PL.II", ["wa̱t'ukwsm"]),
             ("-3.II", ["wa̱t'ukwt"]),
-            ("[-3.II]=CN.IRR", ["wa̱t'ukwł"]),
             ("[-3.II]=CN", ["wa̱t'ugwi"]),
+            ("[-3.II]=CN.IRR", ["wa̱t'ukwł"]),
             ("[-3.II]=PN", ["wa̱t'ukws"]),
             ("-SX", ["wa̱t'ugwit"]),
             ("-ATTR", ["wa̱t'ugwm", "wa̱t'ugwa"]),
@@ -161,13 +161,14 @@ class TestPlainStops(TestFSTOutput):
     def test_plainX_(self):
         stem = "h$ana'ax_"
         expected_map = [
-            ("-1SG.II,IRR", ["hana̱'a̱g̱i"]),
+            ("-1SG.II.IRR", ["hana̱'a̱g̱ai"]),
             ("-1SG.II", ["hana̱'a̱g̱u"]),
             ("-1PL.II", ["hana̱'a̱g̱m"]),
             ("-2SG.II", ["hana̱'a̱g̱n"]),
             ("-2PL.II", ["hana̱'a̱x̱sm"]),
             ("-3.II", ["hana̱'a̱x̱t"]),
-            ("[-3.II]=CN", ["hana̱'a̱x̱ł"]),
+            ("[-3.II]=CN", ["hana̱'a̱g̱ai"]),
+            ("[-3.II]=CN.IRR", ["hana̱'a̱x̱ł"]),
             ("[-3.II]=PN", ["hana̱'a̱x̱s"]),
             ("-SX", ["hana̱'a̱g̱it"]),
             ("-ATTR", ["hana̱'a̱g̱m", "hana̱'a̱g̱a"]),
@@ -183,6 +184,7 @@ class TestPlainStops(TestFSTOutput):
                 f"{stem + gloss} should have {len(expected_forms)} results",
             )
 
+    @unittest.skip("pending conversion to sgx")
     def test_plainOK_(self):
         stem = "j$ok_+N"
         expected_map = [
@@ -208,6 +210,7 @@ class TestPlainStops(TestFSTOutput):
                 f"{stem + gloss} should have {len(expected_forms)} results",
             )
 
+    @unittest.skip("pending conversion to sgx")
     def test_plainOOK_(self):
         stem = "'ay$ook_+N"
         expected_map = [
