@@ -18,6 +18,14 @@ define VowelVoicing k -> g || _ "^" Vowel ,,
                     t -> d || _ "^" Vowel ,,
                     {x_} -> {g_} || _ "^" Vowel ;
 
+!-- VelarStop voicing rule, vowel adjacency
+define VelarVowelVoicing {kw} -> {gw} || _ "^" Vowel ,,
+                        {k_} -> {g_} || _ "^" Vowel ;
+
+!-- VelarStop voicing rule nasal adjacency
+define VelarNasalVoicing {kw} -> {gw} || _ "^" [ n | m ] ,,
+                        {k_} -> {g_} || _ "^" [ n | m ] ;
+
 !-- voicing rule, nasal adjacency
 define NasalVoicing k -> g || _ "^" [ n | m ] ,,
                     p -> b || _ "^" [ n | m ] ,,
@@ -41,6 +49,8 @@ regex Stems
     .o. StopClusterEp
     .o. DoubleDentalStop
     .o. VowelVoicing
+    .o. VelarVowelVoicing
+    .o. VelarNasalVoicing
     .o. NasalVoicing
     .o. GlideInsertion
     .o. SimHiatus

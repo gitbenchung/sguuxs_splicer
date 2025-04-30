@@ -14,7 +14,7 @@ Multichar_Symbols
 
 
 LEXICON SeriesII
--1SG.II.IRR:^i	Word ;
+-1SG.II:^i	Word ;
 -1SG.II:^u	Word ;
 -1PL.II:^m	Word ;
 -2SG.II:^n		Word ;
