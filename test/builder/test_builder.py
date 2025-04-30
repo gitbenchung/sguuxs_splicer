@@ -1,5 +1,6 @@
 import unittest
-import os, shutil
+import os
+import shutil
 
 from test import FIX_DIR
 from src.builder import FomaBuilder, BuilderError

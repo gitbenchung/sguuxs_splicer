@@ -105,7 +105,7 @@ Don't panic.
 If you are using Docker, it is recommended to open a Bash to inspect errors or crashes in this terminal. After running:
 > `docker build -t sguuxs_splicer .`
 
-Next, run: 
+Next, run:
 > `docker run -it --rm sguuxs_splicer bash`
 
 *docker run -it --rm sguuxs_splicer bash* means 'with Docker, run an -i(nteractive)t(erminal) --rm (delete it once it is closed) from sguuxs_splicer in a **B**ourne-**A**gain **SH**ell'.
@@ -124,6 +124,7 @@ Then, use the *exit()* command to return to the *:/app#* stage, unless you want 
 Once it is loaded and saved, by exiting, you can inspect the lexc files and foma file for errors.
 
 ### Check the lexc files
+
 After following the steps above, to inspect the lexc files that structure your paradigms input:
 > `cat fst/foma/sgx_full.txt`
 
@@ -156,27 +157,44 @@ If there are errors (e.g., cannot build the Lexicon from the lexc files, unreada
 A successful run should end with an final Output line like:
 > `Writing to file /app/fst/foma/sgx_full.fomabin.`
 
+## Run the tests
+
+To run the suite of tests that check the FST's behavior, open a Bash terminal in Docker:
+
+> `docker run -it --rm sguuxs_splicer bash`
+
+From there, use commands such as the following to run the tests you want:
+
+```sh
+python -m unittest                            # run all tests
+python -m unittest test.parser.test_suffixes  # run one test file
+python -m unittest discover test.parser       # find & run all tests in test/parser folder
+```
+
+You will see a dot `.` for the successful tests, `F` for failed tests, and `s` for any tests that have been set up to "skip". The output will indicate which files and tests may have failed, and what exactly went wrong, so you can investigate further.
+
 ## Current Lexicon Available
 
 As of the last version update, I recommend testing with the following nominal lexicon with the *possessive Series II suffixes*:
+
 |Sgüüx̱s      |Stressed Forms ($) |Surface Form | English  |
 |------------|:-----------------:|:----------:|:----------:|
-|nts'i'its|nts'$i'its |	nts'i'its | grandmother |
-|nts'iidz|  nts'$iidz| nts'iidz| grandmother | 
-|niya'ay|	n$iya'ay | niya'ay|	grandfather | 
+|nts'i'its|nts'$i'its | nts'i'its | grandmother |
+|nts'iidz|  nts'$iidz| nts'iidz| grandmother |
+|niya'ay| n$iya'ay | niya'ay| grandfather |
 |noo| n$oo|noo| mom |
 |noho| n$oho| noho| mom |
-|nigwaat|	n$igwaat|	nigwaat| father | 
-|łmkdii|	łmkd$ii| łmkdii | sibling (either gender) |
+|nigwaat| n$igwaat| nigwaat| father |
+|łmkdii| łmkd$ii| łmkdii | sibling (either gender) |
 |hana'ax_|h$ana'ax_ | hana'ax̱ | woman  
-|'yaxwt| 'y$axwt|	'yaxwt| man |
-|łgutx_a'oo|	łg$utx_a'oo| łgutx̱a'oo | cousin |
-|naks|	naks|	n$aks | spouse | 
-|kap|	kap|	k$ap | cup |
-|daala|	d$aala| daala | dollar; money |
-|waa|	w$aa| waa|	name | 
-|waalp| w$aalp | waalp|	house | 
-|waap| w$aap | waap| house | 
+|'yaxwt| 'y$axwt| 'yaxwt| man |
+|łgutx_a'oo| łg$utx_a'oo| łgutx̱a'oo | cousin |
+|naks| naks| n$aks | spouse |
+|kap| kap| k$ap | cup |
+|daala| d$aala| daala | dollar; money |
+|waa| w$aa| waa| name |
+|waalp| w$aalp | waalp| house |
+|waap| w$aap | waap| house |
 
 **Why the dollar ($) sign and underscore (_) next to letter?**
 foma uses this $ symbol to mark stress; it precedes the character that should have the initial stress. foma also needs to read input to generate grammatical Output in a way it understands. The underscore is needed for some orthographs (special characters). foma reads the underscore better in this order: x_ [x̱].
@@ -188,7 +206,7 @@ For use of the ***fst.generate()*** feature, you will need to mark stress on the
 > Input: fst.generate("łg$utx_a'oo+N-2PL.II")\
 > Output: ['łgutx̱a'oosm']
 
-For ***fst.lemmatize*** & ***fst.analyze***, you can input the word without symbols and the characters *with* the underscores beneath them as written in the language. 
+For ***fst.lemmatize*** & ***fst.analyze***, you can input the word without symbols and the characters *with* the underscores beneath them as written in the language.
 
 Additional lexicon and more complex inflection to be added once test files are updated to reflect Sgüüx̱s vocabulary and rules. Current configuration is being transitioned from Gitksan.
 

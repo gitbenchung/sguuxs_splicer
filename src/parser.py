@@ -86,7 +86,7 @@ class Parser:
         """
         if query not in self.generator_dict:
             result_list = self._reader.lookup(query, inverse=True)
-            result_list = [helpers.convert_to_lowline(item) for item in result_list]
+            result_list = [helpers.convert_to_macron(item) for item in result_list]
             self.generator_dict[query] = result_list
         return self.generator_dict[query]
 
