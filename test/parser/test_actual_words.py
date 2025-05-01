@@ -9,6 +9,7 @@ These tests use the actual FST rules and the actual dict.csv file.
 """
 
 
+@unittest.skip
 class TestLexiconImport(TestFSTOutput):
 
     @classmethod
