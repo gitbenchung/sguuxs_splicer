@@ -63,3 +63,37 @@ class TestFSTOutput(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         cleanup_fst_files(cls.added_files)
+
+    def checkManyInFST(
+        self,
+        stem_gloss: str,
+        expected_map: list[tuple[str, list[str]]],
+    ):
+        """
+        Check the output of a stem and any number of conjugations
+        against the FST.
+
+        Arguments:
+        - stem: string
+            Example: "w$aalp+N"
+        - expected_map: a dictionary or list of tuples consisting of
+            - suffixes to be concatenated with the stem (strings)
+            - list of expected output forms for that concatenation
+            Example:
+                {"": ["waalp"], "-ATTR": ["waalba", "waalbm"]} as dict
+                [("", ["waalp"]), ("-ATTR", ["waalba", "waalbm"])] as tuple
+        """
+        if type(expected_map) is dict:
+            expected_map = expected_map.items()
+
+        for suffix, expected_forms in expected_map:
+            gloss = stem_gloss + suffix
+            result_list = self.fst.generate(gloss)
+            with self.subTest(gloss=gloss):
+                for expected in expected_forms:
+                    self.assertIn(expected, result_list)
+                self.assertEqual(
+                    len(result_list),
+                    len(expected_forms),
+                    f"{gloss} should have {len(expected_forms)} results",
+                )

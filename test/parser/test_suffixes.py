@@ -18,12 +18,10 @@ class TestPlainStops(TestFSTOutput):
             "Noun": [
                 "ch$ayp",
                 "g_$oot",
-                "nts'i$'its",
-                "b$a_xbog_mgyemk",
-                "wa_t'ukw",
-                "h$ana_'a_x_",
-                # "j$ok_",
-                # "ay$ook_",
+                "nts'$i'its",
+                "b$a_x_bog_mgyemk",
+                "w$a_t'ukw",
+                "han$a_'a_x_",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -31,7 +29,8 @@ class TestPlainStops(TestFSTOutput):
     def test_plainP(self):
         stem = "ch$ayp+N"
         expected_map = [
-            ("-1SG.II", ["chaybi","chaybu"]),
+            ("", ["chayp"]),
+            ("-1SG.II", ["chaybi", "chaybu"]),
             ("-1PL.II", ["chaybm"]),
             ("-2SG.II", ["chaybn"]),
             ("-2PL.II", ["chaypsm"]),
@@ -42,21 +41,13 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["chaybit"]),
             ("-ATTR", ["chaybm", "chayba"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainT(self):
         stem = "g_$oot+N"
         expected_map = [
-            ("-1SG.II", ["g̱oodi","g̱oodu"]),
+            ("", ["g̱oot"]),
+            ("-1SG.II", ["g̱oodi", "g̱oodu"]),
             ("-1PL.II", ["g̱oodm"]),
             ("-2SG.II", ["g̱oodn"]),
             ("-2PL.II", ["g̱ootsm"]),
@@ -67,20 +58,12 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["g̱oodit"]),
             ("-ATTR", ["g̱oodm", "g̱ooda"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainTS(self):
         stem = "nts'$i'its+N"
         expected_map = [
+            ("", ["nts'i'its"]),
             ("-1SG.II", ["nts'i'itsi", "nts'i'itsu"]),
             ("-1PL.II", ["nts'i'itsm"]),
             ("-2SG.II", ["nts'i'itsn"]),
@@ -92,24 +75,16 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["nts'i'itsit"]),
             ("-ATTR", ["nts'i'itsm", "nts'i'itsa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainK(self):
         stem = "b$a_x_bog_mgyemk+N"
         expected_map = [
-            ("-1SG.II", ["ba̱x̱bog̱mgyemgi","ba̱x̱bog̱mgyemgu"]),
+            ("", ["ba̱x̱bog̱mgyemk"]),
+            ("-1SG.II", ["ba̱x̱bog̱mgyemgi", "ba̱x̱bog̱mgyemgu"]),
             ("-1PL.II", ["ba̱x̱bog̱mgyemgm"]),
             ("-2SG.II", ["ba̱x̱bog̱mgyemgn"]),
-            ("-2PL.II", ["ba̱x̱bog̱mgyemgm"]),
+            ("-2PL.II", ["ba̱x̱bog̱mgyemksm"]),
             ("-3.II", ["ba̱x̱bog̱mgyemkt"]),
             ("[-3.II]=CN.IRR", ["ba̱x̱bog̱mgyemkł"]),
             ("[-3.II]=CN", ["ba̱x̱bog̱mgyemgi"]),
@@ -117,21 +92,13 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["ba̱x̱bog̱mgyemgit"]),
             ("-ATTR", ["ba̱x̱bog̱mgyemgm", "ba̱x̱bog̱mgyemga"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainKW(self):
-        stem = "wa_t'ukw+N"
+        stem = "w$a_t'ukw+N"
         expected_map = [
-            ("-1SG.II", ["wa̱t'ugwi","wa̱t'ugwu"]),
+            ("", ["wa̱t'ukw"]),
+            ("-1SG.II", ["wa̱t'ugwi", "wa̱t'ugwu"]),
             ("-1PL.II", ["wa̱t'ugwm"]),
             ("-2SG.II", ["wa̱t'ugwn"]),
             ("-2PL.II", ["wa̱t'ukwsm"]),
@@ -142,21 +109,13 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["wa̱t'ugwit"]),
             ("-ATTR", ["wa̱t'ugwm", "wa̱t'ugwa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainX_(self):
-        stem = "h$ana_'a_x_"
+        stem = "han$a_'a_x_+N"
         expected_map = [
-            ("-1SG.II", ["hana̱'a̱g̱ai","hana̱'a̱g̱u"]),
+            ("", ["hana̱'a̱x̱"]),
+            ("-1SG.II", ["hana̱'a̱g̱ai", "hana̱'a̱g̱u"]),
             ("-1PL.II", ["hana̱'a̱g̱m"]),
             ("-2SG.II", ["hana̱'a̱g̱n"]),
             ("-2PL.II", ["hana̱'a̱x̱sm"]),
@@ -167,68 +126,7 @@ class TestPlainStops(TestFSTOutput):
             ("-SX", ["hana̱'a̱g̱it"]),
             ("-ATTR", ["hana̱'a̱g̱m", "hana̱'a̱g̱a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    @unittest.skip("pending conversion to sgx")
-    def test_plainOK_(self):
-        stem = "j$ok_+N"
-        expected_map = [
-            ("-1SG.II", ["jog̱a'y", "jog̱o'y"]),
-            ("-1PL.II", ["jog̱a'm", "jog̱o'm"]),
-            ("-2SG.II", ["jog̱an", "jog̱on"]),
-            ("-2PL.II", ["joḵsi'm"]),
-            ("-3.II", ["joḵt"]),
-            ("-3PL.II", ["joḵdiit"]),
-            ("[-3.II]=CN", ["joḵhl"]),
-            ("[-3.II]=PN", ["joḵs"]),
-            ("-SX", ["jog̱at", "jog̱ot"]),
-            ("-ATTR", ["jog̱am", "jog̱om", "jog̱a"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    @unittest.skip("pending conversion to sgx")
-    def test_plainOOK_(self):
-        stem = "'ay$ook_+N"
-        expected_map = [
-            ("-1SG.II", ["ayoog̱a'y"]),
-            ("-1PL.II", ["ayoog̱a'm"]),
-            ("-2SG.II", ["ayoog̱an"]),
-            ("-2PL.II", ["ayooḵsi'm"]),
-            ("-3.II", ["ayooḵt"]),
-            ("-3PL.II", ["ayooḵdiit"]),
-            ("[-3.II]=CN", ["ayooḵhl"]),
-            ("[-3.II]=PN", ["ayooḵs"]),
-            ("-SX", ["ayoog̱at"]),
-            ("-ATTR", ["ayoog̱am", "ayoog̱a"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -264,16 +162,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["sip'it"]),
             ("-ATTR", ["sip'im", "sip'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottT(self):
         stem = "hl$it'+N"
@@ -289,16 +178,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["hlit'it"]),
             ("-ATTR", ["hlit'im", "hlit'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottTS(self):
         stem = "ts'$uuts'+N"
@@ -314,16 +194,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["ts'uuts'it"]),
             ("-ATTR", ["ts'uuts'im", "ts'uuts'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottTL(self):
         stem = "giky'$otl'+N"
@@ -339,16 +210,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["giky'otl'it"]),
             ("-ATTR", ["giky'otl'im", "giky'otl'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottalK(self):
         stem = "n$aasik'+N"
@@ -364,16 +226,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["naasik'it"]),
             ("-ATTR", ["naasik'im", "naasik'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottKW(self):
         stem = "t'$ikw'+N"
@@ -389,16 +242,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["t'ikw'it"]),
             ("-ATTR", ["t'ikw'im", "t'ik'um", "t'ikw'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottK_(self):
         stem = "han$ak_'+N"
@@ -414,16 +258,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["hanaḵ'at"]),
             ("-ATTR", ["hanaḵ'am", "hanaḵ'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottOK_(self):
         stem = "ts'$ok_'+N"
@@ -439,16 +274,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-SX", ["ts'oḵ'at", "ts'oḵ'ot"]),
             ("-ATTR", ["ts'oḵ'am", "ts'oḵ'om", "ts'oḵ'a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -482,16 +308,7 @@ class TestFricatives(TestFSTOutput):
             ("-SX", ["maasit"]),
             ("-ATTR", ["maasim", "maasa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricHL(self):
         stem = "k'$uuhl+N"
@@ -507,16 +324,7 @@ class TestFricatives(TestFSTOutput):
             ("-SX", ["k'uuhlit"]),
             ("-ATTR", ["k'uuhlim", "k'uuhla"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricX(self):
         stem = "l$ax+N"  # not sure if these should also be optionally glided
@@ -532,16 +340,7 @@ class TestFricatives(TestFSTOutput):
             ("-SX", ["layit"]),
             ("-ATTR", ["layim", "laya"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricXW(self):
         stem = "l$aaxw+N"
@@ -567,16 +366,7 @@ class TestFricatives(TestFSTOutput):
                 ],
             ),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricX_(self):
         stem = "'n$ax_+N"
@@ -592,16 +382,7 @@ class TestFricatives(TestFSTOutput):
             ("-SX", ["'nahat", "'nax̱at"]),
             ("-ATTR", ["'naham", "'naha", "'nax̱am", "'nax̱a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricOX_(self):
         stem = "n$ox_+N"
@@ -617,16 +398,7 @@ class TestFricatives(TestFSTOutput):
             ("-SX", ["nohat", "nohot", "nox̱at", "nox̱ot"]),
             ("-ATTR", ["noham", "nohom", "noha", "nox̱am", "nox̱om", "nox̱a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -659,16 +431,7 @@ class TestPlainSonorants(TestFSTOutput):
             ("-SX", ["gumit", "gumt"]),
             ("-ATTR", ["gumim", "gumum", "guma"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainN(self):
         stem = "b$an+N"
@@ -684,16 +447,7 @@ class TestPlainSonorants(TestFSTOutput):
             ("-SX", ["banit", "bant"]),
             ("-ATTR", ["banim", "bana"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainL(self):
         stem = "haw$il+N"
@@ -709,16 +463,7 @@ class TestPlainSonorants(TestFSTOutput):
             ("-SX", ["hawilit", "hawilt"]),  # hawilt? hawilit?
             ("-ATTR", ["hawilim", "hawila"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainW(self):
         stem = "g_awk_'$aw+N"
@@ -734,16 +479,7 @@ class TestPlainSonorants(TestFSTOutput):
             ("-SX", ["g̱awḵ'awit", "g̱awḵ'awt"]),
             ("-ATTR", ["g̱awḵ'awim", "g̱awḵ'awum", "g̱awḵ'awa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -777,16 +513,7 @@ class TestGlottalSonorants(TestFSTOutput):
             ("-SX", ["hlaa'mit"]),  # ??
             ("-ATTR", ["hlaa'mim", "hlaa'ma"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     #     def test_glottalN(self):
     #         stem = "b$an+N"
@@ -825,16 +552,7 @@ class TestGlottalSonorants(TestFSTOutput):
             ("-SX", ["ligi'lit"]),
             ("-ATTR", ["ligi'lim", "ligi'la"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottalY(self):
         stem = "mask_'ay$aa'y+N"
@@ -850,16 +568,7 @@ class TestGlottalSonorants(TestFSTOutput):
             ("-SX", ["masḵ'ayaa'yit"]),
             ("-ATTR", ["masḵ'ayaa'yim", "masḵ'ayaa'ya"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottalW(self):
         stem = "x_b$aa'w+N"
@@ -876,16 +585,7 @@ class TestGlottalSonorants(TestFSTOutput):
             # haven't applied this yet, keep in mind
             ("-ATTR", ["x̱baa'wim", "x̱baa'um", "x̱baa'wa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottalStop(self):
         stem = "n$oo'o+N"
@@ -901,16 +601,7 @@ class TestGlottalSonorants(TestFSTOutput):
             ("-SX", ["noo'ot"]),
             ("-ATTR", ["noo'om", "noo'a"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -944,16 +635,7 @@ class TestVowels(TestFSTOutput):
             ("-SX", ["wat"]),
             ("-ATTR", ["wam", "waha"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_shortAlonger(self):
         stem = "ha'niig$ilbilsa+N"
@@ -969,16 +651,7 @@ class TestVowels(TestFSTOutput):
             ("-SX", ["ha'niigilbilsat"]),
             ("-ATTR", ["ha'niigilbilsam", "ha'niigilbilsaha"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_longU(self):
         stem = "gy$uu+N"
@@ -994,16 +667,7 @@ class TestVowels(TestFSTOutput):
             ("-SX", ["gyuut"]),
             ("-ATTR", ["gyuum", "gyuuha"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_longE(self):
         stem = "y$ee+VI"
@@ -1017,16 +681,7 @@ class TestVowels(TestFSTOutput):
             ("[-3.II]=PN", ["yees"]),
             ("-SX", ["yeet"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_longElonger(self):
         stem = "majag_al$ee+N"
@@ -1042,16 +697,7 @@ class TestVowels(TestFSTOutput):
             ("-SX", ["majag̱aleet"]),
             ("-ATTR", ["majag̱aleem", "majag̱aleeha"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_longI(self):
         stem = "k_'$esii+N"
@@ -1067,16 +713,7 @@ class TestVowels(TestFSTOutput):
             ("-SX", ["ḵ'esiit"]),
             ("-ATTR", ["ḵ'esiim", "ḵ'esiiha"]),  # ??
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")
@@ -1112,16 +749,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["x̱biisdit"]),
             ("-ATTR", ["x̱biisdim", "x̱biisda"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_YT(self):
         stem = "hal$ayt+N"
@@ -1137,16 +765,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["halaydit"]),
             ("-ATTR", ["halaydim", "halayda"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_LP(self):
         stem = "w$ilp+N"
@@ -1162,16 +781,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["wilbit"]),
             ("-ATTR", ["wilbim", "wilba"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_LKW(self):
         stem = "s$ilkw+N"
@@ -1187,16 +797,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["silgwit"]),
             ("-ATTR", ["silgwim", "silgum", "silgwa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_TX(self):
         stem = "ts'$amtx+N"
@@ -1212,16 +813,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["ts'amtxit"]),
             ("-ATTR", ["ts'amtxim", "ts'amtxa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_SXW(self):
         stem = "biy$oosxw+N"
@@ -1237,16 +829,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["biyoosxwit"]),
             ("-ATTR", ["biyoosxwim", "biyoosxum", "biyoosxwa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_X_XW(self):
         stem = "'$ax_xw+N"
@@ -1262,16 +845,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["ax̱xwit"]),
             ("-ATTR", ["ax̱xwim", "ax̱xum", "ax̱xwa"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_PX_(self):
         stem = "h$upx_+N"
@@ -1287,403 +861,7 @@ class TestClusters(TestFSTOutput):
             ("-SX", ["hupx̱at"]),
             ("-ATTR", ["hupx̱am", "hupx̱a"]),
         ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-
-@unittest.skip("no verbal morphology yet")
-class TestTrVowel(TestFSTOutput):
-
-    @classmethod
-    def setUpClass(cls):
-        test_stems = {
-            "TransitiveVerb": [
-                "g$up",
-                "t'$is",
-                "g$in",
-                "g_$e'n",
-                "g$a'a",  # add ga'a test to transitive vowel
-                "hl$andin",
-                "'w$a",
-            ]
-        }
-        super().setUpClass(FULL_SGX, test_stems)
-
-    def test_indepObstruent(self):
-        stem = "g$up+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["gubin"]),
-            ("-TR-2PL.II", ["gubisi'm"]),
-            ("-TR-3.II", ["gubit"]),
-            ("-TR-3PL.II", ["gupdiit"]),
-            ("-3.II", ["gupt"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepSibilant(self):
-        stem = "t'$is+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["t'isin"]),
-            ("-TR-2PL.II", ["t'isisi'm"]),
-            ("-TR-3.II", ["t'isit"]),
-            ("-TR-3PL.II", ["t'isdiit"]),
-            ("-3.II", ["t'ist"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepPlainSonorant(self):
-        stem = "g$in+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["ginin"]),
-            ("-TR-2PL.II", ["ginisi'm"]),
-            ("-TR-3.II", ["ginit"]),
-            ("-TR-3PL.II", ["gindiit"]),
-            ("-3.II", ["gint"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepGlotSonorant(self):
-        stem = "g_$e'n+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["g̱e'nin"]),
-            ("-TR-2PL.II", ["g̱e'nisi'm"]),
-            ("-TR-3.II", ["g̱e'nit"]),
-            ("-TR-3PL.II", ["g̱e'ndiit"]),
-            ("-3.II", ["g̱e'nt"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepGlotStop(self):
-        stem = "g$a'a+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["ga'an"]),
-            ("-TR-2PL.II", ["ga'asi'm"]),
-            ("-TR-3.II", ["ga'at"]),
-            ("-TR-3PL.II", ["ga'adiit"]),
-            ("-3.II", ["ga'at"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepUnstressedSonorant(self):
-        stem = "hl$andin+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["hlandinin"]),
-            ("-TR-2PL.II", ["hlandinsi'm"]),
-            ("-TR-3.II", ["hlandint"]),
-            ("-TR-3PL.II", ["hlandindiit"]),
-            ("-3.II", ["hlandint"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list, "expected for " + gloss)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_indepVowel(self):
-        stem = "'w$a+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["'wayin"]),
-            ("-TR-2PL.II", ["'wayisi'm"]),
-            ("-TR-3.II", ["'wayit"]),
-            ("-TR-3PL.II", ["'wadiit"]),
-            ("-3.II", ["'wat"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-
-@unittest.skip("no verbal morphology yet")
-class TestBigT(TestFSTOutput):
-
-    @classmethod
-    def setUpClass(cls):
-        test_stems = {
-            "TransitiveVerb": [
-                "m$ahl(t)",
-                "b$ats(t)",
-                "h$ats'(t)",
-                "siw$a(t)",
-                "g$uu(t)",
-                "w$an",
-                # get a glottal son + T in here
-                # do tests for non-lexical big T as affix?
-            ],
-            "Noun": ["w$a"],
-        }
-        super().setUpClass(FULL_SGX, test_stems)
-
-    def test_native_postC(self):
-        stem = "m$ahlT+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["mahldin"]),
-            ("-TR-3.II", ["mahldit"]),
-            ("-TR-3PL.II", ["mahldiit"]),
-            ("-2SG.II", ["mahlin"]),
-            ("-3.II", ["mahlit"]),
-            ("-3PL.II", ["mahldiit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_native_no_extraT(self):
-        stem = "m$ahlT+VT"
-        unexpected_map = [
-            "-T-3.II",
-            "-T-TR-3.II",
-        ]
-        for gloss in unexpected_map:
-            with self.subTest(form=stem + gloss):
-                result_list = self.fst.generate(stem + gloss)
-                self.assertEqual(
-                    len(result_list),
-                    0,
-                    "{} should not be a possible path".format(stem + gloss),
-                )
-
-    def test_native_postvoiceable(self):
-        stem = "b$atsT+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["batsdin"]),
-            ("-TR-3.II", ["batsdit"]),
-            ("-TR-3PL.II", ["batsdiit"]),
-            ("-2SG.II", ["bajin"]),
-            ("-3.II", ["bajit"]),
-            ("-3PL.II", ["batsdiit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_native_postglottal(self):
-        stem = "h$ats'T+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["hats'din"]),
-            ("-TR-3.II", ["hats'dit"]),
-            ("-TR-3PL.II", ["hats'diit"]),
-            ("-2SG.II", ["hats'in"]),
-            ("-3.II", ["hats'it"]),
-            ("-3PL.II", ["hats'diit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_native_postV(self):
-        stem = "siw$aT+VT"
-        expected_map = [
-            ("-TR-2SG.II", ["siwatdin"]),
-            ("-TR-3.II", ["siwatdit"]),
-            ("-TR-3PL.II", ["siwatdiit"]),
-            ("-2SG.II", ["siwadin"]),
-            ("-3.II", ["siwadit"]),
-            ("-3PL.II", ["siwatdiit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_postR_constructed(self):
-        stem = "w$an+VT"
-        expected_map = [
-            ("-T-TR-2SG.II", ["wandin"]),
-            ("-T-TR-3.II", ["wandit"]),
-            ("-T-TR-3PL.II", ["wandiit"]),
-            ("-T-2SG.II", ["wandin"]),
-            ("-T-3.II", ["wandit"]),
-            ("-T-3PL.II", ["wandiit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_postV_constructed(self):
-        stem = "w$a+N"
-        expected_map = [
-            ("-T-3.II", ["wadit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-
-@unittest.skip("no verbal morphology yet")
-class TestIrregulars(TestFSTOutput):
-
-    @classmethod
-    def setUpClass(cls):
-        test_stems = {
-            "IntransitiveVerb": [
-                "gip$aykw",
-                "'$algax_",
-                "l$imx",
-                # "gitxs$animx_",
-            ],
-        }
-        super().setUpClass(FULL_SGX, test_stems)
-
-    def test_gipaykw_voicing(self):
-        stem = "gip$aykw+VI"
-        expected_map = [
-            ("", ["gipaykw"]),
-            ("-3.II", ["gipaykwt"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_hardeningX_(self):
-        stem = "'$algax_+VI"
-        expected_map = [
-            ("-1SG.II", ["algag̱a'y", "algax̱a'y"]),
-            ("-2PL.II", ["algax̱si'm"]),
-            ("-3.II", ["algax̱t"]),
-            ("-SX", ["algag̱at", "algax̱at"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
-
-    def test_vocalizedX(self):
-        stem = "l$imx+VI"
-        expected_map = [
-            ("-1SG.II", ["limi'y"]),
-            ("-2PL.II", ["limxsi'm"]),
-            ("-3.II", ["limxt"]),
-            ("-SX", ["limit"]),
-        ]
-        for gloss, expected_forms in expected_map:
-            result_list = self.fst.generate(stem + gloss)
-            for form in expected_forms:
-                with self.subTest(form=stem + gloss):
-                    self.assertIn(form, result_list)
-            self.assertEqual(
-                len(result_list),
-                len(expected_forms),
-                f"{stem + gloss} should have {len(expected_forms)} results",
-            )
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 if __name__ == "__main__":
