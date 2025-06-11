@@ -136,7 +136,7 @@ class TestGlottalStops(TestFSTOutput):
         test_stems = {
             "Noun": [
                 "ł$a'at",
-                "nts'i'its",
+                "nts'$i'its",
                 "han$a'ax_",
             ]
         }
@@ -168,7 +168,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-2SG.II", ["nts'ii'tsn"]),
             ("-2PL.II", ["nts'ii'tsism"]),  
             ("-3.II", ["nts'i'itst"]),
-            ("[-3.II]=CN", ["nts'i'itsi"]),
+            ("[-3.II]=CN", ["nts'ii'tsi"]),
             ("[-3.II]=CN.IRR", ["nts'i'itsł"]),
             ("[-3.II]=PN", ["nts'i'its"]),  
             ("-SX", ["nts'ii'tsit"]),
@@ -298,12 +298,12 @@ class TestFricatives(TestFSTOutput):
         stem = "$aax_+N"
         expected_map = [
             ("", ["aax̠"]),
-            ("-1SG.II", ["aag̱i", "aag̱u"]),
+            ("-1SG.II", ["aag̱ai", "aag̱u"]),
             ("-1PL.II", ["aag̱m"]),
             ("-2SG.II", ["aag̱n"]),
             ("-2PL.II", ["aax̠sm"]),
             ("-3.II", ["aax̠t"]),
-            ("[-3.II]=CN", ["aag̱i"]),
+            ("[-3.II]=CN", ["aag̱ai"]),
             ("[-3.II]=CN.IRR", ["aax̠ł"]),
             ("[-3.II]=PN", ["aax̠s"]),
             ("-SX", ["aag̱at"]),
