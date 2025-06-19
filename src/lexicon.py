@@ -1,4 +1,5 @@
-import csv, os
+import csv
+import os
 from collections import defaultdict
 
 from . import helpers
@@ -8,11 +9,12 @@ class LexiconError(Exception):
     pass
 
 
-class Lexicon():
+class Lexicon:
     """
-    Class for reading a configuration file to build the stem component 
+    Class for reading a configuration file to build the stem component
     of a lexc file for use in a foma parser.
     """
+
     def __init__(self, config: dict):
         self._validate_config_file(config)
         self._make_categories(config["legal_categories"])
@@ -31,26 +33,25 @@ class Lexicon():
         under its 'RootCategory'.
         """
         # list all categories under 'Root'
-        stems_txt = 'LEXICON Root\n'
+        stems_txt = "LEXICON Root\n"
         for category in self.dict.keys():
-            stems_txt += 'Root' + category + ' ;\n'
+            stems_txt += "Root" + category + " ;\n"
 
         # list stems under individual RootCategories
         for category, stems in self.dict.items():
-            stems_txt += '\nLEXICON Root' + category + '\n'
+            stems_txt += "\nLEXICON Root" + category + "\n"
             for stem in stems:
-                stems_txt += "{} \t{} ;\n".format(self.lexc_form(stem),
-                                                    category)
-            stems_txt += '\nLEXICON ' + category + '\n'
+                stems_txt += "{} \t{} ;\n".format(self.lexc_form(stem), category)
+            stems_txt += "\nLEXICON " + category + "\n"
 
         return stems_txt
-    
+
     @staticmethod
     def lexc_form(word: str) -> str:
         """
-        Takes a neutral gitksan wordform using underscore and reformats
-        with an initial apostrophe, into an appropriate single-word unit
-        with updated boundaries and flags where needed (e.g. big T).
+        Takes a neutral wordform using underscore and reformats with any necessary
+        transformations to appear in the lexc file. For example, join spaces, or convert
+        boundaries and flags where needed (e.g. big T).
         """
         word = helpers.neutral_to_lexc(word)
         return word
@@ -105,23 +106,20 @@ class Lexicon():
         Ensures that dictionary items exist and are of the right type.
         """
         # check for required keys to compile lexicon
-        if not "dictionary" in config:
-            raise LexiconError(
-                'Configuration file requires "dictionary" key')
-        if not "legal_categories" in config:
-            raise LexiconError(
-                'Configuration file requires "legal_categories" key')
+        if "dictionary" not in config:
+            raise LexiconError('Configuration file requires "dictionary" key')
+        if "legal_categories" not in config:
+            raise LexiconError('Configuration file requires "legal_categories" key')
 
         # check type and location of dictionary input
         d_item = config["dictionary"]
         if type(d_item) is dict:
             return True
-        elif type(d_item) is str and d_item[-4:] == '.csv':
+        elif type(d_item) is str and d_item[-4:] == ".csv":
             cls._validate_dict_filepath(config)
         else:
-            raise LexiconError(
-                'Dictionary input must be dict or path to csv file')
-        
+            raise LexiconError("Dictionary input must be dict or path to csv file")
+
         return True
 
     @staticmethod
@@ -133,43 +131,41 @@ class Lexicon():
         """
         if os.path.exists(config["dictionary"]):
             return True
-        if 'dir' in config:
-            long_filename = os.path.join(
-                config['dir'], config["dictionary"])
+        if "dir" in config:
+            long_filename = os.path.join(config["dir"], config["dictionary"])
             if os.path.exists(long_filename):
                 config["dictionary"] = long_filename
                 return True
 
-        raise FileNotFoundError(
-                    'No such lexicon file: {}'.format(config['dictionary']))
+        raise FileNotFoundError("No such lexicon file: {}".format(config["dictionary"]))
 
     @staticmethod
     def _validate_dict_type(input_dict: dict):
         """
         Checks that the lexicon input is a dictionary or is
         convertable to one, and returns the loaded dictionary.
-        If lexicon input is a csv file, uses a GitDictCSV loader to 
+        If lexicon input is a csv file, uses a GitDictCSV loader to
         return a dictionary.
         Other input types will raise an error.
         """
         if type(input_dict) is dict:
             return input_dict
-        elif type(input_dict) is str and input_dict[-4:] == '.csv':
+        elif type(input_dict) is str and input_dict[-4:] == ".csv":
             return GitDictCSV.load(input_dict)
         else:
-            raise LexiconError('Unknown dictionary type')
+            raise LexiconError("Unknown dictionary type")
 
 
-class GitDictCSV():
+class GitDictCSV:
     """
     Object to convert a Gitksan dictionary CSV to a dictionary
     in the correct format for reading to foma/lexc.
     """
-    
+
     @classmethod
     def load(cls, filename: str) -> dict:
         """
-        Shorthand to create a reader object 
+        Shorthand to create a reader object
         and return the loaded dictionary.
         """
         return cls(filename).dictionary
@@ -201,7 +197,7 @@ class GitDictCSV():
         """
         Reads categories in a CSV row (entry) and returns as a list.
         """
-        return entry['categories'].split('; ')
+        return entry["categories"].split("; ")
 
     @staticmethod
     def _wordforms_from_entry(entry: dict) -> list:
@@ -210,23 +206,22 @@ class GitDictCSV():
         the 'word' and 'plural' columns, formatted for the parser
         and marked with a stress symbol ($) if available.
         """
-        words = [helpers.csv_to_neutral(wd) for wd
-                in entry['word'].split('; ')]
-        words = helpers.assign_stress(words, entry['stress'])
+        words = [helpers.csv_to_neutral(wd) for wd in entry["word"].split("; ")]
+        words = helpers.assign_stress(words, entry["stress"])
 
-        plurals = [helpers.csv_to_neutral(wd) for wd
-                in entry['plural form'].split('; ')
-                if wd]
+        plurals = [
+            helpers.csv_to_neutral(wd) for wd in entry["plural form"].split("; ") if wd
+        ]
         if plurals:
-            plurals = helpers.assign_stress(plurals, entry['plural stress'])
+            plurals = helpers.assign_stress(plurals, entry["plural stress"])
             words += plurals
         return words
-    
+
     @staticmethod
     def is_legal_row(row: dict) -> bool:
         """
         Does the CSV row have text in both wordform and category column?
         """
-        if row['word'] and row['categories']:
+        if row["word"] and row["categories"]:
             return True
         return False
