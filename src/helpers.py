@@ -100,37 +100,35 @@ def csv_to_neutral(string: str) -> str:
     """
     Returns a new string formatted using neutral orthographic standards.
     Removes the initial period that may be in a csv dictionary stem.
-    Converts the dictionary 'gya' to the neutral 'ga'.
     Uses underscore to mark underlines (ascii-compliant).
     """
 
     string = string.lstrip(".")  # removes initial apostrophe in dict/excel
     string = standardize_back(string, UNDERSCORE)
-    string = standardize_palatal(string, use_kya=False)
     return string
 
 
 def neutral_to_corpus(string: str) -> str:
     """
     Returns a new string formatted using dataset-consistent orthography.
-    Sgx corpus uses combining low-line underline and "ga" convention.
+    Sgx corpus uses combining macron underline.
     """
     string = standardize_back(string, MACRON)
-    string = standardize_palatal(string, use_kya=False)
     return string
 
 
 def neutral_to_lexc(string: str) -> str:
     """
     Returns a new string formatted using lexc-compatible orthography.
-    Adds an initial apostrophe to vowel-initial words.
-    Converts big t (t) to T and adds an initial flag diacritic.
+    New words cannot have spaces, so multi-words are joined together.
     """
     string = join_words(string)
-    if re.search(r"^[\$aeiou]", string):  # add apostrophe to initial vowel
-        string = "'" + string
-    if re.search(r"\(t\)", string):  # add big t flag and replace (t)->T
-        string = "@P.VAL.BIGT@" + re.sub(r"\(t\)", "T", string)
+
+    # The following are not needed for sgx (yet)
+    # if re.search(r"^[\$aeiou]", string):  # add apostrophe to initial vowel
+    #     string = "'" + string
+    # if re.search(r"\(t\)", string):  # add big t flag and replace (t)->T
+    #     string = "@P.VAL.BIGT@" + re.sub(r"\(t\)", "T", string)
     return string
 
 
