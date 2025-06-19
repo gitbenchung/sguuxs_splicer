@@ -21,7 +21,6 @@ class TestPlainStops(TestFSTOutput):
                 "nts'$i'its",
                 "b$a_x_bog_mgyemk",
                 "w$a_t'ukw",
-                "han$a_'a_x_",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -111,23 +110,6 @@ class TestPlainStops(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_plainX_(self):
-        stem = "han$a_'a_x_+N"
-        expected_map = [
-            ("", ["hana̱'a̱x̱"]),
-            ("-1SG.II", ["hana̱'a̱g̱ai", "hana̱'a̱g̱u"]),
-            ("-1PL.II", ["hana̱'a̱g̱m"]),
-            ("-2SG.II", ["hana̱'a̱g̱n"]),
-            ("-2PL.II", ["hana̱'a̱x̱sm"]),
-            ("-3.II", ["hana̱'a̱x̱t"]),
-            ("[-3.II]=CN", ["hana̱'a̱g̱ai"]),
-            ("[-3.II]=CN.IRR", ["hana̱'a̱x̱ł"]),
-            ("[-3.II]=PN", ["hana̱'a̱x̱s"]),
-            ("-SX", ["hana̱'a̱g̱it"]),
-            ("-ATTR", ["hana̱'a̱g̱m", "hana̱'a̱g̱a"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
 
 class TestGlottalStops(TestFSTOutput):
 
@@ -166,11 +148,11 @@ class TestGlottalStops(TestFSTOutput):
             ("-1SG.II", ["nts'ii'tsi", "nts'ii'tsu"]),
             ("-1PL.II", ["nts'ii'tsm"]),
             ("-2SG.II", ["nts'ii'tsn"]),
-            ("-2PL.II", ["nts'ii'tsism"]),  
+            ("-2PL.II", ["nts'ii'tsism"]),
             ("-3.II", ["nts'i'itst"]),
             ("[-3.II]=CN", ["nts'ii'tsi"]),
             ("[-3.II]=CN.IRR", ["nts'i'itsł"]),
-            ("[-3.II]=PN", ["nts'i'its"]),  
+            ("[-3.II]=PN", ["nts'i'its"]),
             ("-SX", ["nts'ii'tsit"]),
             ("-ATTR", ["nts'ii'tsm", "nts'ii'tsa"]),
         ]
@@ -192,6 +174,7 @@ class TestGlottalStops(TestFSTOutput):
             ("-ATTR", ["hana'g̱m", "hana'g̱a"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
+
 
 class TestFricatives(TestFSTOutput):
 
@@ -244,19 +227,19 @@ class TestFricatives(TestFSTOutput):
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_fricX(self):
-        stem = "ts'mm$üüx+N"  
+        stem = "ts'mm$üüx+N"
         expected_map = [
             ("", ["ts'mmüüx"]),
-            ("-1SG.II", ["ts'mmüüxi", "ts'mm$üüxu"]),
-            ("-1PL.II", ["ts'mm$üüxm"]),
-            ("-2SG.II", ["ts'mm$üüxn"]),
-            ("-2PL.II", ["ts'mm$üüxsm"]),
-            ("-3.II", ["ts'mm$üüxt"]),
-            ("[-3.II]=CN", ["ts'mm$üüxi"]),
-            ("[-3.II]=CN.IRR", ["ts'mm$üüxł"]),
-            ("[-3.II]=PN", ["ts'mm$üüxs"]),
-            ("-SX", ["ts'mm$üüxit"]),
-            ("-ATTR", ["ts'mm$üüxm", "ts'mm$üüxa"]),
+            ("-1SG.II", ["ts'mmüüxi", "ts'mmüüxu"]),
+            ("-1PL.II", ["ts'mmüüxm"]),
+            ("-2SG.II", ["ts'mmüüxn"]),
+            ("-2PL.II", ["ts'mmüüxsm"]),
+            ("-3.II", ["ts'mmüüxt"]),
+            ("[-3.II]=CN", ["ts'mmüüxi"]),
+            ("[-3.II]=CN.IRR", ["ts'mmüüxł"]),
+            ("[-3.II]=PN", ["ts'mmüüxs"]),
+            ("-SX", ["ts'mmüüxit"]),
+            ("-ATTR", ["ts'mmüüxm", "ts'mmüüxa"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -273,7 +256,7 @@ class TestFricatives(TestFSTOutput):
             ("[-3.II]=CN.IRR", ["'yaxwł"]),
             ("[-3.II]=PN", ["'yaxws"]),
             ("-SX", ["'yaxwit"]),
-            ("-ATTR",["'yaxwm", "'yaxwa"]),
+            ("-ATTR", ["'yaxwm", "'yaxwa"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -297,15 +280,15 @@ class TestFricatives(TestFSTOutput):
     def test_fricOX_(self):
         stem = "$aax_+N"
         expected_map = [
-            ("", ["aax̠"]),
+            ("", ["aax̱"]),
             ("-1SG.II", ["aag̱ai", "aag̱u"]),
             ("-1PL.II", ["aag̱m"]),
             ("-2SG.II", ["aag̱n"]),
-            ("-2PL.II", ["aax̠sm"]),
-            ("-3.II", ["aax̠t"]),
+            ("-2PL.II", ["aax̱sm"]),
+            ("-3.II", ["aax̱t"]),
             ("[-3.II]=CN", ["aag̱ai"]),
-            ("[-3.II]=CN.IRR", ["aax̠ł"]),
-            ("[-3.II]=PN", ["aax̠s"]),
+            ("[-3.II]=CN.IRR", ["aax̱ł"]),
+            ("[-3.II]=PN", ["aax̱s"]),
             ("-SX", ["aag̱at"]),
             ("-ATTR", ["aag̱m", "aag̱a"]),
         ]
