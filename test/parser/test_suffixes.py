@@ -302,79 +302,77 @@ class TestPlainSonorants(TestFSTOutput):
     def setUpClass(cls):
         test_stems = {
             "Noun": [
-                "g$um",
-                "b$an",
-                "haw$il",
-                "g_awk_'$aw",
-                # "y",
+                "'w$aan",
+                "k_'awk_'$aw",
+                "amh$aẅ",
+                "łg$üsgay",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
 
-    def test_plainM(self):
-        stem = "g$um+N"
-        expected_map = [
-            ("-1SG.II", ["gumi'y"]),
-            ("-1PL.II", ["gumi'm", "gumu'm"]),
-            ("-2SG.II", ["gumin"]),
-            ("-2PL.II", ["gumsi'm"]),
-            ("-3.II", ["gumt"]),
-            ("-3PL.II", ["gumdiit"]),
-            ("[-3.II]=CN", ["gumhl"]),
-            ("[-3.II]=PN", ["gums"]),
-            ("-SX", ["gumit", "gumt"]),
-            ("-ATTR", ["gumim", "gumum", "guma"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
     def test_plainN(self):
-        stem = "b$an+N"
+        stem = "'w$aan+N"
         expected_map = [
-            ("-1SG.II", ["bani'y"]),
-            ("-1PL.II", ["bani'm"]),
-            ("-2SG.II", ["banin"]),
-            ("-2PL.II", ["bansi'm"]),
-            ("-3.II", ["bant"]),
-            ("-3PL.II", ["bandiit"]),
-            ("[-3.II]=CN", ["banhl"]),
-            ("[-3.II]=PN", ["bans"]),
-            ("-SX", ["banit", "bant"]),
-            ("-ATTR", ["banim", "bana"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
-    def test_plainL(self):
-        stem = "haw$il+N"
-        expected_map = [
-            ("-1SG.II", ["hawili'y"]),
-            ("-1PL.II", ["hawili'm"]),
-            ("-2SG.II", ["hawilin"]),
-            ("-2PL.II", ["hawilsi'm"]),
-            ("-3.II", ["hawilt"]),
-            ("-3PL.II", ["hawildiit"]),
-            ("[-3.II]=CN", ["hawilhl"]),
-            ("[-3.II]=PN", ["hawils"]),
-            ("-SX", ["hawilit", "hawilt"]),  # hawilt? hawilit?
-            ("-ATTR", ["hawilim", "hawila"]),
+             ("", ["'waan"]),
+            ("-1SG.II", ["'waani", "'waanu"]),
+            ("-1PL.II", ["'waanm"]),
+            ("-2SG.II", ["'waan"]),
+            ("-2PL.II", ["'waansm"]),
+            ("-3.II", ["'waant"]),
+            ("[-3.II]=CN", ["'waanł"]),
+            ("[-3.II]=PN", ["'waans"]),
+            ("-SX", ["'waanit", "'waant"]),
+            ("-ATTR", ["'waanm", "'waana"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainW(self):
-        stem = "g_awk_'$aw+N"
+        stem = "k_'awk_'$aw+N"
         expected_map = [
-            ("-1SG.II", ["g̱awḵ'awi'y"]),
-            ("-1PL.II", ["g̱awḵ'awi'm", "g̱awḵ'awu'm"]),
-            ("-2SG.II", ["g̱awḵ'awin"]),
-            ("-2PL.II", ["g̱awḵ'awsi'm"]),
-            ("-3.II", ["g̱awḵ'awt"]),
-            ("-3PL.II", ["g̱awḵ'awdiit"]),
-            ("[-3.II]=CN", ["g̱awḵ'awhl"]),
-            ("[-3.II]=PN", ["g̱awḵ'aws"]),
-            ("-SX", ["g̱awḵ'awit", "g̱awḵ'awt"]),
-            ("-ATTR", ["g̱awḵ'awim", "g̱awḵ'awum", "g̱awḵ'awa"]),
+            ("", ["ḵ'awḵ'aw"]),
+            ("-1SG.II", ["ḵ'awḵ'awi", "ḵ'awḵ'awu"]),
+            ("-1PL.II", ["ḵ'awḵ'awm"]),
+            ("-2SG.II", ["ḵ'awḵ'awn"]),
+            ("-2PL.II", ["ḵ'awḵ'awsm"]),
+            ("-3.II", ["ḵ'awḵ'awt"]),
+            ("[-3.II]=CN", ["ḵ'awḵ'awł"]),
+            ("[-3.II]=PN", ["ḵ'awḵ'aws"]),
+            ("-SX", ["ḵ'awḵ'awit", "ḵ'awḵ'awt"]),
+            ("-ATTR", ["ḵ'awḵ'awm", "ḵ'awḵ'awa"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
+def test_plainWeirdW(self):
+        stem = "amh$aẅ+N"
+        expected_map = [
+            ("", ["amhaẅ"]),
+            ("-1SG.II", ["amhaẅi", "amhaẅu"]),
+            ("-1PL.II", ["amhaẅm"]),
+            ("-2SG.II", ["amhaẅn"]),
+            ("-2PL.II", ["amhaẅsm"]),
+            ("-3.II", ["amhaẅt"]),
+            ("[-3.II]=CN", ["amhaẅł"]),
+            ("[-3.II]=PN", ["amhaẅs"]),
+            ("-SX", ["amhaẅit"]),   #amhaẅt maybe too  
+            ("-ATTR", ["amhaẅm", "amhaẅa"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
+
+def test_plainY(self):
+        stem = "łg$üsg_ay+N"
+        expected_map = [
+            ("", ["łgüsg̱ay"]),
+            ("-1SG.II", ["łgüsg̱ayi", "łgüsg̱ayu"]),
+            ("-1PL.II", ["łgüsg̱aym"]),
+            ("-2SG.II", ["łgüsg̱ayn"]),
+            ("-2PL.II", ["łgüsg̱aysm"]),
+            ("-3.II", ["łgüsg̱ayt"]),
+            ("[-3.II]=CN", ["łgüsg̱aył"]),
+            ("[-3.II]=PN", ["łgüsg̱ays"]),
+            ("-SX", ["łgüsg̱ayit"]),  
+            ("-ATTR", ["łgüsg̱aym", "łgüsg̱aya"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 @unittest.skip("need to convert to sgx")
 class TestGlottalSonorants(TestFSTOutput):

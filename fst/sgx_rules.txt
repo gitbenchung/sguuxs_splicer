@@ -5,9 +5,18 @@ define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
 define Sibilant s | c h | {ts} | {ts'} ;
 define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
+!optional spirantisation of back stop {k_} > x
+define SpirantBack  {k_} (->) x || _ "^" .#. ;
+
+!glottal metathesis, VV' > V'V 
+define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
+
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
 define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
+
+!--optional epenthesis, low front vowel after glottal, before stop
+define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} | d ] ;
 
 !-- delete DoubleDentalStop, double t becomes single t 
 define DoubleDentalStop t -> 0 || t "^" _ ; 
@@ -53,7 +62,9 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
+    .o. GlottalSpread
     .o. StopClusterEp
+    .o. GlottalStopEp
     .o. DoubleDentalStop
     .o. PostUvularStopGI
     .o. VowelVoicing
