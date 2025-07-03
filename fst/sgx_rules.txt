@@ -62,16 +62,16 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
-    .o. GlottalSpread
-    .o. StopClusterEp
-    .o. GlottalStopEp
     .o. DoubleDentalStop
+    .o. StopClusterEp
     .o. PostUvularStopGI
     .o. VowelVoicing
     .o. VelarVowelVoicing
     .o. VelarNasalVoicing
     .o. NasalVoicing
+    .o. GlottalSpread
     .o. VoicedUvularEp
+    .o. GlottalStopEp
     .o. SimHiatus
     .o. DoubleFricative
     ;
