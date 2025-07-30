@@ -295,7 +295,6 @@ class TestFricatives(TestFSTOutput):
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
-@unittest.skip("need to convert to sgx")
 class TestPlainSonorants(TestFSTOutput):
 
     @classmethod
@@ -319,7 +318,8 @@ class TestPlainSonorants(TestFSTOutput):
             ("-2SG.II", ["'waan"]),
             ("-2PL.II", ["'waansm"]),
             ("-3.II", ["'waant"]),
-            ("[-3.II]=CN", ["'waanł"]),
+            ("[-3.II]=CN", ["'waani"]),
+            ("[-3.II]=CN.IRR", ["'waanł"]),
             ("[-3.II]=PN", ["'waans"]),
             ("-SX", ["'waanit", "'waant"]),
             ("-ATTR", ["'waanm", "'waana"]),

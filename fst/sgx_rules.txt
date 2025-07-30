@@ -5,10 +5,10 @@ define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
 define Sibilant s | c h | {ts} | {ts'} ;
 define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
-!optional spirantisation of back stop {k_} > x
+!--optional spirantisation of back stop {k_} > x
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
 
-!glottal metathesis, VV' > V'V 
+!--glottal metathesis, VV' > V'V 
 define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
 
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
@@ -20,6 +20,10 @@ define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} | d ] ;
 
 !-- delete DoubleDentalStop, double t becomes single t 
 define DoubleDentalStop t -> 0 || t "^" _ ; 
+
+!-- delete DoubleNasalStop, double nn & mm become single n & m
+define DoubleNasalStop  n -> 0 || n "^" _ ,,
+                        m -> 0 || m "^" _ ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -46,10 +50,13 @@ define NasalVoicing k -> g || _ "^" [ n | m ] ,,
                     {x_} -> {g_} || _ "^" [ n | m ] ;
 
 !-- epenthesis, voiced uvular trigger diphthongization  
-define VoicedUvularEp   [..] -> a || {g_} _ "^" i;
+define VoicedUvularEp   [..] -> a || {g_} _ "^" i ;
+
+!-- epenthesis, {nt} cluster becomes {nit}
+define NTEpenthesis [..] -> i || {n} _ "^" t ;
 
 !-- glide insertion, postuvular stop preceding rounded vowel
-define PostUvularStopGI [..] -> y || {g_} _ "^" u;
+define PostUvularStopGI [..] -> y || {g_} _ "^" u ;
 
 !--when Series II -sm follows a sibilant affricate/fricative, insert a Vowel
 define SimHiatus [..] -> i || Sibilant "^" _ {sm} ;
@@ -62,16 +69,19 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
+    .o. SpirantBack
+    .o. GlottalStopEp
+    .o. GlottalSpread
     .o. DoubleDentalStop
+    .o. DoubleNasalStop
     .o. StopClusterEp
     .o. PostUvularStopGI
+    .o. NTEpenthesis
     .o. VowelVoicing
     .o. VelarVowelVoicing
     .o. VelarNasalVoicing
     .o. NasalVoicing
-    .o. GlottalSpread
     .o. VoicedUvularEp
-    .o. GlottalStopEp
     .o. SimHiatus
     .o. DoubleFricative
     ;
