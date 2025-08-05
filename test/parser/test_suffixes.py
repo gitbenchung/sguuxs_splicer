@@ -335,7 +335,8 @@ class TestPlainSonorants(TestFSTOutput):
             ("-2SG.II", ["ḵ'awḵ'awn"]),
             ("-2PL.II", ["ḵ'awḵ'awsm"]),
             ("-3.II", ["ḵ'awḵ'awt"]),
-            ("[-3.II]=CN", ["ḵ'awḵ'awł"]),
+            ("[-3.II]=CN", ["ḵ'awḵ'awi"]),
+            ("[-3.II]=CN.IRR", ["ḵ'awḵ'awł"]),
             ("[-3.II]=PN", ["ḵ'awḵ'aws"]),
             ("-SX", ["ḵ'awḵ'awit", "ḵ'awḵ'awt"]),
             ("-ATTR", ["ḵ'awḵ'awm", "ḵ'awḵ'awa"]),
@@ -353,6 +354,7 @@ def test_plainWeirdW(self):
         ("-2PL.II", ["amhaẅsm"]),
         ("-3.II", ["amhaẅt"]),
         ("[-3.II]=CN", ["amhaẅł"]),
+        ("[-3.II]=CN", ["amhaẅi"]),
         ("[-3.II]=PN", ["amhaẅs"]),
         ("-SX", ["amhaẅit"]),  # amhaẅt maybe too
         ("-ATTR", ["amhaẅm", "amhaẅa"]),
