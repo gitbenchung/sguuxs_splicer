@@ -18,7 +18,7 @@ class TestPlainStops(TestFSTOutput):
             "Noun": [
                 "ch$ayp",
                 "g_$oot",
-                "nts'$i'its",
+                "nts'$i'its", 
                 "b$a_x_bog_mgyemk",
                 "w$a_t'ukw",
             ]
@@ -118,8 +118,9 @@ class TestGlottalStops(TestFSTOutput):
         test_stems = {
             "Noun": [
                 "ł$a'at",
-                "nts'$i'its",
-                "han$a'ax_",
+                "ł$a't",
+                "nts'$ii'ts",
+                "han$a'k_",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -128,53 +129,69 @@ class TestGlottalStops(TestFSTOutput):
         stem = "ł$a'at+N"
         expected_map = [
             ("", ["ła'at"]),
-            ("-1SG.II", ["ła'di", "ła'du"]),
-            ("-1PL.II", ["ła'tm"]),
-            ("-2SG.II", ["ła'tn"]),
+            ("-1SG.II", ["ła'adi", "ła'adu"]),
+            ("-1PL.II", ["ła'atm"]),
+            ("-2SG.II", ["ła'atn"]),
             ("-2PL.II", ["ła'atsm"]),
             ("-3.II", ["ła'at"]),
-            ("[-3.II]=CN", ["ła'di"]),
+            ("[-3.II]=CN", ["ła'adi"]),
             ("[-3.II]=CN.IRR", ["ła'atł"]),
             ("[-3.II]=PN", ["ła'ats"]),
-            ("-SX", ["ła'dit"]),
-            ("-ATTR", ["ła'tm", "ła'da"]),
+            ("-SX", ["ła'adit"]),
+            ("-ATTR", ["ła'atm", "ła'ada"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottTS(self):
-        stem = "nts'$i'its+N"
+        stem = "nts'$ii'ts+N"
         expected_map = [
-            ("", ["nts'i'its"]),
+            ("", ["nts'ii'ts"]),
             ("-1SG.II", ["nts'ii'tsi", "nts'ii'tsu"]),
             ("-1PL.II", ["nts'ii'tsm"]),
             ("-2SG.II", ["nts'ii'tsn"]),
             ("-2PL.II", ["nts'ii'tsism"]),
-            ("-3.II", ["nts'i'itst"]),
+            ("-3.II", ["nts'ii'tst"]),
             ("[-3.II]=CN", ["nts'ii'tsi"]),
-            ("[-3.II]=CN.IRR", ["nts'i'itsł"]),
-            ("[-3.II]=PN", ["nts'i'its"]),
+            ("[-3.II]=CN.IRR", ["nts'ii'tsł"]),
+            ("[-3.II]=PN", ["nts'ii'ts"]),
             ("-SX", ["nts'ii'tsit"]),
             ("-ATTR", ["nts'ii'tsm", "nts'ii'tsa"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottK_(self):
-        stem = "han$a'ax_+N"
+        stem = "han$a'k_+N"
         expected_map = [
-            ("", ["hana'k̠", "hana'ax̱"]),
+            ("", ["hana'ḵ"]),
             ("-1SG.II", ["hana'g̱ai", "hana'g̱u"]),
             ("-1PL.II", ["hana'g̱m"]),
             ("-2SG.II", ["hana'g̱n"]),
-            ("-2PL.II", ["hana'ax̱sm"]),
-            ("-3.II", ["hana'ax̱t"]),
+            ("-2PL.II", ["hana'x̱sm"]),
+            ("-3.II", ["hana'ḵt"]),
             ("[-3.II]=CN", ["hana'g̱ai"]),
-            ("[-3.II]=CN.IRR", ["hana'ax̱ł"]),
-            ("[-3.II]=PN", ["hana'ax̱s"]),
-            ("-SX", ["hana'g̱at"]),
+            ("[-3.II]=CN.IRR", ["hana'x̱ł"]),
+            ("[-3.II]=PN", ["hana'x̱s"]),
+            ("-SX", ["hana'g̱at", "hana'g̱ait"]),
             ("-ATTR", ["hana'g̱m", "hana'g̱a"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
+    
+    def test_glott0T(self):
+        stem = "ł$a't+N"
+        expected_map = [
+            ("", ["ła't"]),
+            ("-1SG.II", ["ła'di", "ła'du"]),
+            ("-1PL.II", ["ła'tm"]),
+            ("-2SG.II", ["ła'tn"]),
+            ("-2PL.II", ["ła'tsm"]),
+            ("-3.II", ["ła't"]),
+            ("[-3.II]=CN", ["ła'di"]),
+            ("[-3.II]=CN.IRR", ["ła'tł"]),
+            ("[-3.II]=PN", ["ła'ts"]),
+            ("-SX", ["ła'dit"]),
+            ("-ATTR", ["ła'tm", "ła'da"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 class TestFricatives(TestFSTOutput):
 
@@ -188,6 +205,7 @@ class TestFricatives(TestFSTOutput):
                 "'y$axw",
                 "an$aaxy",
                 "$aax_",
+                "han$a'ax_",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -289,11 +307,27 @@ class TestFricatives(TestFSTOutput):
             ("[-3.II]=CN", ["aag̱ai"]),
             ("[-3.II]=CN.IRR", ["aax̱ł"]),
             ("[-3.II]=PN", ["aax̱s"]),
-            ("-SX", ["aag̱at"]),
+            ("-SX", ["aag̱at", "aag̱ait"]),
             ("-ATTR", ["aag̱m", "aag̱a"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
+    def test_fricOOX_(self):
+        stem = "han$a'ax_+N"
+        expected_map = [
+            ("", ["hana'ax̱"]),
+            ("-1SG.II", ["hana'ag̱ai", "hana'ag̱u"]),
+            ("-1PL.II", ["hana'ag̱m"]),
+            ("-2SG.II", ["hana'ag̱n"]),
+            ("-2PL.II", ["hana'ax̱sm"]),
+            ("-3.II", ["hana'ax̱t"]),
+            ("[-3.II]=CN", ["hana'ag̱ai"]),
+            ("[-3.II]=CN.IRR", ["hana'ax̱ł"]),
+            ("[-3.II]=PN", ["hana'ax̱s"]),
+            ("-SX", ["hana'ag̱at", "hana'ag̱ait"]),
+            ("-ATTR", ["hana'ag̱m", "hana'ag̱a"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 class TestPlainSonorants(TestFSTOutput):
 
@@ -304,7 +338,7 @@ class TestPlainSonorants(TestFSTOutput):
                 "'w$aan",
                 "k_'awk_'$aw",
                 "amh$aẅ",
-                "łg$üsgay",
+                "łgwisg_$ay",
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -344,39 +378,40 @@ class TestPlainSonorants(TestFSTOutput):
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
-def test_plainWeirdW(self):
-    stem = "amh$aẅ+N"
-    expected_map = [
-        ("", ["amhaẅ"]),
-        ("-1SG.II", ["amhaẅi", "amhaẅu"]),
-        ("-1PL.II", ["amhaẅm"]),
-        ("-2SG.II", ["amhaẅn"]),
-        ("-2PL.II", ["amhaẅsm"]),
-        ("-3.II", ["amhaẅt"]),
-        ("[-3.II]=CN", ["amhaẅł"]),
-        ("[-3.II]=CN", ["amhaẅi"]),
-        ("[-3.II]=PN", ["amhaẅs"]),
-        ("-SX", ["amhaẅit"]),  # amhaẅt maybe too
-        ("-ATTR", ["amhaẅm", "amhaẅa"]),
-    ]
-    self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
+    def test_plainWeirdW(self):
+        stem = "amh$aẅ+N"
+        expected_map = [
+            ("", ["amhaẅ"]),
+            ("-1SG.II", ["amhaẅi", "amhaẅu"]),
+            ("-1PL.II", ["amhaẅm"]),
+            ("-2SG.II", ["amhaẅn"]),
+            ("-2PL.II", ["amhaẅsm"]),
+            ("-3.II", ["amhaẅt"]),
+            ("[-3.II]=CN.IRR", ["amhaẅł"]),
+            ("[-3.II]=CN", ["amhaẅi"]),
+            ("[-3.II]=PN", ["amhaẅs"]),
+            ("-SX", ["amhaẅit"]),  # amhaẅt maybe too
+            ("-ATTR", ["amhaẅm", "amhaẅa"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
-def test_plainY(self):
-    stem = "łg$üsg_ay+N"
-    expected_map = [
-        ("", ["łgüsg̱ay"]),
-        ("-1SG.II", ["łgüsg̱ayi", "łgüsg̱ayu"]),
-        ("-1PL.II", ["łgüsg̱aym"]),
-        ("-2SG.II", ["łgüsg̱ayn"]),
-        ("-2PL.II", ["łgüsg̱aysm"]),
-        ("-3.II", ["łgüsg̱ayt"]),
-        ("[-3.II]=CN", ["łgüsg̱aył"]),
-        ("[-3.II]=PN", ["łgüsg̱ays"]),
-        ("-SX", ["łgüsg̱ayit"]),
-        ("-ATTR", ["łgüsg̱aym", "łgüsg̱aya"]),
-    ]
-    self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
+    def test_plainY(self):
+        stem = "łgwisg_$ay+N"
+        expected_map = [
+            ("", ["łgwisg̱ay"]),
+            ("-1SG.II", ["łgwisg̱ayi", "łgwisg̱ayu"]),
+            ("-1PL.II", ["łgwisg̱aym"]),
+            ("-2SG.II", ["łgwisg̱ayn"]),
+            ("-2PL.II", ["łgwisg̱aysm"]),
+            ("-3.II", ["łgwisg̱ayt"]),
+            ("[-3.II]=CN", ["łgwisg̱ayi"]),
+            ("[-3.II]=CN.IRR", ["łgwisg̱aył"]),
+            ("[-3.II]=PN", ["łgwisg̱ays"]),
+            ("-SX", ["łgwisg̱ayit"]),
+            ("-ATTR", ["łgwisg̱aym", "łgwisg̱aya"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
 
 @unittest.skip("need to convert to sgx")

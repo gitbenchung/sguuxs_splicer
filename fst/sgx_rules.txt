@@ -8,7 +8,10 @@ define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y 
 !--optional spirantisation of back stop {k_} > x
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
 
-!--glottal metathesis, VV' > V'V 
+!-- spirantisation by adjacency {k_} > {x_} by Sibilant or {ł}
+define SpirantAdj   {k_} -> {x_} || _ "^" [ Sibilant | {ł} ] ;
+
+!--optional glottal metathesis, VV' > V'V 
 define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
 
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
@@ -16,7 +19,7 @@ define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
 
 !--optional epenthesis, low front vowel after glottal, before stop
-define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} | d ] ;
+define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
 
 !-- delete DoubleDentalStop, double t becomes single t 
 define DoubleDentalStop t -> 0 || t "^" _ ; 
@@ -45,15 +48,15 @@ define VelarNasalVoicing    {kw} -> {gw} || _ "^" [ n | m ] ,,
 !-- voicing rule, nasal adjacency
 define NasalVoicing k -> g || _ "^" [ n | m ] ,,
                     p -> b || _ "^" [ n | m ] ,,
-                    t -> d || _ "^" [ n | m ] ,,
+                    t -> d || _ "^" .#. "^" [ n | m ] ,,
                     {ky} -> {gy} || _ "^" [ n | m ] ,,
                     {x_} -> {g_} || _ "^" [ n | m ] ;
 
 !-- epenthesis, voiced uvular trigger diphthongization  
-define VoicedUvularEp   [..] -> a || {g_} _ "^" i ;
+define VoicedUvularEp   [..] -> a || {g_} _ "^" [ i | {it}] ;
 
-!-- epenthesis, {nt} cluster becomes {nit}
-define NTEpenthesis [..] -> i || {n} _ "^" t ;
+!-- epenthesis, Consonant/Sonorant cluster becomes {_it}
+define ConSonTEpenthesis [..] (->) i || [ Consonant | Sonorant ] "^" _ .#. "^" t ;
 
 !-- glide insertion, postuvular stop preceding rounded vowel
 define PostUvularStopGI [..] -> y || {g_} _ "^" u ;
@@ -70,13 +73,13 @@ define Stems ;
 
 regex Stems
     .o. SpirantBack
-    .o. GlottalStopEp
+    .o. SpirantAdj
     .o. GlottalSpread
     .o. DoubleDentalStop
     .o. DoubleNasalStop
     .o. StopClusterEp
     .o. PostUvularStopGI
-    .o. NTEpenthesis
+    .o. ConSonTEpenthesis
     .o. VowelVoicing
     .o. VelarVowelVoicing
     .o. VelarNasalVoicing
