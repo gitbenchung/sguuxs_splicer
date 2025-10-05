@@ -18,7 +18,7 @@ class TestPlainStops(TestFSTOutput):
             "Noun": [
                 "ch$ayp",
                 "g_$oot",
-                "w$aats",
+                "ł$ik'ots",
                 "nts'$i'its", 
                 "b$a_x_bog_mgyemk",
                 "w$a_t'ukw",
@@ -61,19 +61,19 @@ class TestPlainStops(TestFSTOutput):
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_plainTS(self):
-        stem = "w$aats+N"
+        stem = "ł$ik'ots+N"
         expected_map = [
-            ("", ["waats"]),
-            ("-1SG.II", ["waatsi", "waatsu"]),
-            ("-1PL.II", ["waatsm"]),
-            ("-2SG.II", ["waatsn"]),
-            ("-2PL.II", ["waatsism"]),
-            ("-3.II", ["waatst"]),
-            ("[-3.II]=CN.IRR", ["waatsł"]),
-            ("[-3.II]=CN", ["waatsi"]),
-            ("[-3.II]=PN", ["waats"]),
-            ("-SX", ["waatsit"]),
-            ("-ATTR", ["waatsm", "waatsa"]),
+            ("", ["łik'ots"]),
+            ("-1SG.II", ["łik'odzi", "łik'odzu"]),
+            ("-1PL.II", ["łik'odzm"]),
+            ("-2SG.II", ["łik'odzn"]),
+            ("-2PL.II", ["łik'odzism"]),
+            ("-3.II", ["łik'otst"]),
+            ("[-3.II]=CN.IRR", ["łik'otsł"]),
+            ("[-3.II]=CN", ["łik'odzi"]),
+            ("[-3.II]=PN", ["łik'ots"]),
+            ("-SX", ["łik'odzit"]),
+            ("-ATTR", ["łik'odzm", "łik'odza"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -201,11 +201,11 @@ class TestGlottalStops(TestFSTOutput):
             ("-1SG.II", ["hana'g̱ai", "hana'g̱u"]),
             ("-1PL.II", ["hana'g̱m"]),
             ("-2SG.II", ["hana'g̱n"]),
-            ("-2PL.II", ["hana'ḵsm", "hana'x̱sm"]),
-            ("-3.II", ["hana'ḵt", "hana'x̱t"]), # why was written as plain x?
+            ("-2PL.II", ["hana'ḵsm"]),
+            ("-3.II", ["hana'ḵt"]),
             ("[-3.II]=CN", ["hana'g̱ai"]),
-            ("[-3.II]=CN.IRR", ["hana'x̱ł", "hana'ḵł"]), # why was written as plain k?
-            ("[-3.II]=PN", ["hana'x̱s", "hana'ḵs"]),
+            ("[-3.II]=CN.IRR", ["hana'ḵł"]), 
+            ("[-3.II]=PN", ["hana'ḵs"]),
             ("-SX", ["hana'g̱at"]),
             ("-ATTR", ["hana'g̱m", "hana'g̱a"]),
         ]
@@ -438,8 +438,8 @@ class TestGlottalSonorants(TestFSTOutput):
         test_stems = {
             "Noun": [
                 "m$o'on",
-                "l$agyi'il",
-                # "mask_'ay$aa'y",
+                "lagy$i'il",
+                "m$a'ay",
                 "kp$a'aw",
                 "ts'$ila'a",
                 # "ba'n",
@@ -488,37 +488,38 @@ class TestGlottalSonorants(TestFSTOutput):
     # len(expected_forms)))
 
     def test_glottalL(self):
-        stem = "l$agyi'il+N"
+        stem = "lagy$i'il+N"
         expected_map = [
             ("", ["lagyi'il"]),
-            ("-1SG.II", ["lagyi'ili", "lagyi'ilu"]),
+            ("-1SG.II", ["lagyi'ili", "lagyi'ilu",]),
             ("-1PL.II", ["lagyi'ilm"]),
             ("-2SG.II", ["lagyi'iln"]),
             ("-2PL.II", ["lagyi'ilsm"]),
             ("-3.II", ["lagyi'ilt"]),
             ("[-3.II]=CN", ["lagyi'ili"]),
-            ("[-3.II]=CN.IRR", ["lagyi'ilił"]),
+            ("[-3.II]=CN.IRR", ["lagyi'ilł", "lagyi'ił"]),
             ("[-3.II]=PN", ["lagyi'ils"]),
             ("-SX", ["lagyi'ilit"]),
             ("-ATTR", ["lagyi'ilm", "lagyi'ila"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    #    def test_glottalY(self):
-    #    stem = "mask_'ay$aa'y+N"
-    #    expected_map = [
-    #        ("-1SG.II", ["masḵ'ayaa'y"]),  # ??
-    #       ("-1PL.II", ["masḵ'ayaa'yi'm"]),
-    #        ("-2SG.II", ["masḵ'ayaa'yin"]),
-    #       ("-2PL.II", ["masḵ'ayaa'ysi'm"]),
-    #        ("-3.II", ["masḵ'ayaa'yt"]),
-    #        ("-3PL.II", ["masḵ'ayaa'ydiit"]),
-    #        ("[-3.II]=CN", ["masḵ'ayaa'yhl"]),
-    #        ("[-3.II]=PN", ["masḵ'ayaa'ys"]),
-    #        ("-SX", ["masḵ'ayaa'yit"]),
-    #        ("-ATTR", ["masḵ'ayaa'yim", "masḵ'ayaa'ya"]),
-    #    ]
-    #    self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
+    def test_glottalY(self):
+        stem = "m$a'ay+N"
+        expected_map = [
+        ("", ["ma'ay"]),
+        ("-1SG.II", ["ma'ayi", "ma'ayu"]),
+        ("-1PL.II", ["ma'aym"]),
+        ("-2SG.II", ["ma'ayn"]),
+        ("-2PL.II", ["ma'aysm"]),
+        ("-3.II", ["ma'ayt"]),
+        ("[-3.II]=CN", ["ma'ayi"]), 
+        ("[-3.II]=CN.IRR", ["ma'aył"]), 
+        ("[-3.II]=PN", ["ma'ays"]),
+        ("-SX", ["ma'ayit"]),
+        ("-ATTR", ["ma'aym", "ma'aya"]),
+        ]
+        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_glottalW(self):
         stem = "kp$a'aw+N"
@@ -550,7 +551,7 @@ class TestGlottalSonorants(TestFSTOutput):
             ("[-3.II]=CN.IRR", ["ts'ila'ał"]),
             ("[-3.II]=PN", ["ts'ila'as"]),
             ("-SX", ["ts'ila'at"]),
-            ("-ATTR", ["ts'ila'am", "ts'ilaa'a"]),
+            ("-ATTR", ["ts'ila'am", "ts'ila'a"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
