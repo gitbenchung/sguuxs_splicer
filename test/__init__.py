@@ -3,7 +3,7 @@ import json
 import unittest
 import os
 
-from src import Parser, FULL_SGX
+from src import Parser, FULL_SGX, helpers
 
 
 FIX_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "fixtures"))
@@ -87,10 +87,11 @@ class TestFSTOutput(unittest.TestCase):
             expected_map = expected_map.items()
 
         for suffix, expected_forms in expected_map:
-            gloss = stem_gloss + suffix
+            gloss = helpers.convert_to_underscore(stem_gloss + suffix)
             result_list = self.fst.generate(gloss)
             with self.subTest(gloss=gloss):
                 for expected in expected_forms:
+                    expected = helpers.convert_to_macron(expected)
                     self.assertIn(expected, result_list)
                 self.assertEqual(
                     len(result_list),
