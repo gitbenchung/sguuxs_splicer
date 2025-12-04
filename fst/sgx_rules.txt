@@ -1,4 +1,4 @@
-define Vowel a | e | i | o | u | ü | "_" ;
+define Vowel a | e | i | o | u | ü | "_" | {a_} ;
 define Consonant p | {p'} | m | s | c h | h | t | {t'} | k | {k'} | n | ł | l | k w | k y | x | x w | x y | y | ẅ | ' | "_" ;
 define CLetter b | d | dz | g | g̱ | {g'} | g w | g y | "_" ;
 define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
