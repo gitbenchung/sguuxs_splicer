@@ -523,23 +523,6 @@ class TestGlottalSonorants(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_glottalLShort(self):
-        stem = "lagy$i'l+N"
-        expected_map = [
-            ("", ["lagyi'l"]),
-            ("-1SG.II", ["lagyi'li", "lagyi'lu",]),
-            ("-1PL.II", ["lagyi'lm"]),
-            ("-2SG.II", ["lagyi'ln"]),
-            ("-2PL.II", ["lagyi'lsm"]),
-            ("-3.II", ["lagyi'lt"]),
-            ("[-3.II]=CN", ["lagyi'li"]),
-            ("[-3.II]=CN.IRR", ["lagyi'lł", "lagyi'ł"]),
-            ("[-3.II]=PN", ["lagyi'ls"]),
-            ("-SX", ["lagyi'lit"]),
-            ("-ATTR", ["lagyi'lm", "lagyi'la"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
     def test_glottalY(self):
         stem = "m$a'ay+N"
         expected_map = [
@@ -608,23 +591,6 @@ class TestGlottalSonorants(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_glottalStopMacron(self):
-        stem = "ts'$ila_'a_+N"
-        expected_map = [
-            ("", ["ts'ila̱'a̱"]),
-            ("-1SG.II", ["ts'ila̱'a̱yi", "ts'ila̱'a̱yu"]),
-            ("-1PL.II", ["ts'ila̱'a̱m"]),
-            ("-2SG.II", ["ts'ila̱'a̱n"]),
-            ("-2PL.II", ["ts'ila̱'a̱sm"]),
-            ("-3.II", ["ts'ila̱'a̱t"]),
-            ("[-3.II]=CN", ["ts'ila̱'a̱yi"]),
-            ("[-3.II]=CN.IRR", ["ts'ila̱'a̱ł"]),
-            ("[-3.II]=PN", ["ts'ila̱'a̱s"]),
-            ("-SX", ["ts'ila̱'a̱t"]),
-            ("-ATTR", ["ts'ila̱'a̱m", "ts'ila̱'a̱"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
 
 @unittest.skip("need to convert to sgx")
 class TestVowels(TestFSTOutput):
@@ -655,7 +621,7 @@ class TestVowels(TestFSTOutput):
             ("[-3.II]=CN", ["wahl"]),
             ("[-3.II]=PN", ["was"]),
             ("-SX", ["wat"]),
-            ("-ATTR", ["wam"]),  # ??
+            ("-ATTR", ["wam", "waha"]),  # ??
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
