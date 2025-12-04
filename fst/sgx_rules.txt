@@ -19,7 +19,7 @@ define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
 
 !--optional ts -> dz alternation, nasal adjacency
-define DZVoicing  {ts} (->) {dz} || {'i} "^" _ [ {m} | {n} ] ;
+define DZVoicing  {ts} (->) {dz} || {'i} "^" _ [ m | n ] ;
 
 !--optional epenthesis, low front vowel after glottal, before stop
 define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
