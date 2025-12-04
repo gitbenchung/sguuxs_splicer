@@ -7,7 +7,6 @@ LEXICON Noun
 
 LEXICON NInfl
 -ATTR:^m	# ;
--ATTR:^a	# ;
 		SeriesII ;
 		SX ;
 		Word ;
