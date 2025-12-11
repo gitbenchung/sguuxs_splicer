@@ -214,4 +214,6 @@ Additional lexicon and more complex inflection to be added once test files are u
 
 This tool is in the development process. At the moment, it is only suitable for DP/NPs. Future versions will incorporate predicates and other complex morphology.
 
-Last update: 2025-06-11
+The most recent update allows for testing within an integrated development environment (e.g., Visual Studio Code) via a Docker Container. Current testing centres on /ts/ > [dz] voicing and limiting [i] epenthesis in some contexts.
+
+Last update: 2025-12-11
