@@ -1,4 +1,5 @@
 import unittest
+import unicodedata as uc
 
 from src import helpers
 
@@ -6,6 +7,18 @@ from src import helpers
 Tests helper functions having to do with case changing,
 stress annotation, and (TODO) git orthography.
 """
+
+
+def test_normalize(self):
+    input_str = "ẅa̱ḵg̲x_üü"
+    provided_list = [uc.normalize("NFC", input_str), uc.normalize("NFD", input_str)]
+    expected_lexc = uc.normalize("NFC", "ẅa_k_g_x_üü")
+    expected_macr = uc.normalize("NFC", "ẅa̱ḵg̱x̱üü")
+
+    for provided in provided_list:
+        with self.subTest(provided=provided):
+            self.assertEqual(helpers.convert_to_underscore(provided), expected_lexc)
+            self.assertEqual(helpers.convert_to_macron(provided), expected_macr)
 
 
 class TestCamelcase(unittest.TestCase):
@@ -138,6 +151,12 @@ class TestStressMarking(unittest.TestCase):
         result = helpers.assign_stress(inputwds, "1")
 
         self.assertEqual(["d$üü"], result)
+
+    def test_stress_diaresis_two(self):
+        inputwds = ["gügü"]
+        result = helpers.assign_stress(inputwds, "2")
+
+        self.assertEqual(["güg$ü"], result)
 
 
 if __name__ == "__main__":
