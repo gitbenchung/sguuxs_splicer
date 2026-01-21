@@ -9,7 +9,7 @@ define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y 
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
 
 !-- spirantisation by adjacency {k_} > {x_} by Sibilant or {ł}
-define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | {ł} ] ;
+define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | ł ] ;
 
 !--optional glottal metathesis, VV' > V'V 
 define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
@@ -58,9 +58,6 @@ define NasalVoicing k -> g || _ "^" [ n | m ] ,,
 !-- epenthesis, voiced uvular trigger diphthongization  
 define VoicedUvularEp   [..] -> a || {g_} _ "^" [ i | {it}] ;
 
-!-- epenthesis, Consonant/Sonorant cluster becomes {_it}
-define ConSonTEpenthesis [..] (->) i || [ Consonant | Sonorant ] "^" _ .#. "^" t ;
-
 !-- glide insertion, postuvular stop preceding rounded vowel
 define PostUvularStopGI [..] -> y || {g_} _ "^" u ;
 
@@ -70,6 +67,9 @@ define SimHiatus [..] -> i || Sibilant "^" _ {sm} ;
 !--delete a connective clitic following an identical phoneme
 define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
                         ł -> 0 || ł "^" _ ;
+
+!--delete a connective clitic following lł
+define LBarredL         l "^" ł (->) ł ||  _ .#. ;
 
 !--glide insertion 'y' between a/{a_}i and a/{a_}u
 define GlideInsert  [..] -> y || {'a_} _ "^" i ,,
@@ -89,7 +89,6 @@ regex Stems
     .o. DoubleNasalStop
     .o. StopClusterEp
     .o. PostUvularStopGI
-    .o. ConSonTEpenthesis
     .o. VowelVoicing
     .o. VelarVowelVoicing
     .o. VelarNasalVoicing
@@ -97,6 +96,7 @@ regex Stems
     .o. VoicedUvularEp
     .o. SimHiatus
     .o. DoubleFricative
+    .o. LBarredL
     .o. GlideInsert
     ;
 define MessyWords ;
