@@ -1,4 +1,5 @@
 import re
+import unicodedata as uc
 
 
 def unique(orig: list) -> list:
@@ -39,7 +40,7 @@ def convert_to_underscore(string: str) -> str:
     Replaces unicode combining lowline/macron with underscore.
     Returns a new string.
     """
-    return standardize_back(string, underline=UNDERSCORE)
+    return normalize(string, underline=UNDERSCORE)
 
 
 def convert_to_lowline(string: str) -> str:
@@ -47,7 +48,7 @@ def convert_to_lowline(string: str) -> str:
     Replaces underscore with unicode combining lowline.
     Returns a new string.
     """
-    return standardize_back(string, underline=LOW_LINE)
+    return normalize(string, underline=LOW_LINE)
 
 
 def convert_to_macron(string: str) -> str:
@@ -55,20 +56,21 @@ def convert_to_macron(string: str) -> str:
     Replaces underscore with unicode combining macron below.
     Returns a new string.
     """
-    return standardize_back(string, underline=MACRON)
+    return normalize(string, underline=MACRON)
 
 
-def standardize_back(string: str, underline: str = UNDERSCORE) -> str:
+def normalize(string: str, underline: str = UNDERSCORE) -> str:
     """
     Takes a string and replaces all instances of a possible underline
     diacritic with your choice of underline marker:
         UNDERSCORE = g_
         LOW_LINE = g̲
         MACRON = g̱
-    Returns a new string.
+    Returns a new string that is NFC normalized.
     """
     pat = "[" + UNDERLINE_OPTIONS + "]"
-    return re.sub(pat, underline, string)
+    result = re.sub(pat, underline, uc.normalize("NFD", string))
+    return uc.normalize("NFC", result)
 
 
 def standardize_palatal(string: str, use_kya: bool = False) -> str:
@@ -104,7 +106,7 @@ def csv_to_neutral(string: str) -> str:
     """
 
     string = string.lstrip(".")  # removes initial apostrophe in dict/excel
-    string = standardize_back(string, UNDERSCORE)
+    string = convert_to_underscore(string)
     return string
 
 
@@ -113,7 +115,7 @@ def neutral_to_corpus(string: str) -> str:
     Returns a new string formatted using dataset-consistent orthography.
     Sgx corpus uses combining macron underline.
     """
-    string = standardize_back(string, MACRON)
+    string = convert_to_macron(string)
     return string
 
 
@@ -122,6 +124,7 @@ def neutral_to_lexc(string: str) -> str:
     Returns a new string formatted using lexc-compatible orthography.
     New words cannot have spaces, so multi-words are joined together.
     """
+    string = convert_to_underscore(string)
     string = join_words(string)
 
     # The following are not needed for sgx (yet)
