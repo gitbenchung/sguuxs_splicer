@@ -71,6 +71,12 @@ define SimHiatus [..] -> i || Sibilant "^" _ {sm} ;
 define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
                         ł -> 0 || ł "^" _ ;
 
+!--glide insertion 'y' between a/{a_}i and a/{a_}u
+define GlideInsert  [..] -> y || {'a_} _ "^" i ,,
+                    [..] -> y || {'a} _ "^" i  ,,
+                    [..] -> y || {'a_} _ "^" u ,,
+                    [..] -> y || {'a} _ "^" u ;
+
 regex Lexicon ;
 define Stems ;
 
@@ -91,6 +97,7 @@ regex Stems
     .o. VoicedUvularEp
     .o. SimHiatus
     .o. DoubleFricative
+    .o. GlideInsert
     ;
 define MessyWords ;
 
