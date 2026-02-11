@@ -19,7 +19,8 @@ define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
 
 !--optional ts -> dz alternation
-define DZVoicing	{ts} (->) {dz} || _ "^" [ SeriesII | AgreeingNClitic ] .#. ;
+define DZVoicing	{ts} (->) {dz} || _ "^" [ SeriesII | AgreeingNClitic ] .#. ,,
+                    {ts} -> {dz} || _ "^" [ Vowel | m | n ] ;
 
 !--optional epenthesis, low front vowel after glottal, before stop
 define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
@@ -30,6 +31,8 @@ define DoubleDentalStop t -> 0 || t "^" _ ;
 !-- delete DoubleNasalStop, double mm and nn become single m / n 
 define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
+
+
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
