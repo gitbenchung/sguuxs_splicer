@@ -11,9 +11,6 @@ define SpirantBack  {k_} (->) x || _ "^" .#. ;
 !-- spirantisation by adjacency {k_} > {x_} by Sibilant or {ł}
 define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | ł ] ;
 
-!--optional glottal metathesis, VV' > V'V 
-define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
-
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
 define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
@@ -32,7 +29,11 @@ define DoubleDentalStop t -> 0 || t "^" _ ;
 define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
 
-
+!-- glottal movement, Vowel ' Vowel >> Vowel Vowel ' or Vowel '
+define GlottalMove  {a'a} (->) {aa'} || _ Consonant ,,
+                    {a'a} (->) {a'} || _ Consonant ,,
+                    {i'i} (->) {ii'} || _ Consonant ,,
+                    {i'i} (->) {i'} || _ Consonant ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -84,7 +85,7 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
-    .o. GlottalSpread
+    .o. GlottalMove
     .o. DoubleDentalStop
     .o. DoubleNasalStop
     .o. StopClusterEp
