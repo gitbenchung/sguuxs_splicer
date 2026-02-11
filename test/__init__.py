@@ -92,9 +92,14 @@ class TestFSTOutput(unittest.TestCase):
             with self.subTest(gloss=gloss):
                 for expected in expected_forms:
                     expected = helpers.convert_to_macron(expected)
-                    self.assertIn(expected, result_list)
+                    self.assertIn(
+                        expected,
+                        result_list,
+                        f"Expected {gloss} form {expected} not generated, "
+                        f"parser produces: {result_list}",)
                 self.assertEqual(
                     len(result_list),
                     len(expected_forms),
-                    f"{gloss} should have {len(expected_forms)} results",
+                    f"{gloss} should have {len(expected_forms)} results but "
+                    f"parser produces {len(result_list)}: {result_list}",
                 )
