@@ -388,148 +388,106 @@ class TestGlottalCoda(TestFSTOutput):
             ("-ATTR", ["nts'i'itsm", "nts'ii'tsm", "nts'i'tsm", "nts'i'idzm", "nts'ii'dzm", "nts'i'dzm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
-    @unittest.skip("need to combine with below test results")
-    def test_glottK_(self):
-        stem = "han$a'k_+N"
-        expected_map = [
-            ("", ["hana'ḵ"]),
-            ("-1SG.II", ["hana'g̱ai", "hana'g̱u"]),
-            ("-1PL.II", ["hana'g̱m"]),
-            ("-2SG.II", ["hana'g̱n"]),
-            ("-2PL.II", ["hana'ḵsm"]),
-            ("-3.II", ["hana'ḵt"]),
-            ("[-3.II]=CN", ["hana'g̱ai"]),
-            ("[-3.II]=CN.IRR", ["hana'ḵł"]), 
-            ("[-3.II]=PN", ["hana'ḵs"]),
-            # ("-SX", ["hana'g̱at"]),
-            ("-ATTR", ["hana'g̱m"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
         
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottX_(self):
         stem = "han$a'ax_+N"
         expected_map = [
-            ("", ["hana'ax̱"]),
-            ("-1SG.II", ["hana'ag̱ai", "hana'ag̱u"]),
-            ("-1PL.II", ["hana'ag̱m"]),
-            ("-2SG.II", ["hana'ag̱n"]),
-            ("-2PL.II", ["hana'ax̱sm"]),
-            ("-3.II", ["hana'ax̱t"]),
-            ("[-3.II]=CN", ["hana'ag̱ai"]),
-            ("[-3.II]=CN.IRR", ["hana'ax̱ł"]),
-            ("[-3.II]=PN", ["hana'ax̱s"]),
-            # ("-SX", ["hana'ag̱at"]),
-            ("-ATTR", ["hana'ag̱m"]),
+            ("", ["hana'ax̱","hana'ḵ"]),
+            ("-1SG.II", ["hana'ag̱ai", "hana'ag̱u","hana'g̱ai", "hana'g̱u"]),
+            ("-1PL.II", ["hana'ag̱m", "hana'g̱m"]),
+            ("-2SG.II", ["hana'ag̱n", "hana'g̱n"]),
+            ("-2PL.II", ["hana'ax̱sm", "hana'ḵsm"]),
+            ("-3.II", ["hana'ax̱t","hana'ḵt"]),
+            ("[-3.II]=CN", ["hana'ag̱ai","hana'g̱ai"]),
+            ("[-3.II]=CN.IRR", ["hana'ax̱ł","hana'ḵł"]),
+            ("[-3.II]=PN", ["hana'ax̱s","hana'ḵs"]),
+            # ("-SX", ["hana'ag̱at", "hana'g̱at"]),
+            ("-ATTR", ["hana'ag̱m", "hana'g̱m"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottalM(self):
         stem = "łił$a'am+N"
         expected_map = [
-            ("", ["łiła'am"]),
-            ("-1SG.II", ["łiła'amu", "łiła'ami"]),
-            ('-1PL.II',    ["łiła'amim"]), 
-            ("-2SG.II", ["łiła'amn"]),
-            ("-2PL.II", ["łiła'amsm"]),
-            ("-3.II", ["łiła'amt"]),
-            ("[-3.II]=CN", ["łiła'ami"]),
-            ("[-3.II]=CN.IRR", ["łiła'amł"]),
-            ("[-3.II]=PN", ["łiła'ams"]),
-            # ("-SX", ["łiła'amit"]),  
-            ("-ATTR", ["łiła'amim"]),
+            ("", ["łiła'am","łiła'm"]),
+            ("-1SG.II", ["łiła'amu", "łiła'ami", "łiła'mi", "łiła'mu"]),
+            ('-1PL.II',    ["łiła'amim", "łiła'mim"]), 
+            ("-2SG.II", ["łiła'amn", "łiła'mn"]),
+            ("-2PL.II", ["łiła'amsm", "łiła'msm"]),
+            ("-3.II", ["łiła'amt", "łiła'mt"]),
+            ("[-3.II]=CN", ["łiła'ami", "łiła'mi"]),
+            ("[-3.II]=CN.IRR", ["łiła'amł", "łiła'mł"]),
+            ("[-3.II]=PN", ["łiła'ams", "łiła'ms"]),
+            # ("-SX", ["łiła'amit", "łiła'mit"]),  
+            ("-ATTR", ["łiła'amim", "łiła'mim"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottalN(self):
         stem = "m$o'on+N"
         expected_map = [
-            ("", ["mo'on"]),
-            ("-1SG.II", ["mo'onu", "mo'oni"]),
-            ('-1PL.II',    ["mo'onm"]), 
-            ("-2SG.II", ["mo'on"]),
-            ("-2PL.II", ["mo'onsm"]),
-            ("-3.II", ["mo'ont"]),
-            ("[-3.II]=CN", ["mo'oni"]),
-            ("[-3.II]=CN.IRR", ["mo'onł"]),
-            ("[-3.II]=PN", ["mo'ons"]),
-            # ("-SX", ["mo'onit"]),  
-            ("-ATTR", ["mo'onm"]),
+            ("", ["mo'on", "mo'n"]),
+            ("-1SG.II", ["mo'onu", "mo'oni", "mo'nu", "mo'ni"]),
+            ('-1PL.II',    ["mo'onm", "mo'nm"]), 
+            ("-2SG.II", ["mo'on", "mo'n"]),
+            ("-2PL.II", ["mo'onsm", "mo'nsm"]),
+            ("-3.II", ["mo'ont", "mo'nt"]),
+            ("[-3.II]=CN", ["mo'oni", "mo'ni"]),
+            ("[-3.II]=CN.IRR", ["mo'onł", "mo'nł"]),
+            ("[-3.II]=PN", ["mo'ons", "mo'ns"]),
+            # ("-SX", ["mo'onit", "mo'nit"]),  
+            ("-ATTR", ["mo'onm", "mo'nm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottalL(self):
         stem = "lagy$i'il+N"
         expected_map = [
-            ("", ["lagyi'il"]),
-            ("-1SG.II", ["lagyi'ili", "lagyi'ilu",]),
-            ("-1PL.II", ["lagyi'ilm"]),
-            ("-2SG.II", ["lagyi'iln"]),
-            ("-2PL.II", ["lagyi'ilsm"]),
-            ("-3.II", ["lagyi'ilt"]),
-            ("[-3.II]=CN", ["lagyi'ili"]),
-            ("[-3.II]=CN.IRR", ["lagyi'ilł", "lagyi'ił"]),
-            ("[-3.II]=PN", ["lagyi'ils"]),
-            # ("-SX", ["lagyi'ilit"]),
-            ("-ATTR", ["lagyi'ilm"]),
+            ("", ["lagyi'il", "lagyi'l"]),
+            ("-1SG.II", ["lagyi'ili", "lagyi'ilu", "lagyi'li", "lagyi'lu"]),
+            ("-1PL.II", ["lagyi'ilm", "lagyi'lm"]),
+            ("-2SG.II", ["lagyi'iln", "lagyi'ln"]),
+            ("-2PL.II", ["lagyi'ilsm", "lagyi'lsm"]),
+            ("-3.II", ["lagyi'ilt", "lagyi'lt"]),
+            ("[-3.II]=CN", ["lagyi'ili", "lagyi'li"]),
+            ("[-3.II]=CN.IRR", ["lagyi'ilł", "lagyi'ił", "lagyi'lł", "lagyi'ł"]),
+            ("[-3.II]=PN", ["lagyi'ils", "lagyi'ls"]),
+            # ("-SX", ["lagyi'ilit", "lagyi'lit"]),
+            ("-ATTR", ["lagyi'ilm", "lagyi'lm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    @unittest.skip("need to combine with above test results")
-    def test_glottalLShort(self):
-        stem = "lagy$i'l+N"
-        expected_map = [
-            ("", ["lagyi'l"]),
-            ("-1SG.II", ["lagyi'li", "lagyi'lu",]),
-            ("-1PL.II", ["lagyi'lm"]),
-            ("-2SG.II", ["lagyi'ln"]),
-            ("-2PL.II", ["lagyi'lsm"]),
-            ("-3.II", ["lagyi'lt"]),
-            ("[-3.II]=CN", ["lagyi'li"]),
-            ("[-3.II]=CN.IRR", ["lagyi'lł", "lagyi'ł"]),
-            ("[-3.II]=PN", ["lagyi'ls"]),
-            # ("-SX", ["lagyi'lit"]),
-            ("-ATTR", ["lagyi'lm"]),
-        ]
-        self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
-
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottalY(self):
         stem = "m$a'ay+N"
         expected_map = [
-        ("", ["ma'ay"]),
-        ("-1SG.II", ["ma'ayi", "ma'ayu"]),
-        ("-1PL.II", ["ma'aym"]),
-        ("-2SG.II", ["ma'ayn"]),
-        ("-2PL.II", ["ma'aysm"]),
-        ("-3.II", ["ma'ayt"]),
-        ("[-3.II]=CN", ["ma'ayi"]), 
-        ("[-3.II]=CN.IRR", ["ma'aył"]), 
-        ("[-3.II]=PN", ["ma'ays"]),
-        # ("-SX", ["ma'ayit"]),
-        ("-ATTR", ["ma'aym"]),
+        ("", ["ma'ay", "ma'y"]),
+        ("-1SG.II", ["ma'ayi", "ma'ayu", "ma'yi", "ma'yu"]),
+        ("-1PL.II", ["ma'aym", "ma'ym"]),
+        ("-2SG.II", ["ma'ayn", "ma'yn"]),
+        ("-2PL.II", ["ma'aysm", "ma'ysm"]),
+        ("-3.II", ["ma'ayt", "ma'yt"]),
+        ("[-3.II]=CN", ["ma'ayi", "ma'yi"]), 
+        ("[-3.II]=CN.IRR", ["ma'aył", "ma'ył"]), 
+        ("[-3.II]=PN", ["ma'ays", "ma'ys"]),
+        # ("-SX", ["ma'ayit", "ma'yit"]),
+        ("-ATTR", ["ma'aym", "ma'ym"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    @unittest.skip("need to convert to new glottal variation behavior")
     def test_glottalW(self):
         stem = "kp$a'aw+N"
         expected_map = [
-            ("", ["kpa'aw"]),
-            ("-1SG.II", ["kpa'awi", "kpa'awu"]),
-            ("-1PL.II", ["kpa'awm"]),
-            ("-2SG.II", ["kpa'awn"]),
-            ("-2PL.II", ["kpa'awsm"]),
-            ("-3.II", ["kpa'awt"]),
-            ("[-3.II]=CN", ["kpa'awi"]),
-            ("[-3.II]=CN.IRR", ["kpa'awł"]),
-            ("[-3.II]=PN", ["kpa'aws"]),
-            ('-SX',     ["kpa'awit"]),
-            ("-ATTR", ["kpa'awm"]),
+            ("", ["kpa'aw", "kpa'w"]),
+            ("-1SG.II", ["kpa'awi", "kpa'awu", "kpa'wi", "kpa'wu"]),
+            ("-1PL.II", ["kpa'awm", "kpa'wm"]),
+            ("-2SG.II", ["kpa'awn", "kpa'wn"]),
+            ("-2PL.II", ["kpa'awsm", "kpa'wsm"]),
+            ("-3.II", ["kpa'awt", "kpa'wt"]),
+            ("[-3.II]=CN", ["kpa'awi", "kpa'wi"]),
+            ("[-3.II]=CN.IRR", ["kpa'awł", "kpa'wł"]),
+            ("[-3.II]=PN", ["kpa'aws", "kpa'ws"]),
+            ('-SX',     ["kpa'awit", "kpa'wit"]),
+            ("-ATTR", ["kpa'awm", "kpa'wm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
