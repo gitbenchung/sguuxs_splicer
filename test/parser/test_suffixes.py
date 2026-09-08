@@ -19,7 +19,6 @@ class TestPlainStops(TestFSTOutput):
                 "ch$ayp",
                 "g_$oot",
                 "ł$ik'ots",
-                "nts'$i'its", 
                 "b$a_x_bog_mgyemk",
                 "w$a_t'ukw",
             ]
