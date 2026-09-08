@@ -77,6 +77,22 @@ class TestLexiconFromDict(unittest.TestCase):
             r"LEXICON RootNoun\napple \tNoun ;\ncat \tNoun ;",
         )
 
+    def test_imports_nonnormalized_to_foma_reqs(self):
+        # a variety of annotations for underscore and diaresis in csv
+        # stores in foma required style: no combining chars, underscore instead of line
+        self.config["dictionary"] = {"Noun": ["g_a_k_'$a_x_", "ḵ'$a̱x̱", "h$aẅ", "m$üüx"]}
+        lexicon = Lexicon(self.config)
+
+        expected_list = [
+            "g_a_k_'$a_x_",
+            "k_'$a_x_",
+            "h$aẅ",
+            "m$üüx",
+        ]
+        for expected in expected_list:
+            with self.subTest(expected=expected):
+                self.assertIn(expected, lexicon.as_lexc_str())
+
 
 class TestLexiconFromCSV(unittest.TestCase):
 
@@ -96,10 +112,24 @@ class TestLexiconFromCSV(unittest.TestCase):
 
     def test_imports_entries(self):
         self.assertIn("xy$aa", self.lexicon.dict["IntransitiveVerb"])
+        self.assertIn("'y$axwt", self.lexicon.dict["Noun"])
 
     def test_imports_variants(self):
         self.assertIn("w$aap", self.lexicon.dict["Noun"])
         self.assertIn("w$aalp", self.lexicon.dict["Noun"])
+
+    def test_imports_nonnormalized_to_foma_reqs(self):
+        # a variety of annotations for underscore and diaresis in csv
+        # stores in foma required style: no combining chars, underscore instead of line
+        expected_list = [
+            "g_a_k_'$a_x_",
+            "k_'$a_x_",
+            "h$aẅ",
+            "m$üüx",
+        ]
+        for expected in expected_list:
+            with self.subTest(expected=expected):
+                self.assertIn(expected, self.lexicon.dict["Noun"])
 
     def test_doesnt_import_extra_category(self):
         self.assertNotEqual(len(self.lexicon.illegal_categories), 0)

@@ -41,20 +41,10 @@ class Lexicon:
         for category, stems in self.dict.items():
             stems_txt += "\nLEXICON Root" + category + "\n"
             for stem in stems:
-                stems_txt += "{} \t{} ;\n".format(self.lexc_form(stem), category)
+                stems_txt += f"{helpers.neutral_to_lexc(stem)} \t{category} ;\n"
             stems_txt += "\nLEXICON " + category + "\n"
 
         return stems_txt
-
-    @staticmethod
-    def lexc_form(word: str) -> str:
-        """
-        Takes a neutral wordform using underscore and reformats with any necessary
-        transformations to appear in the lexc file. For example, join spaces, or convert
-        boundaries and flags where needed (e.g. big T).
-        """
-        word = helpers.neutral_to_lexc(word)
-        return word
 
     def _make_categories(self, category_list: list):
         """
@@ -65,7 +55,7 @@ class Lexicon:
         categories = [helpers.camelcase(cat) for cat in category_list]
         self.categories = list(set(categories))
 
-    def _make_dict(self, dict_input: list or dict):
+    def _make_dict(self, dict_input: list | dict):
         """
         Reads dictionary items from the files listed in config.
         If input is a list of dictionaries, loads each to the lexicon.

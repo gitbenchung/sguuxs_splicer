@@ -19,7 +19,7 @@ class TestParser(TestFSTOutput):
             "Noun": [
                 "w$aa",
                 "g_$an",
-                "han$a'ax̱",
+                "k_'$a_ẅ",
             ],
             # "IntransitiveVerb": ["w$an"],
             "Prenoun": ["ts'm", "g_$an"],
@@ -48,9 +48,17 @@ class TestParser(TestFSTOutput):
             "Should return empty list, returns {}".format(lookup_result),
         )
 
-    def test_analyzeMacron(self):
-        lookup_result = self.fst.analyze("g̱an")
-        self.assertIn("g_$an+N", lookup_result)
+    def test_analyzeNormalized(self):
+        expected_map = {
+            "g̱an": "g_$an+N",  # macron
+            "g̲an": "g_$an+N",  # lowline
+            "ḵ'a̱ẅ": "k_'$a_ẅ+N",  # NFC
+            "ḵ'a̱ẅ": "k_'$a_ẅ+N",  # NFD
+        }
+        for surface, gloss in expected_map.items():
+            with self.subTest(surface=surface, gloss=gloss):
+                lookup_result = self.fst.analyze(surface)
+                self.assertIn(gloss, lookup_result)
 
     @unittest.skip
     def test_analyzeValidateGlossMatch(self):
@@ -81,9 +89,29 @@ class TestParser(TestFSTOutput):
         self.assertIsInstance(lookup_result, list)
         self.assertEqual(0, len(lookup_result), "Should return empty list")
 
-    def test_generateMacron(self):
-        lookup_result = self.fst.generate("g_$an+N")
-        self.assertIn("g̱an", lookup_result)
+    def test_generateNormalized(self):
+        # parser output should be full NFC (even if not processed this way)
+        expected_map = {
+            "g̱an": "g_$an+N",  # macron
+            # "g̲an": "g_$an+N",  # lowline
+            "ḵ'a̱ẅ": "k_'$a_ẅ+N",  # NFC k_ and w:
+        }
+        for surface, gloss in expected_map.items():
+            with self.subTest(surface=surface, gloss=gloss):
+                lookup_result = self.fst.generate(gloss)
+                self.assertIn(surface, lookup_result)
+
+    def test_checkManyNormalization(self):
+        # test should pass with NFC stem listed here
+        nfc_stem = "k_'$a_ẅ+N"
+        # or with NFD stem listed here
+        nfd_stem = "k_'$a_ẅ+N"
+        expected_map = [
+            ("", ["ḵ'a̱ẅ"]),  # NFC
+            ("", ["ḵ'a̱ẅ"]),  # NFD
+        ]
+        self.checkManyInFST(stem_gloss=nfc_stem, expected_map=expected_map)
+        self.checkManyInFST(stem_gloss=nfd_stem, expected_map=expected_map)
 
     # test pairs, random pairs, unique pairs list functions
 

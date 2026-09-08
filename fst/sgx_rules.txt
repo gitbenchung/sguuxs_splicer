@@ -9,17 +9,15 @@ define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y 
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
 
 !-- spirantisation by adjacency {k_} > {x_} by Sibilant or {ł}
-define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | {ł} ] ;
-
-!--optional glottal metathesis, VV' > V'V 
-define GlottalSpread  {ii'} (->) {i'i} || _ "^" Consonant ;   
+define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | ł ] ;
 
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
 define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
                         [..] -> i || {łk} "^" _ t ;
 
-!--optional ts -> dz alternation, nasal adjacency
-define DZVoicing  {ts} (->) {dz} || {'i} "^" _ [ {m} | {n} ] ;
+!--optional ts -> dz alternation
+define DZVoicing	{ts} (->) {dz} || _ "^" [ SeriesII | AgreeingNClitic ] .#. ,,
+                    {ts} -> {dz} || _ "^" [ Vowel | m | n ] ;
 
 !--optional epenthesis, low front vowel after glottal, before stop
 define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
@@ -27,9 +25,15 @@ define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
 !-- delete DoubleDentalStop, double t becomes single t 
 define DoubleDentalStop t -> 0 || t "^" _ ; 
 
-!-- delete DoubleNasalStop, double nn & mm become single n & m
-define DoubleNasalStop  n -> 0 || n "^" _ ,,
-                        m -> 0 || m "^" _ ;
+!-- delete DoubleNasalStop, double mm and nn become single m / n 
+define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
+                        n -> 0 || n "^" _ ;
+
+!-- glottal movement, Vowel ' Vowel >> Vowel Vowel ' or Vowel '
+define GlottalMove  {a'a} (->) {aa'} || _ Consonant ,,
+                    {a'a} (->) {a'} || _ Consonant ,,
+                    {i'i} (->) {ii'} || _ Consonant ,,
+                    {i'i} (->) {i'} || _ Consonant ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -58,9 +62,6 @@ define NasalVoicing k -> g || _ "^" [ n | m ] ,,
 !-- epenthesis, voiced uvular trigger diphthongization  
 define VoicedUvularEp   [..] -> a || {g_} _ "^" [ i | {it}] ;
 
-!-- epenthesis, Consonant/Sonorant cluster becomes {_it}
-define ConSonTEpenthesis [..] (->) i || [ Consonant | Sonorant ] "^" _ .#. "^" t ;
-
 !-- glide insertion, postuvular stop preceding rounded vowel
 define PostUvularStopGI [..] -> y || {g_} _ "^" u ;
 
@@ -71,19 +72,24 @@ define SimHiatus [..] -> i || Sibilant "^" _ {sm} ;
 define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
                         ł -> 0 || ł "^" _ ;
 
+!--delete a connective clitic following lł
+define LBarredL         l "^" ł (->) ł ||  _ .#. ;
+
+!--glide insertion 'y' between a/{a_}i and a/{a_}u
+define GlideInsert  [..] -> y || {'a_} _ "^" i ,,
+                    [..] -> y || {'a} _ "^" i  ,,
+                    [..] -> y || {'a_} _ "^" u ,,
+                    [..] -> y || {'a} _ "^" u ;
+
 regex Lexicon ;
 define Stems ;
 
 regex Stems
-    .o. DZVoicing
-    .o. SpirantBack
-    .o. SpirantAdj
-    .o. GlottalSpread
+    .o. GlottalMove
     .o. DoubleDentalStop
     .o. DoubleNasalStop
     .o. StopClusterEp
     .o. PostUvularStopGI
-    .o. ConSonTEpenthesis
     .o. VowelVoicing
     .o. VelarVowelVoicing
     .o. VelarNasalVoicing
@@ -91,6 +97,11 @@ regex Stems
     .o. VoicedUvularEp
     .o. SimHiatus
     .o. DoubleFricative
+    .o. LBarredL
+    .o. GlideInsert
+    .o. DZVoicing
+    .o. SpirantBack
+    .o. SpirantAdj
     ;
 define MessyWords ;
 
