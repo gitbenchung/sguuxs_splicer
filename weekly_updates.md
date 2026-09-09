@@ -18,7 +18,7 @@
 
 - [] Frontend: Research existing CALL repos relevant to morphophonology
 
-**Status**: 
+**Status**: Partial
 
 - [X] Community contact: Discuss with community partner(s) test cases/ application of FST [^1] 🟩
       
@@ -30,6 +30,9 @@
 1. Double-checking existing code-base for redundancies/ ensuring merges are synced for testing.
 2. Communication with SNg & MTaboada for worklog.
 3. Added status section for worklog.
+4. Read three articles in Zotero RE: CALL
+   - Planning to add to library Wed-Fri
+   - Aim is 20+ articles with 10 total reviewed by Sat
    
 ### 2026-09-07
 1. Went through sound change spreadsheet and recategorised contexts.
