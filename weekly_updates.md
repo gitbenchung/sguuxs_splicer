@@ -26,6 +26,10 @@
 
 [^1]: Meeting with AEdgar and CForbes took place 2026-09-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
 
+### 2026-09-09
+1. Read four articles in Zotero RE: CALL
+   - 15+ articles were added 09-08. 
+
 ### 2026-09-08
 1. Double-checking existing code-base for redundancies/ ensuring merges are synced for testing.
 2. Communication with SNg & MTaboada for worklog.
