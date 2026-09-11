@@ -12,9 +12,9 @@
 
 **Status**: Complete
 
-- [] Rewrites: Clean existing code base
+- [X] Rewrites: Clean existing code base
 
-**Status**: Partial
+**Status**: Complete
 
 - [] Frontend: Research existing CALL repos relevant to morphophonology
 
@@ -32,7 +32,9 @@
 2. Set of paradigms for testing finalised.
    - Tests to make: 13.
    - Tests to create: 22.
-     
+3. Removed non-essential files from repo. Clean existing code base is complete to my satisfaction.
+4. Explored possibility for 'pretty paradigm' function in parser.py. Possibly tabulate but also pandas.
+   
 ### 2026-09-09
 1. Read four articles in Zotero RE: CALL
    - 15+ articles were added 09-08. 
