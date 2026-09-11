@@ -8,9 +8,9 @@
 
 **Status**: 
 
-- [] Testing: Identify all paradigms and their status 🟩
+- [X] Testing: Identify all paradigms and their status 🟩
 
-**Status**: Partial
+**Status**: Complete
 
 - [] Rewrites: Clean existing code base
 
@@ -25,6 +25,13 @@
 **Status**: Complete
 
 [^1]: Meeting with AEdgar and CForbes took place 2026-09-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
+
+### 2026-09-10
+1. Got response from CForbes on questions. Much guidance.
+   - Idea about code to generate 'pretty paradigms' from test results via CForbes.
+2.  Set of paradigms for testing finalised.
+   - 13 tests to update.
+   - 22 new tests.
 
 ### 2026-09-09
 1. Read four articles in Zotero RE: CALL
