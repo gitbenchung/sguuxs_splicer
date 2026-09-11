@@ -29,10 +29,10 @@
 ### 2026-09-10
 1. Got response from CForbes on questions. Much guidance.
    - Idea about code to generate 'pretty paradigms' from test results via CForbes.
-2.  Set of paradigms for testing finalised.
-   - 13 tests to update.
-   - 22 new tests.
-
+2. Set of paradigms for testing finalised.
+   - Tests to make: 13.
+   - Tests to create: 22.
+     
 ### 2026-09-09
 1. Read four articles in Zotero RE: CALL
    - 15+ articles were added 09-08. 
