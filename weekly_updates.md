@@ -6,7 +6,7 @@
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
 - [] Administration: Submit REB 🟩
 
-**Status**: 
+**Status**: Partial
 
 - [X] Testing: Identify all paradigms and their status 🟩
 
@@ -16,9 +16,9 @@
 
 **Status**: Complete
 
-- [] Frontend: Research existing CALL repos relevant to morphophonology
+- [X] Frontend: Research existing CALL repos relevant to morphophonology
 
-**Status**: Partial
+**Status**: Complete, literature review (lit review) technically ongoing 📚
 
 - [X] Community contact: Discuss with community partner(s) test cases/ application of FST [^1] 🟩
       
@@ -26,6 +26,16 @@
 
 [^1]: Meeting with AEdgar and CForbes took place 2026-09-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
 
+### 2026-09-11
+1. Read 1 CALL article > found useful UI built for fsts with UDUB connections [linglit](https://github.com/haberchr/langlit)!
+2. Meeting with SNg. Discussed:
+   - 'pretty paradigm' function and end product > added as task.
+   - langlit and potential meeting with team RE: functionality and natural language test-cases in October.
+   - Ethics application and community partnership agreement timeline.
+   - CALL reading task; can be marked as 'completed' as enough has been reviewed to give solid directions, but lit review is ongoing.
+3. Personal SFU-secured server space for demo is in works.
+   - Downloaded WinSCP; will troubleshoot set-up next week.
+   
 ### 2026-09-10
 1. Got response from CForbes on questions. Much guidance.
    - Idea about code to generate 'pretty paradigms' from test results via CForbes.
