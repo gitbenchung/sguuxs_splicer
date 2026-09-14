@@ -1,6 +1,43 @@
-# Week 01
-## 2026-09-06 - 2026-09-12
+# Week 02
+## 2026-09-14 - 2026-09-19 
 
+## Work Streams Schedule Week 02
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+- [] Administration: Submit REB 🟩
+
+**Status**: Partial / Ongoing
+
+- [] Testing: Identify issues in output formatting
+
+**Status**: 
+
+- [] Rewrites: Fix glottalisation/incorporating phi features 🟩
+
+**Status**: 
+
+- [] Frontend: Test goodness of fit of identified systems
+
+**Status**: 
+
+- [] Community contact: Orthography: discuss and find way to accommodate variation 
+      
+**Status**: 
+
+### 2026-09-19
+
+### 2026-09-18
+
+### 2026-09-17
+
+### 2026-09-16
+
+### 2026-09-15
+
+### 2026-09-14
+
+# Week 01
+## 2026-09-06 - 2026-09-12 (Extension to: 2026-09-14 RE: Rosh Hashanah 🍎🍯)
 ## Work Streams Schedule Week 01
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
@@ -25,6 +62,11 @@
 **Status**: Complete
 
 [^1]: Meeting with AEdgar and CForbes took place 2026-09-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
+
+### 2026-09-13
+1. Initial draft of REB complete.
+   - Need to check about Data Security & Confidentiality language with SNG (maybe MIgnace).
+   - Need to work on recruitment forms (i.e., informed consent documents).
 
 ### 2026-09-11
 1. Read 1 CALL article > found useful UI built for fsts with UDUB connections [linglit](https://github.com/haberchr/langlit)!
