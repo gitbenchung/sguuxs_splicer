@@ -20,9 +20,10 @@
 
 **Status**: 
 
-- [] Community contact: Orthography: discuss and find way to accommodate variation 
+- [] Community contact: Orthography: discuss and find way to accommodate variation [^2]
       
 **Status**: Partial
+[^2]: Orthographic variation was discussed at the initial discussion 2025-08-25 & subsequently via email. Multiple entries will be added as expected Output in the meantime as spelling differences are resolved.
 
 ### 2026-09-19
 
@@ -69,7 +70,7 @@
       
 **Status**: Complete
 
-[^1]: Meeting with AEdgar and CForbes took place 2026-09-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
+[^1]: Meeting with AEdgar and CForbes took place 2026-08-25 to discuss these topics. Currently research proposal for Stewardship Department is in draft based on this discussion.
 
 ### 2026-09-13
 1. Initial draft of REB complete.
