@@ -10,11 +10,11 @@
 
 - [] Testing: Identify issues in output formatting
 
-**Status**: 
+**Status**: Partial
 
 - [] Rewrites: Fix glottalisation/incorporating phi features 🟩
 
-**Status**: 
+**Status**: Partial
 
 - [] Frontend: Test goodness of fit of identified systems
 
@@ -22,7 +22,7 @@
 
 - [] Community contact: Orthography: discuss and find way to accommodate variation 
       
-**Status**: 
+**Status**: Partial
 
 ### 2026-09-19
 
@@ -39,6 +39,10 @@
 2. Research proposal official document sent to KXN community partners for review.
 3. Learned that [ComputEL-10](https://computel-workshop.org/computel-10/) has submissions until 2026-10-02 for conference next March 2027.
    - Will discuss with SNg about applicability given our current timelines.
+4. Deleted 3 irrelevant cluster tests; updated 16 additional tests.
+   - 11 new cluster tests updated/added.
+   - 1 plain consonant test added.
+   - 4 non-cluster tests updated.
 
 # Week 01
 ## 2026-09-06 - 2026-09-12 (Extension to: 2026-09-14 RE: Rosh Hashanah 🍎🍯)
