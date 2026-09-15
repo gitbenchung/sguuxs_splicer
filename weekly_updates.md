@@ -35,6 +35,10 @@
 ### 2026-09-15
 
 ### 2026-09-14
+1. Connected with MIgnace about research proposal.
+2. Research proposal official document sent to KXN community partners for review.
+3. Learned that [ComputEL-10](https://computel-workshop.org/computel-10/) has submissions until 2026-10-02 for conference next March 2027.
+   - Will discuss with SNg about applicability given our current timelines.
 
 # Week 01
 ## 2026-09-06 - 2026-09-12 (Extension to: 2026-09-14 RE: Rosh Hashanah 🍎🍯)
