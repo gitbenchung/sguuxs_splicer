@@ -34,7 +34,7 @@
 ### 2026-09-16
 1. Completed upload of 19 tests.
    - 5 updated tests (vowels).
-   - 14 new tests (clusters and vowels).
+   - 14 new tests (plain l, stops, clusters and vowels).
      - Multiple errors mostly with Y-insertion, H-Deletion & potential glottal movement (may not apply when in open syllable, flagged).
    - Multiple glottal entries added. Non-H deleting nouns like *nanah* 'duck' will be excluded from parser for now.
      
