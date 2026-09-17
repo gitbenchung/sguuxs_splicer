@@ -10,7 +10,7 @@
 
 - [] Testing: Identify issues in output formatting
 
-**Status**: Partial
+**Status**: Partial / Ongoing
 
 - [] Rewrites: Fix glottalisation/incorporating phi features 🟩
 
@@ -20,9 +20,9 @@
 
 **Status**: 
 
-- [] Community contact: Orthography: discuss and find way to accommodate variation [^2]
+- [X] Community contact: Orthography: discuss and find way to accommodate variation [^2]
       
-**Status**: Partial
+**Status**: Completed
 [^2]: Orthographic variation was discussed at the initial discussion 2025-08-25 & subsequently via email. Multiple entries will be added as expected Output in the meantime as spelling differences are resolved.
 
 ### 2026-09-19
@@ -32,9 +32,12 @@
 ### 2026-09-17
 
 ### 2026-09-16
-
-### 2026-09-15
-
+1. Completed upload of 19 tests.
+   - 5 updated tests (vowels).
+   - 14 new tests (plain l, stops, clusters and vowels).
+     - Multiple errors mostly with Y-insertion, H-Deletion & potential glottal movement (may not apply when in open syllable, flagged).
+   - Multiple glottal entries added. Non-H deleting nouns like *nanah* 'duck' will be excluded from parser for now.
+     
 ### 2026-09-14
 1. Connected with MIgnace about research proposal.
 2. Research proposal official document sent to KXN community partners for review.
