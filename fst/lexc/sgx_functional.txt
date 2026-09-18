@@ -8,16 +8,27 @@ DIST
 PL_
 +DEM
 AX
-1SG.III
-1PL.III
-2SG.III
-2PL.III
-3.III
-3PL.III
+1SG.III.WK
+1PL.III.WK
+2SG.III.WK
+2PL.III.WK
+3.III.WK
+1SG.III.OBL
+1PL.III.OBL
+2SG.III.OBL
+2PL.III.OBL
+3.III.OBL
+1SG.III.STRG
+1PL.III.STRG
+2SG.III.STRG
+2PL.III.STRG
+3.III.STRG
 
 LEXICON Root
 	Preposition ;
-	Pronoun ;
+	WeakPronoun ;
+	OblPronoun ;
+	StrongPronoun ;
 	NProclitic ;
 	SeriesI ;
 	SeriesIprocl ;
@@ -26,19 +37,26 @@ LEXICON Preposition
 P: ał 	Word;
 P: ts'm	Word;
 
-LEXICON Pronoun
-1SG.III+PRO:'nii'y 	Word ;
-1PL.III+PRO:'nuu'm	Word ;
-2SG.III+PRO:'niin 	Word ;
-2PL.III+PRO:'nisi'm 	Word ;
-3.III+PRO:'nit 		Word ;
-3PL.III+PRO:'nidiit 	Word ;
-1SG+OBL:loo'y 	Word ;
-1PL+OBL:loo'm	Word ;
-2SG+OBL:loon 	Word ;
-2PL+OBL:loosi'm 	Word ;
-3+OBL:loot 		Word ;
-3PL+OBL:loodiit 	Word ;
+LEXICON WeakPronoun
+1SG.III.WK+PRO:'nu 	Word ;
+1PL.III.WK+PRO:'nm	Word ;
+2SG.III.WK+PRO:n 	Word ;
+2PL.III.WK+PRO:nsm 	Word ;
+3.III.WK+PRO:0 		Word ;
+
+LEXICON OblPronoun
+1SG+OBL:k'oy 	Word ;
+1PL+OBL:k'am	Word ;
+2SG+OBL:k'wan 	Word ;
+2PL+OBL:k'wasm 	Word ;
+3+OBL:'niit 		Word ;
+
+LEXICON StrongPronoun
+1SG.III.STRG+PRO:'nüüyu  	Word ;
+1PL.III.STRG+PRO:'nüüm	Word ;
+2SG.III.STRG+PRO:'nüün 	Word ;
+2PL.III.STRG+PRO:'nüüsm 	Word ;
+3.III.STRG+PRO:'niit 		Word ;
 
 LEXICON NProclitic
 PN:t		# ;

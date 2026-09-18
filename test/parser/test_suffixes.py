@@ -158,7 +158,6 @@ class TestFricatives(TestFSTOutput):
                 "'y$axw",
                 "an$aaxy",
                 "$aax_",
-                "buw$eel", #sand fleas
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -277,6 +276,7 @@ class TestPlainSonorants(TestFSTOutput):
                 "k_'awk_'$aw",
                 "amh$aẅ",
                 "łgwisg_$ay",
+                "buw$eel", #sand fleas
             ]
         }
         super().setUpClass(FULL_SGX, test_stems)
@@ -370,16 +370,16 @@ class TestPlainSonorants(TestFSTOutput):
         stem = "buw$eel+N"
         expected_map = [
             ("", ["buweel"]),
-            ("-1SG.II", ["łgwisg̱ayi", "łgwisg̱ayu"]),
-            ("-1PL.II", ["łgwisg̱aym"]),
-            ("-2SG.II", ["łgwisg̱ayn"]),
-            ("-2PL.II", ["łgwisg̱aysm"]),
-            ("-3.II", ["łgwisg̱ayt"]),
-            ("[-3.II]=CN", ["łgwisg̱ayi"]),
-            ("[-3.II]=CN.IRR", ["łgwisg̱aył"]),
-            ("[-3.II]=PN", ["łgwisg̱ays"]),
-            # ("-SX", ["łgwisg̱ayit"]),
-            ("-ATTR", ["łgwisg̱aym"]),
+            ("-1SG.II", ["buweeli", "buweelu"]),
+            ("-1PL.II", ["buweelm"]),
+            ("-2SG.II", ["buweeln"]),
+            ("-2PL.II", ["buweelsm"]),
+            ("-3.II", ["buweelt"]),
+            ("[-3.II]=CN", ["buweeli"]),
+            ("[-3.II]=CN.IRR", ["buweeł"]),
+            ("[-3.II]=PN", ["buweels"]),
+            # ("-SX", ["buweelit"]),
+            ("-ATTR", ["buweelm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -537,7 +537,7 @@ class TestGlottalCoda(TestFSTOutput):
             ("[-3.II]=CN", ["kpa'awi", "kpa'wi"]),
             ("[-3.II]=CN.IRR", ["kpa'awł", "kpa'wł"]),
             ("[-3.II]=PN", ["kpa'aws", "kpa'ws"]),
-            ('-SX',     ["kpa'awit", "kpa'wit"]),
+            ('-SX', ["kpa'awit", "kpa'wit"]),
             ("-ATTR", ["kpa'awm", "kpa'wm"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)

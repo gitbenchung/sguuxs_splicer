@@ -1,7 +1,13 @@
 define Vowel a | e | i | o | u | ü | "_" | {a_} ;
+define LowVowel a | {a_} ;
+define HighVowel i | ü | u ;
+define FrontVowel a | e | i ;
+define BackVowel u | ü | o ;
 define Consonant p | {p'} | m | s | c h | h | t | {t'} | k | {k'} | n | ł | l | k w | k y | x | x w | x y | y | ẅ | ' | "_" ;
+define GlotCons {p'} | {t'} | {k'} | {g'} | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} | {ts'} 
+define Glottal ' ;
 define CLetter b | d | dz | g | g̱ | {g'} | g w | g y | "_" ;
-define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ;
+define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} | ' ;
 define Sibilant s | c h | {ts} | {ts'} ;
 define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
 
@@ -29,11 +35,17 @@ define DoubleDentalStop t -> 0 || t "^" _ ;
 define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
 
-!-- glottal movement, Vowel ' Vowel >> Vowel Vowel ' or Vowel '
-define GlottalMove  {a'a} (->) {aa'} || _ Consonant ,,
-                    {a'a} (->) {a'} || _ Consonant ,,
-                    {i'i} (->) {ii'} || _ Consonant ,,
-                    {i'i} (->) {i'} || _ Consonant ;
+!-- glottal movement, Vowel ' Vowel >> Vowel Vowel ' 
+define GlottalMove  a "^" ' "^" a -> a "^" a "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    i "^" ' "^" i -> i "^" i "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    o "^" ' "^" o -> o "^" o "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    u "^" ' "^" u -> u "^" u "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ;
+
+!-- Deletion Post-Glottal Movement, VV' "^" [ SeriesII | AgreeingNClitic | SX ] >> V' 
+define DeletePGM    {aa'} (->) {a'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    {ii'} (->) {i'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    {oo'} (->) {o'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
+                    {uu'} (->) {u'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -85,23 +97,24 @@ regex Lexicon ;
 define Stems ;
 
 regex Stems
-    .o. GlottalMove
-    .o. DoubleDentalStop
-    .o. DoubleNasalStop
-    .o. StopClusterEp
-    .o. PostUvularStopGI
-    .o. VowelVoicing
-    .o. VelarVowelVoicing
-    .o. VelarNasalVoicing
-    .o. NasalVoicing
-    .o. VoicedUvularEp
-    .o. SimHiatus
-    .o. DoubleFricative
-    .o. LBarredL
-    .o. GlideInsert
-    .o. DZVoicing
-    .o. SpirantBack
-    .o. SpirantAdj
+.o. GlottalMove
+.o. DeletePGM
+.o. DoubleDentalStop
+.o. DoubleNasalStop
+.o. StopClusterEp
+.o. PostUvularStopGI
+.o. VowelVoicing
+.o. VelarVowelVoicing
+.o. VelarNasalVoicing
+.o. NasalVoicing
+.o. VoicedUvularEp
+.o. SimHiatus
+.o. DoubleFricative
+.o. LBarredL
+.o. GlideInsert
+.o. DZVoicing
+.o. SpirantBack
+.o. SpirantAdj
     ;
 define MessyWords ;
 
