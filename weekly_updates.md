@@ -8,17 +8,17 @@
 
 **Status**: Partial / Ongoing
 
-- [] Testing: Identify issues in output formatting
+- [X] Testing: Identify issues in output formatting
 
-**Status**: Partial / Ongoing
+**Status**: Completed / Ongoing
 
 - [] Rewrites: Fix glottalisation/incorporating phi features 🟩
 
-**Status**: Partial
+**Status**: Partial / Ongoing
 
 - [] Frontend: Test goodness of fit of identified systems
 
-**Status**: 
+**Status**: Partial
 
 - [X] Community contact: Orthography: discuss and find way to accommodate variation [^2]
       
@@ -28,8 +28,15 @@
 ### 2026-09-19
 
 ### 2026-09-18
-
+1. Adapted pronoun system in full_sgx for be Sgüüx̱s not Gitksan. Less necessary now, but better consistency in labeled files.
+2. Rule ranking tests: DeletePGM lower and DZVoicing higher (=163 errors) vs DeletePGM higher and DZVoicing lower (=165 errors).
+   - Issues with optional rules, dz-voicing. Need to make specific rules for phonological effects for clusters. 
+3. Given how [linglit](https://github.com/haberchr/langlit) is set up: (i) will try to link it to existing infrastructure to feed into pipeline to tests (and if that fails (ii) input into cloned *langlit* to try to get functional.
+   - Other CALL tools not explored genuinely explored yet.
+   
 ### 2026-09-17
+1. Updated 1 misplaced test 'sand fleas' in wrong TestClass.
+2. Experimented with rule word order / tried separating moving glottal rule and interrupted vowel deletion into different rules.
 
 ### 2026-09-16
 1. Completed upload of 19 tests.
