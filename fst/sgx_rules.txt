@@ -1,15 +1,16 @@
-define Vowel a | e | i | o | u | ü | "_" | {a_} ;
-define LowVowel a | {a_} ;
-define HighVowel i | ü | u ;
-define FrontVowel a | e | i ;
-define BackVowel u | ü | o ;
-define Consonant p | {p'} | m | s | c h | h | t | {t'} | k | {k'} | n | ł | l | k w | k y | x | x w | x y | y | ẅ | ' | "_" ;
-define GlotCons {p'} | {t'} | {k'} | {g'} | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} | {ts'} 
-define Glottal ' ;
-define CLetter b | d | dz | g | g̱ | {g'} | g w | g y | "_" ;
-define Sonorant m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} | ' ;
-define Sibilant s | c h | {ts} | {ts'} ;
-define InitialCons b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ;
+define Vowel [ a | e | i | o | u | ü | "_" | {a_} ] ;
+define LowVowel [ a | {a_} ] ;
+define HighVowel [ i | ü | u ] ;
+define FrontVowel [ a | e | i ] ;
+define BackVowel [ u | ü | o ] ;
+define Consonant [ p | {p'} | m | s | c h | h | t | {t'} | k | {k'} | n | ł | l | k w | k y | x | x w | x y | y | ẅ | ' | "_" ] ;
+define GlotCons [ {p'} | {t'} | {k'} | {g'} | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} | {ts'} ] ;
+define Glottal [ ' ] ;
+define CLetter [ b | d | dz | g | g̱ | {g'} | g w | g y | "_" ] ;
+define Nasal [ m | n | {'m} | {'n} ] ;
+define Sonorant [ m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ] ;
+define Sibilant [ s | c h | {ts} | {ts'} ] ;
+define InitialCons [ b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ] ;
 
 !--optional spirantisation of back stop {k_} > x
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
@@ -18,34 +19,28 @@ define SpirantBack  {k_} (->) x || _ "^" .#. ;
 define SpirantAdj   {k_} (->) {x_} || _ "^" [ Sibilant | ł ] ;
 
 !--epenthesis, stop cluster tkt/łkt > tgit/łgit
-define StopClusterEp    [..] -> i || {tk} "^" _ t ,,
-                        [..] -> i || {łk} "^" _ t ;
+define StopClusterEp    [..] -> i || {tk} "^" _ t .#. ,,
+                        [..] -> i || {łk} "^" _ t .#. ;
 
 !--optional ts -> dz alternation
 define DZVoicing	{ts} (->) {dz} || _ "^" [ SeriesII | AgreeingNClitic ] .#. ,,
-                    {ts} -> {dz} || _ "^" [ Vowel | m | n ] ;
+                    {ts} -> {dz} || _ "^" [ Vowel | Nasal ] ;
 
 !--optional epenthesis, low front vowel after glottal, before stop
-define GlottalStopEp    [..] (->) a || ' "^" _ [ t | {g_} ] ;
+define GlottalStopEp    [..] (->) [ LowVowel & FrontVowel ] || ' "^" _ [ t | {g_} ] ;
 
 !-- delete DoubleDentalStop, double t becomes single t 
-define DoubleDentalStop t -> 0 || t "^" _ ; 
+define DoubleDentalStop t -> 0 || t "^" _ .#. ; 
 
 !-- delete DoubleNasalStop, double mm and nn become single m / n 
 define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
 
-!-- glottal movement, Vowel ' Vowel >> Vowel Vowel ' 
-define GlottalMove  a "^" ' "^" a -> a "^" a "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    i "^" ' "^" i -> i "^" i "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    o "^" ' "^" o -> o "^" o "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    u "^" ' "^" u -> u "^" u "^" ' || _ "^" [ SeriesII | AgreeingNClitic | SX ] ;
-
-!-- Deletion Post-Glottal Movement, VV' "^" [ SeriesII | AgreeingNClitic | SX ] >> V' 
-define DeletePGM    {aa'} (->) {a'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    {ii'} (->) {i'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    {oo'} (->) {o'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ,,
-                    {uu'} (->) {u'} || _ "^" [ SeriesII | AgreeingNClitic | SX ] ;
+!-- glottal movement, Interrupted vowels optionally move to end morphological word following SeriesII concat --> Vowel ' Vowel >> Vowel Vowel ' , then long vowel is optionally shortened
+define GlottalMove1 ' a (->) a ' || a a _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. a -> 0 || a _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove2 ' i (->) i ' || i i _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. i -> 0 || i _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove3 ' o (->) o ' || o o _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. o -> 0 || o _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove4 ' u (->) u ' || u u _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. u -> 0 || u _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -88,17 +83,19 @@ define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
 define LBarredL         l "^" ł (->) ł ||  _ .#. ;
 
 !--glide insertion 'y' between a/{a_}i and a/{a_}u
-define GlideInsert  [..] -> y || {'a_} _ "^" i ,,
-                    [..] -> y || {'a} _ "^" i  ,,
-                    [..] -> y || {'a_} _ "^" u ,,
-                    [..] -> y || {'a} _ "^" u ;
+define GlideInsert  [..] -> y || ' {a_} _ "^" i ,,
+                    [..] -> y || ' {a} _ "^" i  ,,
+                    [..] -> y || ' {a_} _ "^" u ,,
+                    [..] -> y || ' {a} _ "^" u ;
 
 regex Lexicon ;
 define Stems ;
 
 regex Stems
-.o. GlottalMove
-.o. DeletePGM
+.o. GlottalMove1
+.o. GlottalMove2
+.o. GlottalMove3
+.o. GlottalMove4
 .o. DoubleDentalStop
 .o. DoubleNasalStop
 .o. StopClusterEp

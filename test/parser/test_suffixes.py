@@ -597,8 +597,8 @@ class TestVowels(TestFSTOutput):
                 "gwas$oo", #pig
                 "ił$i'i", #blood
                 "m$anwo", #battle ship
-                "n$oh" #mother
-                "tgw$a_h" #glass 
+                "n$oh", #mother
+                "tgw$a_h", #glass 
             ],
         }
         super().setUpClass(FULL_SGX, test_stems)
