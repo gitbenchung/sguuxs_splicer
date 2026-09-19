@@ -1,6 +1,32 @@
+# Week 03
+## 2026-09-22 - 2026-09-26 (Extension to: 2026-09-29 RE: Yom Kippur🕯️📖)
+
+## Work Streams Schedule Week 03
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+- [] Administration: Reach out to Nathalie, formalize TouchCounts interest 
+
+**Status**: 
+
+- [] Rewrites: Fix glottalisation/incorporating phi features 🟩
+
+**Status**: Partial / Ongoing
+
+- [] Frontend: Learning the final server environment
+  
+**Status**: 
+
+### 2026-09-29
+### 2026-09-28
+### 2026-09-27
+### 2026-09-26
+### 2026-09-25
+### 2026-09-24
+### 2026-09-23
+### 2026-09-22
+
 # Week 02
 ## 2026-09-14 - 2026-09-19 
-
 ## Work Streams Schedule Week 02
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
@@ -26,7 +52,17 @@
 [^2]: Orthographic variation was discussed at the initial discussion 2025-08-25 & subsequently via email. Multiple entries will be added as expected Output in the meantime as spelling differences are resolved.
 
 ### 2026-09-19
-
+1. Merged DeletePGM & GlottalMove into one rule GlottalMove1, GlottalMove2, etc. respective of vowels (n=4). No change to 163 error rate no matter where they are moved.
+   - Confused by this. Parser is working since removing other rules causes massive spike in failures. Something possibly to do with the optionality that makes these rules inconsequential?
+2. Debugged parser tests (incorrect syntax in new tests).
+   - Error rate now (=156).
+3. Some distinctive features added to phonology rules (nasals, +high, +back, +front, +cg (i.e., glottalised)).
+   - Will *slowly* incorporate into rules rewrite. Rather not throw out the baby with bathwater since most of fst works alright. Can discuss workflow later. 
+4. Got side tracked from **Test goodness of fit of identified systems** looking out how to do pretty_paradigm fst command. Draft is [uploaded].(https://github.com/gitbenchung/sguuxs_splicer/blob/ling_896/src/parser_test_01_LING986.py). Need assistance at certain intervals, but I have the pipeline identified.
+5. Haven't heard back from community partners RE: proposal. Will follow up next Tuesday, 2026-09-22.
+6. Looked into designated front-end sandbox space using sfu ID.
+   - I downloaded the right file manager/file transfer client. Not sure if it was the IT issues last week affected my view and functionality via VPN. Interested in discussing management and deployment at next check-in.
+   
 ### 2026-09-18
 1. Adapted pronoun system in full_sgx for be Sgüüx̱s not Gitksan. Less necessary now for nominal morphology, but better consistency in labeled files to have Sgüüx̱s *be* Sgüüx̱s.
 2. Rule ranking tests: DeletePGM lower and DZVoicing higher (=163 errors) vs DeletePGM higher and DZVoicing lower (=168 errors).
