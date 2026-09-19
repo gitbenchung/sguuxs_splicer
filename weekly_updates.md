@@ -58,7 +58,7 @@
    - Error rate now (=156).
 3. Some distinctive features added to phonology rules (nasals, +high, +back, +front, +cg (i.e., glottalised)).
    - Will *slowly* incorporate into rules rewrite. Rather not throw out the baby with bathwater since most of fst works alright. Can discuss workflow later. 
-4. Got side tracked from **Test goodness of fit of identified systems** looking out how to do pretty_paradigm fst command. Draft is [uploaded].(https://github.com/gitbenchung/sguuxs_splicer/blob/ling_896/src/parser_test_01_LING986.py). Need assistance at certain intervals, but I have the pipeline identified.
+4. Got side tracked from **Test goodness of fit of identified systems** looking out how to do pretty_paradigm fst command. Draft is [uploaded](https://github.com/gitbenchung/sguuxs_splicer/blob/ling_896/src/parser_test_01_LING986.py). Need assistance at certain intervals, but I have the pipeline identified.
 5. Haven't heard back from community partners RE: proposal. Will follow up next Tuesday, 2026-09-22.
 6. Looked into designated front-end sandbox space using sfu ID.
    - I downloaded the right file manager/file transfer client. Not sure if it was the IT issues last week affected my view and functionality via VPN. Interested in discussing management and deployment at next check-in.
