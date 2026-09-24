@@ -590,7 +590,7 @@ class TestVowels(TestFSTOutput):
                 "s$ah", #day
                 "gyilksh$uu", #basket weaving; diagonal weaving
                 "kłg$üü", #one's children
-                "dah$dee", #cranberries
+                "dahd$ee", #cranberries
                 "łmkd$ii", #opposite gender sibling
                 "y$eni", #marten
                 "ał$o'o", #cloth; sail; canvas  
