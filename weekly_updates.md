@@ -25,9 +25,14 @@
 ### 2026-09-23
 1. Meeting with SNg
    - Generally successful. Figured some steps for optional glottal rules & glide-insertion.
-   - Somehow broke VisualCodeStudio, so now cannot test individual paradigms. Need to fix.
+   - Somehow broke VisualStudiocode, so now cannot test individual paradigms. Need to fix.
    - Pivot to using foma more, but issue persists with [0] no input once load.
 2. Updated dictionary with new test words.
+
+3 hours later ...
+
+3. Issue with VisualStudiocode was in settings.json "test*.py" was ***test.py**, which made all tests unfindable. Fixed and saved; will monitor and narrow in on this .json of issue continues.
+4. Error found in stress marking for 'dahdee', so error rate is now (n=148). GlideInsertion rule is not successful.
 
 # Week 02
 ## 2026-09-14 - 2026-09-19 
@@ -59,7 +64,7 @@
 1. Merged DeletePGM & GlottalMove into one rule GlottalMove1, GlottalMove2, etc. respective of vowels (n=4). No change to 163 error rate no matter where they are moved.
    - Confused by this. Parser is working since removing other rules causes massive spike in failures. Something possibly to do with the optionality that makes these rules inconsequential?
 2. Debugged parser tests (incorrect syntax in new tests).
-   - Error rate now (=156).
+   - Error rate now (n=156).
 3. Some distinctive features added to phonology rules (nasals, +high, +back, +front, +cg (i.e., glottalised)).
    - Will *slowly* incorporate into rules rewrite. Rather not throw out the baby with bathwater since most of fst works alright. Can discuss workflow later. 
 4. Got side tracked from **Test goodness of fit of identified systems** looking out how to do pretty_paradigm fst command. Draft is [uploaded](https://github.com/gitbenchung/sguuxs_splicer/blob/ling_896/src/parser_test_01_LING986.py). Need assistance at certain intervals, but I have the pipeline identified.
