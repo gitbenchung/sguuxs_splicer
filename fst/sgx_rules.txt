@@ -97,6 +97,7 @@ regex Stems
 .o. GlottalMove2
 .o. GlottalMove3
 .o. GlottalMove4
+.o. LateYInsert
 .o. DoubleDentalStop
 .o. DoubleNasalStop
 .o. StopClusterEp
@@ -113,7 +114,6 @@ regex Stems
 .o. DZVoicing
 .o. SpirantBack
 .o. SpirantAdj
-.o. LateYInsert
     ;
 define MessyWords ;
 
