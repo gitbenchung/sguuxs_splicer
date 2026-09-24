@@ -29,8 +29,9 @@
    - Pivot to using foma more, but issue persists with [0] no input once load.
 2. Updated dictionary with new test words.
 
-3 hours later ...
-
+> [!TIP]
+> Test output problem solved ... after ***three hours*** ...
+   
 3. Issue with VisualStudiocode was in settings.json "test*.py" was ***test.py**, which made all tests unfindable. Fixed and saved; will monitor and narrow in on this .json of issue continues.
 4. Error found in stress marking for 'dahdee', so error rate is now (n=148). GlideInsertion rule is not successful.
 
