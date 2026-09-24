@@ -757,7 +757,7 @@ class TestVowels(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_glottO(self):
+    def test_glottalOO(self):
         stem = "ał$o'o+N"
         expected_map = [
             ("", ["ało'o"]),

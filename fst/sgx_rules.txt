@@ -37,10 +37,10 @@ define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
 
 !-- glottal movement, Interrupted vowels optionally move to end morphological word following SeriesII concat --> Vowel ' Vowel >> Vowel Vowel ' , then long vowel is optionally shortened
-define GlottalMove1 ' a (->) a ' || a a _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. a -> 0 || a _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
-define GlottalMove2 ' i (->) i ' || i i _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. i -> 0 || i _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
-define GlottalMove3 ' o (->) o ' || o o _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. o -> 0 || o _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
-define GlottalMove4 ' u (->) u ' || u u _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. u -> 0 || u _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove1 ' a (->) a ' || a a _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. a (->) 0 || a _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove2 ' i (->) i ' || i i _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. i (->) 0 || i _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove3 ' o (->) o ' || o o _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. o (->) 0 || o _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
+define GlottalMove4 ' u (->) u ' || u u _ "^" [ SeriesII | AgreeingNClitic | SX ] .o. u (->) 0 || u _ ' [ SeriesII | AgreeingNClitic | SX ]    ;
 
 !-- voicing rule, vowel adjacency
 define VowelVoicing k -> g || _ "^" Vowel ,,
@@ -83,10 +83,11 @@ define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
 define LBarredL         l "^" ł (->) ł ||  _ .#. ;
 
 !--glide insertion 'y' between a/{a_}i and a/{a_}u
-define GlideInsert  [..] -> y || ' {a_} _ "^" i ,,
-                    [..] -> y || ' {a} _ "^" i  ,,
-                    [..] -> y || ' {a_} _ "^" u ,,
-                    [..] -> y || ' {a} _ "^" u ;
+define GlideInsert  [..] -> y || ' Vowel _ "^" i ,,
+                    [..] -> y || ' Vowel _ "^" u ;
+
+!--glide insertion 'y' between glottal and i/u
+define LateYInsert  [..] -> y || ' _ "^" [ u | i] .#.   ;
 
 regex Lexicon ;
 define Stems ;
@@ -112,6 +113,7 @@ regex Stems
 .o. DZVoicing
 .o. SpirantBack
 .o. SpirantAdj
+.o. LateYInsert
     ;
 define MessyWords ;
 
