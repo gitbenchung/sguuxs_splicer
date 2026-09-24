@@ -23,7 +23,11 @@
 ### 2026-09-25
 ### 2026-09-24
 ### 2026-09-23
-### 2026-09-22
+1. Meeting with SNg
+   - Generally successful. Figured some steps for optional glottal rules & glide-insertion.
+   - Somehow broke VisualCodeStudio, so now cannot test individual paradigms. Need to fix.
+   - Pivot to using foma more, but issue persists with [0] no input once load.
+2. Updated dictionary with new test words.
 
 # Week 02
 ## 2026-09-14 - 2026-09-19 
