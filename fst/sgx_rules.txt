@@ -46,13 +46,10 @@ define GlottalMove4 ' u (->) u ' || u u _ "^" [ SeriesII | AgreeingNClitic | SX 
 define VowelVoicing k -> g || _ "^" Vowel ,,
                     p -> b || _ "^" Vowel ,,
                     t -> d || _ "^" Vowel ,,
+                    {k_} -> {g_} || _ "^" Vowel ,,
                     {ky} -> {gy} || _ "^" Vowel ,,
+                    {kw} -> {gw} || _ "^" Vowel ,,
                     {x_} -> {g_} || _ "^" Vowel ;
-
-!-- VelarStop voicing rule, vowel adjacency
-define VelarVowelVoicing    {kw} -> {gw} || _ "^" Vowel ,,
-                            {ky} -> {gy} || _ "^" Vowel ,,
-                            {k_} -> {g_} || _ "^" Vowel ;
 
 !-- VelarStop voicing rule nasal adjacency
 define VelarNasalVoicing    {kw} -> {gw} || _ "^" [ n | m ] ,,
@@ -82,38 +79,43 @@ define DoubleFricative  s -> 0 || Sibilant "^" _ ,,
 !--delete a connective clitic following lł
 define LBarredL         l "^" ł (->) ł ||  _ .#. ;
 
+!--delete a SeriesII -i clitic following [ i | ii ]
+define DoubleIDeletion  i -> 0 || _ "^" i .#.  ;
+
 !--glide insertion 'y' between a/{a_}i and a/{a_}u
 define GlideInsert  [..] -> y || ' Vowel _ "^" i ,,
-                    [..] -> y || ' Vowel _ "^" u ;
+                    [..] -> y || ' Vowel _ "^" u ,,
+                    [..] -> y || [ u u | ü ü | a a | {a_} | e e | o o | a | o ] _ "^" [ i | u ] ,,
+                    [..] -> y || i _ "^" u  ;
 
 !--glide insertion 'y' between glottal and i/u
-define LateYInsert  [..] -> y || ' _ "^" [ u | i] .#.   ;
+define LateYInsert  [..] -> y || o ' _ [ u | i ] .#.   ;
 
 regex Lexicon ;
 define Stems ;
 
 regex Stems
+.o. GlideInsert
+.o. DoubleIDeletion
 .o. GlottalMove1
 .o. GlottalMove2
 .o. GlottalMove3
 .o. GlottalMove4
-.o. LateYInsert
 .o. DoubleDentalStop
 .o. DoubleNasalStop
 .o. StopClusterEp
 .o. PostUvularStopGI
 .o. VowelVoicing
-.o. VelarVowelVoicing
 .o. VelarNasalVoicing
 .o. NasalVoicing
 .o. VoicedUvularEp
 .o. SimHiatus
 .o. DoubleFricative
 .o. LBarredL
-.o. GlideInsert
 .o. DZVoicing
 .o. SpirantBack
 .o. SpirantAdj
+.o. LateYInsert
     ;
 define MessyWords ;
 

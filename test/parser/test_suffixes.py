@@ -133,16 +133,16 @@ class TestPlainStops(TestFSTOutput):
         stem = "w$aky+N"
         expected_map = [
             ("", ["waky"]),
-            ("-1SG.II", ["wakyi", "wakyu"]),
-            ("-1PL.II", ["wakym"]),
-            ("-2SG.II", ["wakyn"]),
+            ("-1SG.II", ["wagyi", "wagyu"]),
+            ("-1PL.II", ["wagym"]),
+            ("-2SG.II", ["wagyn"]),
             ("-2PL.II", ["wakysm"]),
             ("-3.II", ["wakyt"]),
-            ("[-3.II]=CN", ["wakyi"]),
+            ("[-3.II]=CN", ["wagyi"]),
             ("[-3.II]=CN.IRR", ["wakył"]),
             ("[-3.II]=PN", ["wakys"]),
-            # ("-SX", ["wakyit"]),
-            ("-ATTR", ["wakym"]),
+            # ("-SX", ["wagyit"]),
+            ("-ATTR", ["wagym"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
     
@@ -376,7 +376,7 @@ class TestPlainSonorants(TestFSTOutput):
             ("-2PL.II", ["buweelsm"]),
             ("-3.II", ["buweelt"]),
             ("[-3.II]=CN", ["buweeli"]),
-            ("[-3.II]=CN.IRR", ["buweeł"]),
+            ("[-3.II]=CN.IRR", ["buweeł", "buweelł"]),
             ("[-3.II]=PN", ["buweels"]),
             # ("-SX", ["buweelit"]),
             ("-ATTR", ["buweelm"]),
@@ -727,7 +727,7 @@ class TestVowels(TestFSTOutput):
         stem = "łmkd$ii+N"
         expected_map = [
             ("", ["łmkdii"]),
-            ("-1SG.II", ["łmkdiiyi", "łmkdiiyu"]),  
+            ("-1SG.II", ["łmkdii", "łmkdiiyu"]),  
             ("-1PL.II", ["łmkdiim"]),
             ("-2SG.II", ["łmkdiin"]),
             ("-2PL.II", ["łmkdiism"]),
@@ -744,7 +744,7 @@ class TestVowels(TestFSTOutput):
         stem = "y$eni+N"
         expected_map = [
             ("", ["yeni"]),
-            ("-1SG.II", ["yeniyi", "yeniyu"]),  
+            ("-1SG.II", ["yeni", "yeniyu"]),  
             ("-1PL.II", ["yenim"]),
             ("-2SG.II", ["yenin"]),
             ("-2PL.II", ["yenism"]),
@@ -775,7 +775,7 @@ class TestVowels(TestFSTOutput):
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
     def test_longOO(self):
-        stem = "gwas$OO+N"
+        stem = "gwas$oo+N"
         expected_map = [
             ("", ["gwasoo"]),
             ("-1SG.II", ["gwasooyi", "gwasooyu"]), 
@@ -791,7 +791,7 @@ class TestVowels(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_longOO(self):
+    def test_glottalII(self):
         stem = "ił$i'i+N"
         expected_map = [
             ("", ["iłi'i"]),
@@ -859,7 +859,7 @@ class TestVowels(TestFSTOutput):
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
-    def test_glottA(self):
+    def test_underscoreAH(self):
         stem = "tgw$a_h+N"
         expected_map = [
             ("", ["tgwa̱h"]),
@@ -1061,7 +1061,7 @@ class TestClusters(TestFSTOutput):
             ("-1PL.II", ["łguułgm"]),
             ("-2SG.II", ["łguułgn"]),
             ("-2PL.II", ["łguułksm"]),
-            ("-3.II", ["łguułkt"]),
+            ("-3.II", ["łguułgit"]),
             ("[-3.II]=CN", ["łguułgi"]),
             ("[-3.II]=CN.IRR", ["łguułkł"]),
             ("[-3.II]=PN", ["łguułks"]),
@@ -1094,7 +1094,7 @@ class TestClusters(TestFSTOutput):
             ("-1SG.II", ["lax̱si", "lax̱su"]),
             ("-1PL.II", ["lax̱sm"]),
             ("-2SG.II", ["lax̱sn"]),
-            ("-2PL.II", ["lax̱sm"]), #probably not lax̱sism
+            ("-2PL.II", ["lax̱sism"]), 
             ("-3.II", ["lax̱st"]),
             ("[-3.II]=CN", ["lax̱si"]),
             ("[-3.II]=CN.IRR", ["lax̱sł"]),
@@ -1111,7 +1111,7 @@ class TestClusters(TestFSTOutput):
             ("-1SG.II", ["aẅsi", "aẅsu"]),
             ("-1PL.II", ["aẅsm"]),
             ("-2SG.II", ["aẅsn"]),
-            ("-2PL.II", ["aẅsm"]), #probably not aẅsism
+            ("-2PL.II", ["aẅsism"]), 
             ("-3.II", ["aẅst"]),
             ("[-3.II]=CN", ["aẅsi"]),
             ("[-3.II]=CN.IRR", ["aẅsł"]),
