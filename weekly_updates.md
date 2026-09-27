@@ -4,13 +4,15 @@
 ## Work Streams Schedule Week 03
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
-- [] Administration: Reach out to Nathalie, formalize TouchCounts interest 
+- [X] Administration: Reach out to Nathalie, formalize TouchCounts interest 
 
-**Status**: 
+**Status**: Completed
 
 - [] Rewrites: Fix glottalisation/incorporating phi features 🟩
 
-**Status**: Partial / Ongoing
+**Status**: Partial / Ongoing[^3] 
+
+[^3]: Feature incorporation is for the most part finished. I will update and add more details (as applicable to testing). Main changes were specifying glottalisation as distinct, which I think will serve us well in the future and is key to fixing interrupted glottal rule(s). Otherwise, vowel features were updated too, which support concise feature-based rule-writing.
 
 - [] Frontend: Learning the final server environment
   
@@ -20,8 +22,18 @@
 ### 2026-09-28
 ### 2026-09-27
 ### 2026-09-26
+1. Fixed low hanging fruit tests and errors.
+   - Some errors were because expected output was incorrect upon review. Testing helped identify where I made errors on some predictable sound changes (i.e., mostly voicing and -sm epenthesis).
+   - Except Rules were tested but unsuccessful. Test-case was SX_ cluster that does not harden (i.e., sx̠ -> *sg̠).
+   - i-Deletion rule may cause issues in future with interrupted glottals, but will cross that bridge later ...
+   - Currently only H-final vowels, interrupting glottals, and SX_ cluster errors persist. 
+   - Error rate now (n=131).
+2. Draft response to send NSinclair for tomorrow 2026-09-27.
 ### 2026-09-25
-### 2026-09-24
+1. Emailed NSinclair for TouchCounts inquiry.
+   - Received positive response. App will be on App stores soon too. Can send specs for what to record. Varies by language & regularity.
+2. Emailed community partners as check-in RE: research proposal.
+   
 ### 2026-09-23
 1. Meeting with SNg
    - Generally successful. Figured some steps for optional glottal rules & glide-insertion.
