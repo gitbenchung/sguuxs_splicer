@@ -51,6 +51,9 @@ define VowelVoicing k -> g || _ "^" Vowel ,,
                     {kw} -> {gw} || _ "^" Vowel ,,
                     {x_} -> {g_} || _ "^" Vowel ;
 
+!-- cluster devoicing, g_ becomes x_ if in cluster {sx_}
+define ClusterDevoicing {g_} -> {x_} || s _ "^" [ Vowel | Nasal ] .#. ;
+
 !-- VelarStop voicing rule nasal adjacency
 define VelarNasalVoicing    {kw} -> {gw} || _ "^" [ n | m ] ,,
                             {ky} -> {gy} || _ "^" [ n | m ] ,,
@@ -65,6 +68,9 @@ define NasalVoicing k -> g || _ "^" [ n | m ] ,,
 
 !-- epenthesis, voiced uvular trigger diphthongization  
 define VoicedUvularEp   [..] -> a || {g_} _ "^" [ i | {it}] ;
+
+!-- epenthesis, unvoided uvular trigger diphthongization only -i, not -it
+define UnVoicedUvularEp [..] -> a || {x_} _ "^" i   ;
 
 !-- glide insertion, postuvular stop preceding rounded vowel
 define PostUvularStopGI [..] -> y || {g_} _ "^" u ;
@@ -82,20 +88,30 @@ define LBarredL         l "^" ł (->) ł ||  _ .#. ;
 !--delete a SeriesII -i clitic following [ i | ii ]
 define DoubleIDeletion  i -> 0 || _ "^" i .#.  ;
 
-!--glide insertion 'y' between a/{a_}i and a/{a_}u
+!--glide insertion 'y' between ' Vowel and i/u, Vowel and i/u, i and u, h and u
 define GlideInsert  [..] -> y || ' Vowel _ "^" i ,,
                     [..] -> y || ' Vowel _ "^" u ,,
                     [..] -> y || [ u u | ü ü | a a | {a_} | e e | o o | a | o ] _ "^" [ i | u ] ,,
-                    [..] -> y || i _ "^" u  ;
+                    [..] -> y || i _ "^" u  ,,
+                    [..] -> y || h _ "^" u  ;
 
 !--glide insertion 'y' between glottal and i/u
 define LateYInsert  [..] -> y || o ' _ [ u | i ] .#.   ;
+
+!--optional irregular root rule, mother noh or no H-DoubleIDeletion
+define IrrRootRule  h (->) 0 || Nasal o _ .#. ;
+
+!--delete -h in -1SG.II for Vowel H words like sah 'day'
+define HDeletionII  h (->) 0 || [ a | {a_} ] _ "^" i .#. ,,
+                    h (->) 0 || [ a | {a_} ] _ "^" t .#. .o. [..] (->) i || [ Sibilant a | Sonorant {a_} ] _ "^" t .#.    ;
 
 regex Lexicon ;
 define Stems ;
 
 regex Stems
 .o. GlideInsert
+.o. IrrRootRule
+.o. HDeletionII
 .o. DoubleIDeletion
 .o. GlottalMove1
 .o. GlottalMove2
@@ -108,6 +124,8 @@ regex Stems
 .o. VowelVoicing
 .o. VelarNasalVoicing
 .o. NasalVoicing
+.o. ClusterDevoicing
+.o. UnVoicedUvularEp
 .o. VoicedUvularEp
 .o. SimHiatus
 .o. DoubleFricative

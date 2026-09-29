@@ -665,7 +665,7 @@ class TestVowels(TestFSTOutput):
             ("-3.II", ["sáit"]), #?? saht
             ("[-3.II]=CN", ["sái", "sayi"]), #?? same as -1SG.II
             ("[-3.II]=CN.IRR", ["sahł"]),
-            ("[-3.II]=PN", ["sáit"]), #?? not saht
+            ("[-3.II]=PN", ["sahs"]), 
             # ("-SX", ["sáit"]), #?? not sahit, saht
             ("-ATTR", ["sahm"]),
         ]
@@ -870,7 +870,7 @@ class TestVowels(TestFSTOutput):
             ("-3.II", ["tgwá̱it"]), #?? tgwa̱ht 
             ("[-3.II]=CN", ["tgwá̱i", "tgwa̱yi"]), #?? same -SG.II 
             ("[-3.II]=CN.IRR", ["tgwa̱hł"]),
-            ("[-3.II]=PN", ["tgwa̱it"]), #?? not tgwa̱ht
+            ("[-3.II]=PN", ["tgwa̱hs"]), 
             # ("-SX", ["tgwá̱it"]), #?? not tgwa̱hit, tgwa̱ht 
             ("-ATTR", ["tgwa̱hm"]), 
 
