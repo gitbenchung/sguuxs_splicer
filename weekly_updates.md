@@ -1,3 +1,34 @@
+# Week 04
+## 2026-09-30 - 2026-10-4
+## Work Streams Schedule Week 04
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+- [] Administration: Identify venue for publciation
+
+**Status**: 
+
+- [] Testing: Test phi features
+
+**Status**: 
+
+- [] Rewrites: Fix 3 paradigms
+
+**Status**: 
+
+- [] Frontend: Develop front end for deployment - basic web formatting, audio 🟩
+
+**Status**: 
+
+- [] Community contact: Negotiation of server venue 🟩
+      
+**Status**: 
+
+### 2026-10-04
+### 2026-10-03
+### 2026-10-02
+### 2026-10-01
+### 2026-09-30
+
 # Week 03
 ## 2026-09-22 - 2026-09-26 (Extension to: 2026-09-29 RE: Yom Kippur🕯️📖)
 
@@ -18,7 +49,6 @@
   
 **Status**: 
 
-### 2026-09-29
 ### 2026-09-28
 1. Fixed mid-hanging fruit tests and errors.
    - Completed all cluster tests! Woohoo! 🎉
