@@ -1,3 +1,34 @@
+# Week 04
+## 2026-09-30 - 2026-10-4
+## Work Streams Schedule Week 04
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+- [] Administration: Identify venue for publciation
+
+**Status**: 
+
+- [] Testing: Test phi features
+
+**Status**: 
+
+- [] Rewrites: Fix 3 paradigms
+
+**Status**: 
+
+- [] Frontend: Develop front end for deployment - basic web formatting, audio 🟩
+
+**Status**: 
+
+- [] Community contact: Negotiation of server venue 🟩
+      
+**Status**: 
+
+### 2026-10-04
+### 2026-10-03
+### 2026-10-02
+### 2026-10-01
+### 2026-09-30
+
 # Week 03
 ## 2026-09-22 - 2026-09-26 (Extension to: 2026-09-29 RE: Yom Kippur🕯️📖)
 
@@ -18,9 +49,16 @@
   
 **Status**: 
 
-### 2026-09-29
 ### 2026-09-28
-### 2026-09-27
+1. Fixed mid-hanging fruit tests and errors.
+   - Completed all cluster tests! Woohoo! 🎉
+   - H-deletion tests somewhat successful 😕
+     - Issues persist: (i) accent is not incorporated yet, so all tests that require marked stress fail DESPITE correct strings and (ii) H-deletion and -t from -3.II is having issues with optional deletion.
+   - Error rate now (n=124).
+2. Glottal tests now main blocker for development 🎯🧐🧠
+> [!Important]
+> Traditional rites are being held due to passing in community.
+
 ### 2026-09-26
 1. Fixed low hanging fruit tests and errors.
    - Some errors were because expected output was incorrect upon review. Testing helped identify where I made errors on some predictable sound changes (i.e., mostly voicing and -sm epenthesis).
