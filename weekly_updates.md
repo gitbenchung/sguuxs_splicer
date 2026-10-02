@@ -30,6 +30,7 @@
 
 1. Somewhat solved the interrupting glottal issue! Issue was that roots with interrupting glottals must be dealt with on LHS -> RHS, not LC _ RC!
    - Contexts are highly specialised to environments of given floating glottals. Very loose patterning since some interrupting glottals predict different interruptions (e.g., {a'a} -> [ {a'a} | {aa'} | {a'} ] || _ t vs {a'a} -> [ {a'a} | {a'} ] || _ [ Sonorant | {x_} | {k_} ]
+     - Fun fact: this is sort of predicted in the phonology of the language too since some linguists believe a lot of irregularities are simply learned individually by speakers in Maritime Tsimshianic languages based loosely on phonological environments.
    - Issue now is overgeneration of bare root, but raises question as what is acceptable as 'bare root' really?
    - Some overgeneration exists for superficially identical phonological environments with a glottal that does not move.
    - Some vowel tests, need to review to see if paradigm is accurate since in comparison to glottal tests, results still are errors and may not predict accurate expected results.
