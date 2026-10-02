@@ -9,11 +9,11 @@
 
 - [] Testing: Test phi features
 
-**Status**: 
+**Status**: Partial / Ongoing
 
-- [] Rewrites: Fix 3 paradigms
+- [X] Rewrites: Fix 3 paradigms
 
-**Status**: 
+**Status**: Completed (fixed like 8+!) 
 
 - [] Frontend: Develop front end for deployment - basic web formatting, audio 🟩
 
@@ -26,8 +26,15 @@
 ### 2026-10-04
 ### 2026-10-03
 ### 2026-10-02
-### 2026-10-01
-### 2026-09-30
+![Alt Text](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGV5eHltZHpyaW1tNmN5dnM0dTcwNWNla2xmcWtlY2p1NjE2NXYyeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3zFcbgHoIXzykQc7vU/giphy.gif)
+
+1. Somewhat solved the interrupting glottal issue! Issue was that roots with interrupting glottals must be dealt with on LHS -> RHS, not LC _ RC!
+   - Contexts are highly specialised to environments of given floating glottals. Very loose patterning since some interrupting glottals predict different interruptions (e.g., {a'a} -> [ {a'a} | {aa'} | {a'} ] || _ t vs {a'a} -> [ {a'a} | {a'} ] || _ [ Sonorant | {x_} | {k_} ]
+   - Issue now is overgeneration of bare root, but raises question as what is acceptable as 'bare root' really?
+   - Some overgeneration exists for superficially identical phonological environments with a glottal that does not move.
+   - Some vowel tests, need to review to see if paradigm is accurate since in comparison to glottal tests, results still are errors and may not predict accurate expected results.
+   - H-deletion with o: *noh* *no* still issue, but think can be adjusted with similar root rewrite rule
+2. Error rate down to (n=46)! 🙌📉💞
 
 # Week 03
 ## 2026-09-22 - 2026-09-26 (Extension to: 2026-09-29 RE: Yom Kippur🕯️📖)
