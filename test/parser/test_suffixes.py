@@ -598,6 +598,7 @@ class TestVowels(TestFSTOutput):
                 "ił$i'i", #blood
                 "m$anwo", #battle ship
                 "n$oh", #mother
+                "niy$a'a", #father
                 "tgw$a_h", #glass 
             ],
         }
