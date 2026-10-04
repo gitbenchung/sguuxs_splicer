@@ -17,7 +17,7 @@
 
 - [] Frontend: Develop front end for deployment - basic web formatting, audio 🟩
 
-**Status**: 
+**Status**: Partial
 
 - [] Community contact: Negotiation of server venue 🟩
       
@@ -25,6 +25,12 @@
 
 ### 2026-10-04
 ### 2026-10-03
+1. Began playing around with [linglit](https://github.com/haberchr/langlit) to test applicability.
+   - As expected, it is a bit more complicated beneath the surface. The grammar will take a bit to integrate into the 'dummy' directory.
+   - The repo is cloned locally anyways.
+   - Will need assistance on how to make a virtual environment to test functionality/ UI.
+   - Should I add to my Github? This cloned repo? I feel **not** since it is barely work-in-progress.
+
 ### 2026-10-02
 ![Alt Text](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGV5eHltZHpyaW1tNmN5dnM0dTcwNWNla2xmcWtlY2p1NjE2NXYyeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3zFcbgHoIXzykQc7vU/giphy.gif)
 
