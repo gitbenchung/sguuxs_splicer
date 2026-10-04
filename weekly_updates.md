@@ -3,7 +3,7 @@
 ## Work Streams Schedule Week 04
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
-- [] Administration: Identify venue for publciation
+- [] Administration: Identify venue for publication
 
 **Status**: 
 
