@@ -3,13 +3,13 @@
 ## Work Streams Schedule Week 04
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
-- [] Administration: Identify venue for publication
+- [X] Administration: Identify venue for publication
 
-**Status**: 
+**Status**: Completed
 
-- [] Testing: Test phi features
+- [X] Testing: Test phi features
 
-**Status**: Partial / Ongoing
+**Status**: Completed
 
 - [X] Rewrites: Fix 3 paradigms
 
@@ -24,6 +24,20 @@
 **Status**: 
 
 ### 2026-10-04
+1. Thinking through, I do not think there any other features I need to specify in the phonology for the parser as is. Ultimately, it is an ongoing process since if something does arise and code starts to break, then I need to return to it. Otherwise, I think I can put a pin in it.
+2. Identified one potential journal and one immediate conference (and three far off ones) for research publication/presenation:
+   - Potential journal(s):
+     - [Linguistic Issues in Language Technology (LiLT)](https://journals.colorado.edu/index.php/lilt/about)
+       - Small journal, but applicable in scope of current work.
+   - Potential conference(s):\
+      **Immediate**
+     - Canadian Association of Linguistics (CLA) [annual conference 2027](https://cla-acl.ca/congres-annuel-annual-conference.html)
+   - Potential conferences:\
+      **Far Off**
+     - ComputEL-11 (2028) ... wherever that may be (likely coordinated with ACL Conference) ...
+     - Language Documentation and Archiving [LD&A 2028](https://langdoc.org/)
+     - Society for the Study of the Indigenous Languages of the Americas [SSILA 2028](https://www.ssila.org/en/home) ... wherever that may be ...
+       
 ### 2026-10-03
 1. Began playing around with [linglit](https://github.com/haberchr/langlit) to test applicability.
    - As expected, it is a bit more complicated beneath the surface. The grammar will take a bit to integrate into the 'dummy' directory.
