@@ -25,10 +25,12 @@
 
 ### 2026-10-04
 1. Thinking through, I do not think there any other features I need to specify in the phonology for the parser as is. Ultimately, it is an ongoing process since if something does arise and code starts to break, then I need to return to it. Otherwise, I think I can put a pin in it.
-2. Identified one potential journal and one immediate conference (and three far off ones) for research publication/presenation:
-   - Potential journal(s):
+2. Identified two potential journals and one immediate conference (and three far off ones) for research publication/presenation:
+   - Potential journals:
      - [Linguistic Issues in Language Technology (LiLT)](https://journals.colorado.edu/index.php/lilt/about)
        - Small journal, but applicable in scope of current work.
+     - [Computer Assisted Language Learning](https://www-tandfonline-com.proxy.lib.sfu.ca/journals/ncal20)
+       - Larger journal, could address broader CALL efforts for language.
    - Potential conference(s):\
       **Immediate**
      - Canadian Association of Linguistics (CLA) [annual conference 2027](https://cla-acl.ca/congres-annuel-annual-conference.html)
