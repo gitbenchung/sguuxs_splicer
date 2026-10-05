@@ -1,3 +1,19 @@
+# Week 05
+## 2026-10-05 - 2026-10-10
+## Work Streams Schedule Week 05
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+- [] Administration: Revise REB 🟩
+
+**Status**: 
+
+### 2026-10-10
+### 2026-10-09
+### 2026-10-08
+### 2026-10-07
+### 2026-10-06
+### 2026-10-05
+
 # Week 04
 ## 2026-09-30 - 2026-10-4
 ## Work Streams Schedule Week 04
