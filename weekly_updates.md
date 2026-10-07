@@ -12,7 +12,17 @@
 ### 2026-10-08
 ### 2026-10-07
 ### 2026-10-06
-### 2026-10-05
+1. Continued playing around with [linglit](https://github.com/haberchr/langlit) ...
+   - Challenge is that the lexc files are formatted very differently (e.g., dictionary is combined with categories vs as roots as .csv and then different files for the categories ...)
+   - Conversion to this format will be time-consuming, and I am not sure how to layer the different affixes (e.g., suffixes vs clitics) in the fst so that incorrect combinations don't arise OR could be glossed
+      - Good question for linglit team! 💭❓🤔
+2. But, I think an MVP is very possible with staging on my SFU server space. 
+
+> [!NOTE]
+> No progress on REB since I haven't heard back from community partners yet. Need to work on informed consent forms in meantime.
+
+> [!IMPORTANT]
+> Have not heard from community partners, but have connected with CForbes a bit. Can ask her for temperature check about workflow and commitments in community.
 
 # Week 04
 ## 2026-09-30 - 2026-10-4
