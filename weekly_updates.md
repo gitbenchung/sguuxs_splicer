@@ -9,8 +9,12 @@
 
 ### 2026-10-10
 ### 2026-10-09
-### 2026-10-08
 ### 2026-10-07
+**Post-Meeting Plan**
+1. Next steps for [linglit](https://github.com/haberchr/langlit): Use existing fst in *langlit* with bare-minimum lexicon and affixation to (i) understand how it works with current grammar and (ii) figure out efficacy as UI tool for parser.
+2. Extended trial-and-error setting up wsl will continue on this next week.
+3. SFU server space was accessed, better idea how to use it as hosting space.
+4. Will tackle H-deletion rules as next rule-based challenge.
 ### 2026-10-06
 1. Continued playing around with [linglit](https://github.com/haberchr/langlit) ...
    - Challenge is that the lexc files are formatted very differently (e.g., dictionary is combined with categories vs as roots as .csv and then different files for the categories ...)
