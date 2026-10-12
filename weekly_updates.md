@@ -1,3 +1,39 @@
+# Week 06
+## 2026-10-11 - 2026-10-17
+## Work Streams Schedule Week 06
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+
+- [] Administration: Revise REB 🟩
+  
+**Status**:
+
+- [] Testing: Test 3 paradigms
+  
+**Status**:
+
+- [] Rewrite: Fix 3 paradigms
+  
+**Status**:
+
+- [] Frontend: Develop front end for deployment – textual enhancement 🟩
+  
+**Status**:
+
+- Community contact: Record AEdgar's numbers 🟩
+
+**Status**:
+
+### 2026-10-17
+### 2026-10-16
+### 2026-10-15
+### 2026-10-14
+### 2026-10-13
+### 2026-10-12
+### 2026-10-11
+1. Worked on H-Deletion rule. Unsuccessful.
+   - Know what changes should be made, but root rewrite and epenthesis rules are not working.
+
 # Week 05
 ## 2026-10-05 - 2026-10-10
 ## Work Streams Schedule Week 05
@@ -5,10 +41,8 @@
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
 - [] Administration: Revise REB 🟩
 
-**Status**: 
+**Status**: Incomplete
 
-### 2026-10-10
-### 2026-10-09
 ### 2026-10-07
 **Post-Meeting Plan**
 1. Next steps for [linglit](https://github.com/haberchr/langlit): Use existing fst in *langlit* with bare-minimum lexicon and affixation to (i) understand how it works with current grammar and (ii) figure out efficacy as UI tool for parser.
