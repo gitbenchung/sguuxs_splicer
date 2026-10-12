@@ -39,7 +39,7 @@ define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
 !-- glottal movement, Interrupted vowels become variable stems
 define GlottalMove1 {a'a} -> [ {a'a} | {aa'} | {a'} ] || _ t .o. {a'a} -> [ {a'a} | {a'} ] || _ [ Sonorant | {x_} | {k_} ] ;
 define GlottalMove2 {i'i} -> [ {i'i} | {ii'} ] || _ [ {ts} ] .o. {i'i} -> [ {i'i} | {i'}] || _ Sonorant ;  
-define GlottalMove3 {o'o} -> [ {o'o} | {o'} ] || _ [ Nasal | .#. ]; 
+define GlottalMove3 {o'o} -> [ {o'o} | {o'} ] || _ [ Nasal | .#. ]  ; 
 
 !-- Hardening in post-interrupted vowel {x_} (->) {k_} post shortening, root specific to hana'ax_ >> hana'k_
 define PostGM1Hardening {x_} -> {k_} || {a'} _ ;
@@ -103,18 +103,21 @@ define GlideInsert  [..] -> y || ' Vowel _ "^" i ,,
 !--glide insertion 'y' between glottal and i/u
 define LateYInsert  [..] -> y || o ' _ [ u | i ] .#.   ;
 
-!--optional irregular root rule, mother noh or no H-DoubleIDeletion
-define IrrRootRule  h (->) 0 || Nasal o _ .#. ;
+!--irregular root rule, either noh or no via H-Deletion
+define IrrRootRuleI {oh} -> [ {oh} | {no} ] || n _ .#. ;
+
+!--irregular root rule, noh epenthesises o following H if not-deleted
+define IrrRootRuleII    [..] -> o || {noh} _ "^" [ t | i | Nasal ] .#. ;   
 
 !--delete -h in -1SG.II for Vowel H words like sah 'day'
 define HDeletionII  h (->) 0 || [ a | {a_} ] _ "^" i .#. ,,
-                    h (->) 0 || [ a | {a_} ] _ "^" t .#. .o. [..] (->) i || [ Sibilant a | Sonorant {a_} ] _ "^" t .#.    ;
+                    h (->) 0 || [ a | {a_} ] _ "^" t .#. .o. [..] (->) i || [ Sibilant a | Sonorant {a_} ] _ "^" t .#.   ;
 
 regex Lexicon ;
 define Stems ;
 
 regex Stems
-.o. IrrRootRule
+.o. IrrRootRuleI
 .o. HDeletionII
 .o. GlideInsert
 .o. DoubleIDeletion
@@ -132,6 +135,7 @@ regex Stems
 .o. ClusterDevoicing
 .o. UnVoicedUvularEp
 .o. VoicedUvularEp
+.o. IrrRootRuleII
 .o. SimHiatus
 .o. DoubleFricative
 .o. LBarredL
