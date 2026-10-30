@@ -1,10 +1,58 @@
-# Week 06
-## 2026-10-11 - 2026-10-17
-## Work Streams Schedule Week 06
+# Week 08
+## 2026-10-25 - 2026-10-31 🎃🦇👻
+## Work Streams Schedule Week 08
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+
+- [] Administration: Upload audio and metadata to NSinclair for integration
+  
+**Status**:
+
+- [] Testing: Test 3 paradigms
+  
+**Status**:
+
+- [] Rewrite: Fix 3 paradigms
+
+**Status**:
+
+- [] Frontend: Debugging front-end
+  
+**Status**:
+
+- Community contact: User testing of FST 🟩
+
+**Status**:
+
+### 2026-10-31
+### 2026-10-30
+### 2026-10-29
+1. Finally updated worklog for revised schedule and weekly workflow.
+### 2026-10-28
+1. Met with SNg to debug [linglit](https://github.com/haberchr/langlit). Successfully running virtual environment 🥳
+   - **Next steps**
+     - Use existing fst in *langlit* with bare-minimum lexicon and affixation to (i) understand how it works with current grammar and (ii) figure out efficacy as UI tool for parser.
+     - Reroute directory to run in virtual environment (see [README](https://github.com/haberchr/langlit/blob/main/languages/README.md)).
+       
+### 2026-10-26
+1. Ran tests to just catch up to speed where I was.
+
+# Weeks 06-07 (Rollover to 08)
+## ~~2026-10-11 - 2026-10-17~~ / ~~2026-10-18 - 2026-10-20~~
+## Actual active workdays: 2026-10-11, 2026-10-21 - 2026-10-24
+## Work Streams Schedule Week 06/07 (Rollover to 08)
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
 
 - [] Administration: Revise REB 🟩
+  
+**Status**:
+
+- [] Administration: Process Angel's number audio
+  
+**Status**:
+
+- [] Testing: Test 3 paradigms
   
 **Status**:
 
@@ -16,7 +64,15 @@
   
 **Status**:
 
+- [] Rewrite: Fix 3 paradigms
+  
+**Status**:
+
 - [] Frontend: Develop front end for deployment – textual enhancement 🟩
+  
+**Status**:
+
+- [] Frontend: Save FST parses for basic paradigms as backend 🟩
   
 **Status**:
 
@@ -24,12 +80,19 @@
 
 **Status**:
 
-### 2026-10-17
-### 2026-10-16
-### 2026-10-15
-### 2026-10-14
-### 2026-10-13
-### 2026-10-12
+- Community contact: Recording other morphological test words with Angel 🟩
+
+**Status**:
+
+### 2026-10-21
+1. Met with SNg to discuss revised timeline given health setback.
+   - Shifting Weeks 06-07 tasks forward to 08.
+   - More heavily weighting cusp weeks 05 and 08 for cumulative marking.
+   - Develop front-end for proof-of-concept for community demo as end goal.
+
+### 2026-10-12 - 20
+Out of Office following short-term medical leave
+
 ### 2026-10-11
 1. Worked on H-Deletion rule. Unsuccessful.
    - Know what changes should be made, but root rewrite and epenthesis rules are not working.
