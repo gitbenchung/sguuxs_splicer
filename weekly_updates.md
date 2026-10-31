@@ -18,14 +18,35 @@
 
 - [] Frontend: Debugging front-end
   
-**Status**:
+**Status**: In progress.
 
 - Community contact: User testing of FST 🟩
 
 **Status**:
 
 ### 2026-10-31
-### 2026-10-30
+### Notes on langlit testing:
+1. Tested what happens if I just plug in my existing fst structure to ***langlit*** → No dice. Must be configured to specialisations of directory to work.
+2. Able to add in Series II, AgreeingNClitic, and SX clitics to ***langlit*** 😄
+   - Annoying formatting for concatenation but works for **Phrase Builder** (without phonology configured yet)
+3. Dummy language data still present in builder b/c is hooked up to **Corpus** files that need to be re-written or omitted.
+4. **Analyzer** has issues: spans do not generate analysing morphology
+5. Does not automatically update in virtual environment. Must be reloaded each time new data are added to fst/lexc.
+6. Overall, not terrible result:
+<img width="1487" height="635" alt="baby" src="https://github.com/user-attachments/assets/67e32bf6-cb81-4167-8388-04affe5edb5b" />
+
+### Next steps for langlit testing:
+1. Figure out something to do with the **Corpus** section.
+2. Make phonology module function.
+3. Figure out how to make multi-string analysis (if possible) with spaces.
+4. Continue debug / make list of needs assistance for SNg. 
+
+### Retroactive progress update:
+**Checking off retro-deliverable, rolled over from Week 07:**
+- [X] Frontend: Develop front end for deployment – textual enhancement 🟩
+  
+**Status**: Completed (*langlit* is up and running!)
+
 ### 2026-10-29
 1. Finally updated worklog for revised schedule and weekly workflow.
 ### 2026-10-28
@@ -68,9 +89,9 @@
   
 **Status**:
 
-- [] Frontend: Develop front end for deployment – textual enhancement 🟩
+- [X] Frontend: Develop front end for deployment – textual enhancement 🟩
   
-**Status**:
+**Status**: Completed (*langlit* is up and running!)
 
 - [] Frontend: Save FST parses for basic paradigms as backend 🟩
   
