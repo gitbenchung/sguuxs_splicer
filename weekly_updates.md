@@ -1,3 +1,29 @@
+# Week 09
+## 2026-11-01 - 2026-11-07
+## Work Streams Schedule Week 09
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+
+- [] Testing: Test 3 paradigms
+  
+**Status**:
+
+- [] Rewrite: Fix 3 paradigms
+  
+**Status**:
+
+- [] Frontend: Revise based on community feedback
+
+**Status**:
+
+### 2026-11-07
+### 2026-11-06
+### 2026-11-05
+### 2026-11-04
+### 2026-11-03
+### 2026-11-02
+### 2026-11-01
+
 # Week 08
 ## 2026-10-25 - 2026-10-31 🎃🦇👻
 ## Work Streams Schedule Week 08
@@ -25,7 +51,7 @@
 **Status**:
 
 ### 2026-10-31
-### Notes on langlit testing:
+**Notes on langlit testing:**
 1. Tested what happens if I just plug in my existing fst structure to ***langlit*** → No dice. Must be configured to specialisations of directory to work.
 2. Able to add in Series II, AgreeingNClitic, and SX clitics to ***langlit*** 😄
    - Annoying formatting for concatenation but works for **Phrase Builder** (without phonology configured yet)
@@ -33,9 +59,10 @@
 4. **Analyzer** has issues: spans do not generate analysing morphology
 5. Does not automatically update in virtual environment. Must be reloaded each time new data are added to fst/lexc.
 6. Overall, not terrible result:
-<img width="1487" height="635" alt="baby" src="https://github.com/user-attachments/assets/67e32bf6-cb81-4167-8388-04affe5edb5b" />
+   
+<img width="1487" height="635" alt="baby" src="https://github.com/user-attachments/assets/67e32bf6-cb81-4167-8388-04affe5edb5b" /><br/>
 
-### Next steps for langlit testing:
+**Next steps for langlit testing:**
 1. Figure out something to do with the **Corpus** section.
 2. Make phonology module function.
 3. Figure out how to make multi-string analysis (if possible) with spaces.
