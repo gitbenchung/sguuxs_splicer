@@ -21,8 +21,13 @@
 ### 2026-11-05
 ### 2026-11-04
 ### 2026-11-03
-### 2026-11-02
-### 2026-11-01
+1. Updated Orthography in ***langlit*** language.yaml:
+   - I thi::::ink I filled it out correctly.
+   - Nothing broke other than the ' glottal until I switched it to Unicode. It should be an okay workaround since the string is read as "'".
+   - Multicharacter graphs with non-special character digraphs, glottals, macrons, special characters, long vowels are defined in **Orthography** section which is separate from the **Phonological Inventory** section?
+   - I don't know if I need to redundantly put all consonant_chars in **Orthography** too if they are already in the list in **Phonological Inventory**.
+   - Selectively made feature groups based on current rules in original fst.
+2. Need help to understand how to integrate Phonology module. Documentation is not clear to me how to write rules in python based on specifications (see, [Custom Phonology Module](https://github.com/haberchr/langlit/blob/main/languages/README.md#7-custom-phonology-module))
 
 # Week 08
 ## 2026-10-25 - 2026-10-31 🎃🦇👻
@@ -46,7 +51,7 @@
   
 **Status**: In progress.
 
-- Community contact: User testing of FST 🟩
+- [] Community contact: User testing of FST 🟩
 
 **Status**:
 
