@@ -14,12 +14,25 @@
 
 - [] Frontend: Revise based on community feedback
 
-**Status**:
+**Status**: 
 
 ### 2026-11-07
 ### 2026-11-06
 ### 2026-11-05
 ### 2026-11-04
+1. Reached out to AEdgar and CForbes with updates on (i) fst and (ii) specs for TouchCounts.
+   - Suggested meeting in early December for demo/ discuss directions forward.
+
+### Retroactive progress update:
+**Updating retro-deliverables, rolled over from Weeks 07 & 08:**
+- [] Community contact: Record AEdgar's numbers 🟩
+
+**Status**: In Progress
+
+- [] Community contact: User testing of FST 🟩
+
+**Status**: In Progress  
+
 ### 2026-11-03
 1. Updated Orthography in ***langlit*** language.yaml:
    - I thi::::ink I filled it out correctly.
@@ -49,11 +62,11 @@
 
 - [] Frontend: Debugging front-end
   
-**Status**: In progress.
+**Status**: In Progress
 
 - [] Community contact: User testing of FST 🟩
 
-**Status**:
+**Status**: In Progress
 
 ### 2026-10-31
 **Notes on langlit testing:**
@@ -132,7 +145,7 @@
 
 - [] Community contact: Record AEdgar's numbers 🟩
 
-**Status**:
+**Status**: In Progress
 
 - [] Community contact: Recording other morphological test words with Angel 🟩
 
