@@ -65,7 +65,8 @@
 5. Does not automatically update in virtual environment. Must be reloaded each time new data are added to fst/lexc.
 6. Overall, not terrible result:
    
-<img width="1487" height="635" alt="baby" src="https://github.com/user-attachments/assets/67e32bf6-cb81-4167-8388-04affe5edb5b" /><br/>
+<br><img width="1550" height="682" alt="image" src="https://github.com/user-attachments/assets/484c61e2-ece7-4a1f-9cd0-56753568f4a5" /></br>
+
 
 **Next steps for langlit testing:**
 1. Figure out something to do with the **Corpus** section.
