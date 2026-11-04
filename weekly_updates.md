@@ -130,11 +130,11 @@
   
 **Status**:
 
-- Community contact: Record AEdgar's numbers 🟩
+- [] Community contact: Record AEdgar's numbers 🟩
 
 **Status**:
 
-- Community contact: Recording other morphological test words with Angel 🟩
+- [] Community contact: Recording other morphological test words with Angel 🟩
 
 **Status**:
 
