@@ -4,21 +4,36 @@
 > [!NOTE]
 > *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
 
-- [] Testing: Test 3 paradigms
+- [X] Testing: Test 3 paradigms
   
-**Status**:
+**Status**: Completed
 
-- [] Rewrite: Fix 3 paradigms
+- [X] Rewrite: Fix 3 paradigms
   
-**Status**:
+**Status**: Completed
 
 - [] Frontend: Revise based on community feedback
 
 **Status**: 
 
 ### 2026-11-07
-### 2026-11-06
-### 2026-11-05
+1. Experimenting with fst rules again since stalled on phonology.yaml.
+   - Realised that interrupting glottal probably doesn't apply for Vowel tests since 'interruption' doesn't seem to occur if vowel is at word-boundary.
+   - Compared data with Sm'algya̱x to come to this conclusion.
+   - Revised two paradigms, broke a few, then fixed those. Issue now is rules around overgeneration of forms where phonological environment overlap.
+     - Need to specify somehow that root-change does not occur if base-form has *V'V* at end.
+2. Error rate down to (n=22)! 2️⃣2️⃣💞
+3. Main hurdle is H-deletion now. I am less concerned about overgeneration than undergeneration. Will need to double-check about stress '$' involvement.
+
+### Retroactive progress update:
+**Updating retro-deliverables, rolled over from Weeks 07 & 08:**
+- [X] Testing: Test 3 paradigms
+  
+**Status**: Completed
+
+- [X] Testing: Test 3 paradigms
+  
+**Status**: Completed
 ### 2026-11-04
 1. Reached out to AEdgar and CForbes with updates on (i) fst and (ii) specs for TouchCounts.
    - Suggested meeting in early December for demo/ discuss directions forward.
@@ -113,19 +128,19 @@
 
 - [] Administration: Revise REB 🟩
   
-**Status**:
+**Status**: Incomplete
 
 - [] Administration: Process Angel's number audio
   
 **Status**:
 
-- [] Testing: Test 3 paradigms
+- [X] Testing: Test 3 paradigms
   
-**Status**:
+**Status**: Completed
 
-- [] Testing: Test 3 paradigms
+- [X] Testing: Test 3 paradigms
   
-**Status**:
+**Status**: Completed
 
 - [] Rewrite: Fix 3 paradigms
   
