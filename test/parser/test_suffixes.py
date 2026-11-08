@@ -762,16 +762,16 @@ class TestVowels(TestFSTOutput):
         stem = "ał$o'o+N"
         expected_map = [
             ("", ["ało'o"]),
-            ("-1SG.II", ["ało'oyi", "ało'oyu", "ałoo'yi", "ało'yi", "ałoo'yu", "ało'yu"]),  # not sure about glottal movement if any
-            ("-1PL.II", ["ało'om", "ało'm"]), 
-            ("-2SG.II", ["ało'on", "ało'n"]),
-            ("-2PL.II", ["ało'osm", "ało'sm"]),
-            ("-3.II", ["ało'ot", "ało't"]),
-            ("[-3.II]=CN", ["ało'oyi", "ałoo'yi", "ało'yi"]),
-            ("[-3.II]=CN.IRR", ["ało'oł", "ało'ł"]),
-            ("[-3.II]=PN", ["ało'os", "ało's"]), 
+            ("-1SG.II", ["ało'oyi", "ało'oyu"]),  # not sure about glottal movement if any
+            ("-1PL.II", ["ało'om"]), 
+            ("-2SG.II", ["ało'on"]),
+            ("-2PL.II", ["ało'osm"]),
+            ("-3.II", ["ało'ot"]),
+            ("[-3.II]=CN", ["ało'oyi"]),
+            ("[-3.II]=CN.IRR", ["ało'oł"]),
+            ("[-3.II]=PN", ["ało'os"]), 
             # ("-SX", ["ało'ot", "ało't"]),
-            ("-ATTR", ["ało'om", "ało'm"]),
+            ("-ATTR", ["ało'om"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -796,16 +796,16 @@ class TestVowels(TestFSTOutput):
         stem = "ił$i'i+N"
         expected_map = [
             ("", ["iłi'i"]),
-            ("-1SG.II", ["iłi'iyi", "iłi'iyu", "iłii'yi", "iłi'yi", "iłii'yu", "iłi'yu"]), # not sure about glottal movement if any
-            ("-1PL.II", ["iłi'im", "iłi'm"]), 
-            ("-2SG.II", ["iłi'in", "iłi'n"]),
-            ("-2PL.II", ["iłi'ism", "iłi'sm"]),
-            ("-3.II", ["iłi'it", "iłi't"]),
-            ("[-3.II]=CN", ["iłii'i", "iłi'i"]), #no -yi like with normal short / long i
-            ("[-3.II]=CN.IRR", ["iłi'ił", "iłi'ł"]),
-            ("[-3.II]=PN", ["iłi'is", "iłi's"]), 
-            # ("-SX", ["iłi'it", "iłi't"]),
-            ("-ATTR", ["iłi'im", "iłi'm"]),
+            ("-1SG.II", ["iłi'iyi", "iłi'iyu"]), # not sure about glottal movement if any
+            ("-1PL.II", ["iłi'im"]), 
+            ("-2SG.II", ["iłi'in"]),
+            ("-2PL.II", ["iłi'ism"]),
+            ("-3.II", ["iłi'it"]),
+            ("[-3.II]=CN", ["iłi'iyi"]), 
+            ("[-3.II]=CN.IRR", ["iłi'ił"]),
+            ("[-3.II]=PN", ["iłi'is"]), 
+            # ("-SX", ["iłi'it"]),
+            ("-ATTR", ["iłi'im"]),
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 
@@ -847,16 +847,16 @@ class TestVowels(TestFSTOutput):
         stem = "niy$a'a+N"
         expected_map = [
             ("", ["niya'a"]),
-            ("-1SG.II", ["niya'ayi", "niya'ayu", "niyaa'yi", "niyaa'yu","niy'ayi", "niy'ayu"]), #not sure about glottal movement
-            ("-1PL.II", ["niy'aam", "niy'am"]), 
-            ("-2SG.II", ["niy'aan", "niy'an"]), 
-            ("-2PL.II", ["niy'aasm", "niy'asm"]), 
-            ("-3.II", ["niy'aat", "niy'at"]), 
-            ("[-3.II]=CN", ["niy'aayi", "niy'ayi"]), 
-            ("[-3.II]=CN.IRR", ["niy'aał", "niy'ał"]),
-            ("[-3.II]=PN", ["niy'aas", "niy'as"]), 
-            # ("-SX", ["niy'aat", "niy'at"]), 
-            ("-ATTR", ["niy'aam", "niy'am"]), 
+            ("-1SG.II", ["niya'ayi", "niya'ayu"]), #not sure about glottal movement
+            ("-1PL.II", ["niya'am"]), 
+            ("-2SG.II", ["niya'an"]), 
+            ("-2PL.II", ["niya'asm"]), 
+            ("-3.II", ["niya'at"]), 
+            ("[-3.II]=CN", ["niya'ayi"]), 
+            ("[-3.II]=CN.IRR", ["niya'ał"]),
+            ("[-3.II]=PN", ["niya'as"]), 
+            # ("-SX", ["niya'at"]), 
+            ("-ATTR", ["niya'am"]), 
         ]
         self.checkManyInFST(stem_gloss=stem, expected_map=expected_map)
 

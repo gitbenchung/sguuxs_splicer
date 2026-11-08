@@ -11,6 +11,7 @@ define Nasal [ m | n | {'m} | {'n} ] ;
 define Sonorant [ m | n | l | w | y | {'m} | {'n} | {'l} | {'w} | {'y} | {'ẅ} ] ;
 define Sibilant [ s | c h | {ts} | {ts'} ] ;
 define InitialCons [ b | c h | d | d z | g | g w | g y | h | k | {k'} | k w | k y | l | {'l} | ł | m | n | {'n} | p | {p'} | s | t | {t'} | {ts} | {ts'} | w | {'w} | ẅ | {'ẅ} | x | x w | x y | y | {'y} ] ;
+define Glide [ {w} | {y} | {'w} | {'y} | {'ẅ} | {ẅ} ] ;
 
 !--optional spirantisation of back stop {k_} > x
 define SpirantBack  {k_} (->) x || _ "^" .#. ;
@@ -37,9 +38,9 @@ define DoubleNasalStop  [..] -> i || m _"^" m .#. ,,
                         n -> 0 || n "^" _ ;
 
 !-- glottal movement, Interrupted vowels become variable stems
-define GlottalMove1 {a'a} -> [ {a'a} | {aa'} | {a'} ] || _ t .o. {a'a} -> [ {a'a} | {a'} ] || _ [ Sonorant | {x_} | {k_} ] ;
+define GlottalMove1 {a'a} -> [ {a'a} | {aa'} | {a'} ] || _ t .o. {a'a} -> [ {a'a} | {a'} ] || _ [ Glide | m | {x_} | {k_} ] ;
 define GlottalMove2 {i'i} -> [ {i'i} | {ii'} ] || _ [ {ts} ] .o. {i'i} -> [ {i'i} | {i'}] || _ Sonorant ;  
-define GlottalMove3 {o'o} -> [ {o'o} | {o'} ] || _ [ Nasal | .#. ]  ; 
+define GlottalMove3 {o'o} -> [ {o'o} | {o'} ] || _ [ Nasal ]  ; 
 
 !-- Hardening in post-interrupted vowel {x_} (->) {k_} post shortening, root specific to hana'ax_ >> hana'k_
 define PostGM1Hardening {x_} -> {k_} || {a'} _ ;
@@ -110,8 +111,8 @@ define IrrRootRuleI {oh} -> [ {oh} | {no} ] || n _ .#. ;
 define IrrRootRuleII    [..] -> o || {noh} _ "^" [ t | i | Nasal ] .#. ;   
 
 !--delete -h in -1SG.II for Vowel H words like sah 'day'
-define HDeletionII  h (->) 0 || [ a | {a_} ] _ "^" i .#. ,,
-                    h (->) 0 || [ a | {a_} ] _ "^" t .#. .o. [..] (->) i || [ Sibilant a | Sonorant {a_} ] _ "^" t .#.   ;
+define HDeletionII  h -> 0 || [ a | {a_} | {$a} ] _ "^" i .#. ,,
+                    h -> 0 || [ a | {a_} | {$a} ] _ "^" t .#. .o. [..] (->) i || [ Sibilant a | Sonorant {a_} ] _ "^" t .#.   ;
 
 regex Lexicon ;
 define Stems ;
