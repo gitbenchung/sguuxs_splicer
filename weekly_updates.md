@@ -52,7 +52,7 @@
 3. Main hurdle is H-deletion now. I am less concerned about overgeneration than undergeneration. Will need to double-check about stress '$' involvement.
 
 ### Retroactive progress update:
-**Updating retro-deliverables, rolled over from Weeks 07 & 08:**
+**Updating retro-deliverables, rolled over from Weeks 06 & 07:**
 - [X] Testing: Test 3 paradigms
   
 **Status**: Completed
