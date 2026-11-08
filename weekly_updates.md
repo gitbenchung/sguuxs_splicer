@@ -1,3 +1,29 @@
+# Week 10
+## 2026-11-08 - 2026-11-14
+## Work Streams Schedule Week 10
+> [!NOTE]
+> *See course outline for stream completion rubric* (i.e., completion of green cells 🟩 vs others & how they accrue).
+
+- [] Testing: Testing of prelim TouchCounts
+
+**Status**: Completed
+
+- [] Rewrites: Fix 3 paradigms
+
+**Status**: Completed
+
+- [] Community contact: Present prelim TouchCounts
+
+**Status**:
+
+### 2026-11-14
+### 2026-11-13
+### 2026-11-12
+### 2026-11-11
+### 2026-11-10
+### 2026-11-09
+### 2026-11-08
+
 # Week 09
 ## 2026-11-01 - 2026-11-07
 ## Work Streams Schedule Week 09
