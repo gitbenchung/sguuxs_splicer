@@ -21,8 +21,19 @@
 ### 2026-11-12
 ### 2026-11-11
 ### 2026-11-10
-### 2026-11-09
-### 2026-11-08
+1. Word from community partners!
+   - Phrase Builder: New look is exciting. AEdgar's priority is to show/when to use the words that appear. How to frame word-building is pedagogical pivot?
+     - Responded with built-in sidebar suggestions with for learners & teachers; word-building flow itself allows step-by-step.
+   - Interested in demo!
+   - TouchCounts: AEdgar is going to record with new mic. Will send to me when ready.
+   - Followed up on ethics >> necessary for use of audio. Re-sent research document.
+
+1. Testing with ***langlit***:
+   - Played around with Annotation Workbench and Corpus sections. I am not really seeing the point since you manually breakdown everything in the build_corpus.py file. However, that just might be because the fst is underdeveloped ...
+     - I think there is a way to feed it raw text that you can *then* analyse ... 
+   - Have a better sense of how concatenation is recognised in the tool.
+   - Definitely need to add in phonology/ sound changes for things to be robustly tested.
+   - Corpus must be reset each time through py command if new content is added.
 
 # Week 09
 ## 2026-11-01 - 2026-11-07
